@@ -1,6 +1,7 @@
 package pages;
 
 import baseClass.BaseClass;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -12,8 +13,11 @@ import java.util.Set;
 
 public class HomePage extends BaseClass {
 
-    public HomePage() {
+    public WebDriver _driver;
 
+    public HomePage(WebDriver driver) {
+        super(driver);
+        this._driver = driver;
         PageFactory.initElements(driver, this);
 
     }
@@ -518,7 +522,7 @@ public class HomePage extends BaseClass {
         clickUsingJavaScript(getIntroduction());
     }
 
-    public void xbutton(){
+    public void xbutton() {
         elementClick(crossbtn);
     }
 

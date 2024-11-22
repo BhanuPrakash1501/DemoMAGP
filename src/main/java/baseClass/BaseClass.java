@@ -4,71 +4,36 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+
+
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.List;
-import java.util.Properties;
 import java.util.Set;
 
-
 public class BaseClass {
-
-    public static WebDriver driver;
-    private String browser;
-    private String url;
+    protected static WebDriver _driver;
 
 
-    @BeforeMethod
-    public void luanchBrowser() {
-        try {
-            String dir = System.getProperty("user.dir");
-            FileInputStream fis = new FileInputStream(dir + "//src//test//resources//config.properties");
-            Properties prop = new Properties();
-            prop.load(fis);
-            browser = prop.getProperty("browser");
-            url = prop.getProperty("url");
-            if (browser.equalsIgnoreCase("chrome"))
-                driver = new ChromeDriver();
-            else if (browser.equalsIgnoreCase("firefox"))
-                driver = new FirefoxDriver();
-            else if (browser.equalsIgnoreCase("edge"))
-                driver = new EdgeDriver();
-        } catch (Exception ignored) {
-
-
-        }
-
-        driver.get(url);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-
-
+    public BaseClass(WebDriver driver) {
+        this._driver = driver;
     }
 
-//    @AfterMethod
-//    public void tearDown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
 
 
     public byte[] screenShot() {
-        TakesScreenshot sc = (TakesScreenshot) driver;
+        TakesScreenshot sc = (TakesScreenshot) _driver;
         byte[] b = sc.getScreenshotAs(OutputType.BYTES);
         return b;
 
@@ -82,7 +47,7 @@ public class BaseClass {
 
 
     public static void enterAppInUrl(String url) {
-        driver.get(url);
+        _driver.get(url);
     }
 
 
@@ -101,7 +66,7 @@ public class BaseClass {
 
 
     public static void maximizeWindow() {
-        driver.manage().window().maximize();
+        _driver.manage().window().maximize();
     }
 
 
@@ -122,7 +87,7 @@ public class BaseClass {
 
 
     public void elementSendKeysjs(WebElement element, String text) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) _driver;
         js.executeScript("arguments[0].setAttribute('value','" + text + "')", element);
     }
 
@@ -133,36 +98,36 @@ public class BaseClass {
 
 
     public String getAppTitle() {
-        String title = driver.getTitle();
+        String title = _driver.getTitle();
         return title;
     }
 
 
     public WebElement findElementById(String attribute) {
-        WebElement element = driver.findElement(By.id(attribute));
+        WebElement element = _driver.findElement(By.id(attribute));
         return element;
     }
 
 
     public WebElement findElementByClassName(String attribute) {
-        WebElement element = driver.findElement(By.className(attribute));
+        WebElement element = _driver.findElement(By.className(attribute));
         return element;
     }
 
 
     public WebElement findElementByXpath(String xpathExp) {
-        WebElement element = driver.findElement(By.xpath(xpathExp));
+        WebElement element = _driver.findElement(By.xpath(xpathExp));
         return element;
     }
 
 
     public void closeWindow() {
-        driver.close();
+        _driver.close();
     }
 
 
     public static void quitWindow() {
-        driver.quit();
+        _driver.quit();
     }
 
 
@@ -211,7 +176,7 @@ public class BaseClass {
     public String getCellValue(String sheetName, int rowNum, int cellNum) throws IOException {
         String res = "";
 
-        File file = new File("C:\\Users\\Mind-Graph\\IdeaProjects\\MAGPWeb\\excel\\TestData.xlsx");
+        File file = new File(".\\excel\\TestData.xlsx");
         FileInputStream stream = new FileInputStream(file);
         Workbook workbook = new XSSFWorkbook(stream);
         org.apache.poi.ss.usermodel.Sheet sheet = workbook.getSheet(sheetName);
@@ -283,63 +248,63 @@ public class BaseClass {
      * @seemaintain implicit waits as seconds
      */
     public void implicitWait(long time) {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        _driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     /**
      * maintain to handle the alert to accept
      */
     public void alertAccept() {
-        Alert al = driver.switchTo().alert();
+        Alert al = _driver.switchTo().alert();
         al.accept();
     }
 
 
     public void alertDismiss() {
-        Alert al = driver.switchTo().alert();
+        Alert al = _driver.switchTo().alert();
         al.dismiss();
     }
 
 
     public void alertSendKey(String text) {
-        Alert al = driver.switchTo().alert();
+        Alert al = _driver.switchTo().alert();
         al.sendKeys(text);
     }
 
     public static void scrollToElement(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) _driver;
         js.executeScript("arguments[0].scrollIntoView()", element);
 
     }
 
     public static void scrollPageToDown() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) _driver;
         js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
 
     }
 
     public void scrollInsideSignUpPopup() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        JavascriptExecutor js = (JavascriptExecutor) _driver;
+        WebDriverWait wait = new WebDriverWait(_driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h2")));
         js.executeScript("document.querySelector('.signup-box').scrollTop=5000");
     }
 
     public void navigateBack() {
-        driver.navigate().back();
+        _driver.navigate().back();
     }
 
     public void switchToWindow(String window) {
-        driver.switchTo().window(window);
+        _driver.switchTo().window(window);
     }
 
     public String getWindowHandle() {
-        return driver.getWindowHandle();
+        return _driver.getWindowHandle();
 
     }
 
     public Set<String> getWindowHandles() {
-        return driver.getWindowHandles();
+        return _driver.getWindowHandles();
     }
 
     public String randomString(int x) {
@@ -360,7 +325,7 @@ public class BaseClass {
 
     public void clickUsingJavaScript(WebElement ele) {
         WebElement element = ele;
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+        ((JavascriptExecutor) _driver).executeScript("arguments[0].click();", element);
     }
 
     public void popUpClose(WebElement ele) {

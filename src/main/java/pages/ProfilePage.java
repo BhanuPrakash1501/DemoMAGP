@@ -7,10 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ProfilePage extends BaseClass {
+    public WebDriver _driver;
 
-
-    public ProfilePage() {
-
+    public ProfilePage(WebDriver driver) {
+        super(driver);
+        this._driver = driver;
         PageFactory.initElements(driver, this);
 
     }
@@ -201,7 +202,7 @@ public class ProfilePage extends BaseClass {
     }
 
     public void clickBtnXLogoutPopUp() {
-        elementClick(getCrosspopupbtn());
+        elementClick(getBtnXEditProPopUp());
     }
 
     public void clickLinkPreface() {
@@ -221,8 +222,7 @@ public class ProfilePage extends BaseClass {
     public void clickEditProPicBtn() {
         elementClick(getEditProfilePictureBtn());
 //        getEditProfilePictureBtn().sendKeys("C:\\Users\\Mind-Graph\\Downloads\\bird-thumbnail.jpg");
-        elementSendKeysFileUpload(getEditProfilePictureBtn(),"C:\\Users\\Mind-Graph\\Downloads\\bird-thumbnail.jpg");
-
+        elementSendKeysFileUpload(getEditProfilePictureBtn(), "C:\\Users\\Mind-Graph\\Downloads\\bird-thumbnail.jpg");
 
 
     }

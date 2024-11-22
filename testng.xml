@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Mind-Graph/IdeaProjects/DemoMAGP">
+        <classes>
+            <class name="testCases.TestForgetPasswordPage">
+                <methods>
+                    <include name="verifyInvalidEmail"/>
+                </methods>
+            </class>
+            <class name="testCases.TestPreLoginPage">
+                <methods>
+                    <include name="testProLoginPageUI"/>
+                </methods>
+            </class>
+            <class name="testCases.TestProfilePage">
+                <methods>
+                    <include name="testProfilePage"/>
+                    <include name="testEditProfileFields"/>
+                    <include name="testXbuttonEditProfile"/>
+                    <include name="testNoLogoutFunctionality"/>
+                    <include name="testYesLogoutFunctionality"/>
+                    <include name="testPrefaceQuickLink"/>
+                    <include name="testCalendarEventLink"/>
+                    <include name="testGeneralProvisionLink"/>
+                </methods>
+            </class>
+            <class name="testCases.TestSignUpPage">
+                <methods>
+                    <include name="registerNowUIValidations"/>
+                    <include name="signUpFieldValidations"/>
+                    <include name="enterValuesForSignUP"/>
+                </methods>
+            </class>
+            <class name="testCases.TestVendorLoginPage">
+                <methods>
+                    <include name="testVendorLoginPageUI"/>
+                    <include name="testVendorWithValidCredentials"/>
+                    <include name="testVendorWithInValidCredentials"/>
+                    <include name="verifyHomePageUI"/>
+                    <include name="testGoogleLoginFunctionality"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

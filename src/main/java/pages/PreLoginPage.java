@@ -1,18 +1,21 @@
 package pages;
 
 import baseClass.BaseClass;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class PreLoginPage extends BaseClass {
-
-    public PreLoginPage() {
-
+    public WebDriver _driver;
+    public PreLoginPage(WebDriver driver) {
+        super(driver);
+        this._driver = driver;
         PageFactory.initElements(driver, this);
 
     }
+
 
     @FindBy(xpath = "//button[normalize-space()='Staff Login']")
     private WebElement staffLoginbtn;
@@ -36,7 +39,7 @@ public class PreLoginPage extends BaseClass {
     }
 
     public void verifyPreLoginPage() {
-        String actUrl = driver.getCurrentUrl();
+        String actUrl = _driver.getCurrentUrl();
         Assert.assertEquals(actUrl, "https://magp-nprod-fe.myairports.com.my/auth");
     }
 

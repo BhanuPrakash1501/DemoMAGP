@@ -1,19 +1,21 @@
 package pages;
 
 import baseClass.BaseClass;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class VendorLoginPage extends BaseClass {
-
+    public WebDriver _driver;
     private final String actualEmailtext = "Email Address *";
     private final String actualPassWordtext = "Password *";
 
 
-    public VendorLoginPage() {
-
+    public VendorLoginPage(WebDriver driver) {
+        super(driver);
+        this._driver = driver;
         PageFactory.initElements(driver, this);
 
     }

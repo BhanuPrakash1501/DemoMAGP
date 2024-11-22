@@ -1,11 +1,14 @@
 package testCases;
 
 import baseClass.BaseClass;
+import baseTest.BaseTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageObjectManager.PageObjectManager;
 
-public class TestProfilePage extends BaseClass {
-    PageObjectManager pm = new PageObjectManager();
+@Listeners(reports.ExtentReportManager.class)
+public class TestProfilePage extends BaseTest {
+
 
     @Test
     public void testProfilePage() {
@@ -46,7 +49,6 @@ public class TestProfilePage extends BaseClass {
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickBtnLogout();
         pm.profilePage().clickBtnNoKeepLogout();
-        pm.profilePage().clickBtnXLogoutPopUp();
 
     }
 

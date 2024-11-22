@@ -2,15 +2,18 @@ package pages;
 
 
 import baseClass.BaseClass;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-
 public class StaffLoginPage extends BaseClass {
+    public WebDriver _driver;
 
-    public StaffLoginPage() {
+    public StaffLoginPage(WebDriver driver) {
+        super(driver);
+        this._driver = driver;
         PageFactory.initElements(driver, this);
 
     }

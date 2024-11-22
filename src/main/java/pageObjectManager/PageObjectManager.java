@@ -1,8 +1,13 @@
 package pageObjectManager;
 
+import org.openqa.selenium.WebDriver;
 import pages.*;
 
 public class PageObjectManager {
+
+    public WebDriver _driver;
+
+
     private VendorLoginPage vendorLoginPage;
     private PreLoginPage preLoginPage;
     private FaqPage faqPage;
@@ -15,37 +20,44 @@ public class PageObjectManager {
 //    private IntroductionPage introductionPage;
 //    private PrefacePage prefacePage;
 
+
+    public PageObjectManager(WebDriver driver) {
+
+        this._driver = driver;
+    }
+
     public PreLoginPage preLoginPage() {
-        if (preLoginPage == null) {
-            preLoginPage = new PreLoginPage();
+        if(preLoginPage == null){
+            preLoginPage = new PreLoginPage(_driver);
         }
         return preLoginPage;
+
     }
 
     public VendorLoginPage vendorLoginPage() {
         if (vendorLoginPage == null) {
-            vendorLoginPage = new VendorLoginPage();
+            vendorLoginPage = new VendorLoginPage(_driver);
         }
         return vendorLoginPage;
     }
 
     public SignUpPage signUpPage() {
         if (signUpPage == null) {
-            signUpPage = new SignUpPage();
+            signUpPage = new SignUpPage(_driver);
         }
         return signUpPage;
     }
 
     public ForgetPasswordPage forgetPasswordPage() {
         if (forgetPasswordPage == null) {
-            forgetPasswordPage = new ForgetPasswordPage();
+            forgetPasswordPage = new ForgetPasswordPage(_driver);
         }
         return forgetPasswordPage;
     }
 
     public HomePage homePage(){
         if(homePage == null){
-            homePage= new HomePage();
+            homePage= new HomePage(_driver);
         }
         return homePage;
     }
@@ -58,22 +70,24 @@ public class PageObjectManager {
 
     public StaffLoginPage staffLoginPage(){
         if (staffLoginPage == null){
-            staffLoginPage= new StaffLoginPage();
+            staffLoginPage= new StaffLoginPage(_driver);
         }
         return staffLoginPage;
     }
     public FavouritesPage favouritesPage(){
         if (favouritesPage  == null){
-            favouritesPage = new FavouritesPage();
+            favouritesPage = new FavouritesPage(_driver);
         }
         return favouritesPage;
     }
 
     public ProfilePage profilePage(){
         if(profilePage == null){
-            profilePage = new ProfilePage();
+            profilePage = new ProfilePage(_driver);
         }
         return profilePage;
 
     }
+
+
 }

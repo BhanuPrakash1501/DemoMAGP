@@ -1,13 +1,14 @@
 package testCases;
 
-import baseClass.BaseClass;
+import baseTest.BaseTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import pageObjectManager.PageObjectManager;
 
 import java.io.IOException;
 
-public class TestForgetPasswordPage extends BaseClass {
-    PageObjectManager pm = new PageObjectManager();
+@Listeners(reports.ExtentReportManager.class)
+public class TestForgetPasswordPage extends BaseTest {
+
 
     @Test
     public void verifyInvalidEmail() throws IOException {
@@ -15,13 +16,15 @@ public class TestForgetPasswordPage extends BaseClass {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().clickForgetPassworslink();
         pm.forgetPasswordPage().verifyForgetPasswordHeadingtxt();
-        pm.forgetPasswordPage().verifyInvalidEMailAdressTxt(getCellValue("Testdata", 0, 3));
+        pm.forgetPasswordPage().verifyInvalidEMailAdressTxt(("asddasd"));
         pm.forgetPasswordPage().verifySendLinkButton();
         pm.forgetPasswordPage().verifyGobackToLoginBtn();
         pm.vendorLoginPage().verifyLoginHeaderTxt();
     }
 
-    @Test
+
+
+    @Test(dependsOnMethods = {"verifyInvalidEmail"})
     public void verifyValidEmail() throws IOException {
 
         pm.preLoginPage().clickBtnvendorLogin();

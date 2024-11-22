@@ -1,13 +1,16 @@
 package testCases;
 
 import baseClass.BaseClass;
+import baseTest.BaseTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageObjectManager.PageObjectManager;
 
 import java.io.IOException;
 
-public class TestSignUpPage extends BaseClass {
-    PageObjectManager pm = new PageObjectManager();
+@Listeners(reports.ExtentReportManager.class)
+public class TestSignUpPage extends BaseTest {
+
 
     @Test
     public void registerNowUIValidations() {
@@ -33,17 +36,17 @@ public class TestSignUpPage extends BaseClass {
     public void signUpFieldValidations() throws IOException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().clickRegisterNowlink();
-        pm.signUpPage().performEmailValidations(getCellValue("SignUp", 1, 0));
-        pm.signUpPage().performMobileNoValidation(getCellValue("SignUP", 1, 1));
-        pm.signUpPage().performPassword8CharsValidation(getCellValue("SignUp", 1, 2));
-        pm.signUpPage().performPasswordUpperCaseValidation(getCellValue("SignUp", 2, 2));
+        pm.signUpPage().performEmailValidations("as");
+        pm.signUpPage().performMobileNoValidation("12");
+        pm.signUpPage().performPassword8CharsValidation("as");
+        pm.signUpPage().performPasswordUpperCaseValidation("cdefgh");
         pm.signUpPage().performPasswordOneNumberValidation();
         pm.signUpPage().performPasswordSpecialcharValidation();
-        pm.signUpPage().performFirstNameValidation(getCellValue("SignUp", 1, 3));
-        pm.signUpPage().performlastNameValidation(getCellValue("SignUp", 1, 4));
-        pm.signUpPage().performAptSuiteBldgValidation(getCellValue("SignUp", 1, 5));
-        pm.signUpPage().performStreetCityAddressValidation(getCellValue("SignUp", 1, 6));
-        pm.signUpPage().performPostCodeValidation(getCellValue("SignUp", 1, 7));
+        pm.signUpPage().performFirstNameValidation("a");
+        pm.signUpPage().performlastNameValidation("a");
+        pm.signUpPage().performAptSuiteBldgValidation("a");
+        pm.signUpPage().performStreetCityAddressValidation("a");
+        pm.signUpPage().performPostCodeValidation("34");
         pm.signUpPage().verifySignUpBtn();
 
     }

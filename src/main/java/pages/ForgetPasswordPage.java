@@ -1,6 +1,7 @@
 package pages;
 
 import baseClass.BaseClass;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,9 +9,11 @@ import org.testng.Assert;
 
 
 public class ForgetPasswordPage extends BaseClass {
+    public WebDriver _driver;
 
-    public ForgetPasswordPage() {
-
+    public ForgetPasswordPage(WebDriver driver) {
+        super(driver);
+        this._driver = driver;
         PageFactory.initElements(driver, this);
 
     }
@@ -85,7 +88,7 @@ public class ForgetPasswordPage extends BaseClass {
 
     public void verifySendLinkButton() {
         boolean status = getSendlinkbtn().isEnabled();
-        Assert.assertTrue(status);
+        Assert.assertFalse(status);
     }
 
     public void verifyForgetPasswordHeadingtxt() {

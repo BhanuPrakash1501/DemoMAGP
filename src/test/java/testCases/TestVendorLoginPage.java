@@ -1,11 +1,14 @@
 package testCases;
 
 import baseClass.BaseClass;
+import baseTest.BaseTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageObjectManager.PageObjectManager;
 
-public class TestVendorLoginPage extends BaseClass {
-    PageObjectManager pm = new PageObjectManager();
+@Listeners(reports.ExtentReportManager.class)
+public class TestVendorLoginPage extends BaseTest {
+
 
     @Test
     public void testVendorLoginPageUI() throws InterruptedException {
@@ -48,11 +51,9 @@ public class TestVendorLoginPage extends BaseClass {
     }
 
     @Test
-    public void testGoogleLoginFunctionality(){
+    public void testGoogleLoginFunctionality() {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().clickbtnGoogle();
-
-
 
 
     }
