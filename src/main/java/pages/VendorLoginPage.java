@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class VendorLoginPage extends BaseClass {
-    public WebDriver _driver;
+    private WebDriver _driver;
     private final String actualEmailtext = "Email Address *";
     private final String actualPassWordtext = "Password *";
 

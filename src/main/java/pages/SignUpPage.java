@@ -10,7 +10,7 @@ import org.testng.Assert;
 
 public class SignUpPage extends BaseClass {
 
-    public WebDriver _driver;
+    private WebDriver _driver;
 
     public SignUpPage(WebDriver driver) {
         super(driver);

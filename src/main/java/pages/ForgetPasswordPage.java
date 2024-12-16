@@ -9,7 +9,7 @@ import org.testng.Assert;
 
 
 public class ForgetPasswordPage extends BaseClass {
-    public WebDriver _driver;
+    private WebDriver _driver;
 
     public ForgetPasswordPage(WebDriver driver) {
         super(driver);

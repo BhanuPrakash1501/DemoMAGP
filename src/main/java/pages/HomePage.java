@@ -1,6 +1,7 @@
 package pages;
 
 import baseClass.BaseClass;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,7 +14,7 @@ import java.util.Set;
 
 public class HomePage extends BaseClass {
 
-    public WebDriver _driver;
+    private WebDriver _driver;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -31,7 +32,7 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//a[normalize-space()='Calendar']")
     private WebElement calendar;
 
-    @FindBy(xpath = "//a[normalize-space()='FAQs']")
+    @FindBy(xpath = "//a[normalize-space()='FAQ']")
     private WebElement fAQs;
 
     @FindBy(xpath = "//input[@placeholder='Tender Name']")
@@ -65,7 +66,7 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//a[@href='/user/introduction?id=get-vendor-management-list&name=Vendor+Management']")
     private WebElement vendorMgnt;
 
-    @FindBy(xpath = "//a[text()='View All']")
+    @FindBy(xpath = "//button[text()='View All']")
     private WebElement viewAll;
 
     @FindBy(xpath = "//h2[normalize-space()='Introduction']")
@@ -89,7 +90,7 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//p[text()='MAHB’s  Procurement value chain']")
     private WebElement mAHBsProcurementvaluechainLink;
 
-    @FindBy(xpath = "//h2[normalize-space()='Contact Us']")
+    @FindBy(xpath = "//h2[normalize-space()='Contact Directory']")
     private WebElement contactUsbtn;
 
     @FindBy(xpath = "//h2[normalize-space()='Procurement Planning']")
@@ -161,13 +162,16 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//button[normalize-space()='Login']")
     private WebElement loginbtn;
 
+    @FindBy(xpath = "//img[@class='img-close']")
+    private WebElement XBtnLoginPopup;
+
     @FindBy(xpath = "//div[@class='position-absolute close-icon']//button")
     private WebElement crossbtn;
 
     @FindBy(xpath = "//h2[normalize-space()='MAHB Contact Directory']")
     private WebElement mahbContactDirectoryLink;
 
-    @FindBy(xpath = "//h2[normalize-space()='Procurehere Login']")
+    @FindBy(xpath = "//h2[normalize-space()='Procurehere login']")
     private WebElement procurehereLoginLink;
 
     @FindBy(xpath = "//h2[normalize-space()='Vendor Management System']")
@@ -196,6 +200,27 @@ public class HomePage extends BaseClass {
 
     @FindBy(xpath = "(//img[contains(@class,'logo-small')])[1]")
     private WebElement magpLogoIcon;
+
+    @FindBy(xpath = "//div[@class='position-absolute close-icon']//button")
+    private WebElement xBtn;
+
+    @FindBy(xpath = "//p[text()='Kindly proceed with the login process to access an expanded array of modules and features.']")
+    private WebElement txtLoginPopUp;
+
+    @FindBy(xpath = "//h3[text()='MAHB Procurement Contact Directory']")
+    private WebElement MAHBHeadingTxt;
+
+    public WebElement getMAHBHeadingTxt() {
+        return MAHBHeadingTxt;
+    }
+
+    public WebElement getTxtLoginPopUp() {
+        return txtLoginPopUp;
+    }
+
+    public WebElement getxBtn() {
+        return xBtn;
+    }
 
     public WebElement getLatestAnnouncementsTxt() {
         return latestAnnouncementsTxt;
@@ -421,6 +446,10 @@ public class HomePage extends BaseClass {
         return crossbtn;
     }
 
+    public WebElement getXBtnLoginPopup() {
+        return XBtnLoginPopup;
+    }
+
     public WebElement getMahbContactDirectoryLink() {
         return mahbContactDirectoryLink;
     }
@@ -502,6 +531,7 @@ public class HomePage extends BaseClass {
 
     public void verifyLatestAnnouncementTxt() {
         scrollToElement(getLast7daysTxt());
+        waitForVisibility(By.xpath("//h2[text()='Latest Announcements']"));
         String latestAnnouncementTxt = getLatestAnnouncementsTxt().getText();
         Assert.assertEquals(latestAnnouncementTxt, "Latest Announcements");
     }
@@ -513,6 +543,7 @@ public class HomePage extends BaseClass {
 
     public void verifyViewAll() {
         scrollToElement(getViewAll());
+        waitForVisibility(By.xpath("//button[text()='View All']"));
         String viewAllTxt = getViewAll().getText();
         Assert.assertEquals(viewAllTxt, "View All");
     }
@@ -522,9 +553,68 @@ public class HomePage extends BaseClass {
         clickUsingJavaScript(getIntroduction());
     }
 
-    public void xbutton() {
-        elementClick(crossbtn);
+    public void clickXbtnLoginPopUp(){
+        elementClick(getXBtnLoginPopup());
     }
+
+    public void xbutton(){
+        elementClick(xBtn);
+    }
+
+    public void verifyLoginIDpopUpTxt(){
+        String ele = elementGetText(getTxtLoginPopUp());
+        Assert.assertEquals(ele,"Kindly proceed with the login process to access an expanded array of modules and features.");
+    }
+
+    public void clickLoginBtn(){
+        elementClick(getLoginbtn());
+
+    }
+
+    public void clickViewAllBtn(){
+        elementClick(getViewAll());
+
+    }
+
+    public void clickOnContactDirectoryLink() throws InterruptedException {
+        scrollPageToDown();
+        Thread.sleep(2000);
+        elementClick(getContactUsbtn());
+        String contactDir = elementGetText(getMAHBHeadingTxt());
+        Assert.assertEquals(contactDir,"MAHB Procurement Contact Directory");
+
+    }
+
+    public void clickOnProcureHereLoginLink() throws InterruptedException {
+        scrollPageToDown();
+        Thread.sleep(2000);
+        elementClick((getProcurehereLoginLink()));
+
+        Thread.sleep(2000);
+        String pWindow = getWindowHandle();
+        Set<String> handles = getWindowHandles();
+        for (String handle : handles) {
+
+            if (!handle.equals(pWindow)) {
+                switchToWindow(handle);
+                System.out.println(getAppTitle());
+
+            }
+
+        }
+
+    }
+
+    public void clickIntroductionManual(){
+        scrollToElement(getIntroduction());
+        elementClick(getIntroduction());
+    }
+
+    public void clickFaq() throws InterruptedException {
+        Thread.sleep(3000);
+        elementClick(getfAQs());
+    }
+
 
 }
 

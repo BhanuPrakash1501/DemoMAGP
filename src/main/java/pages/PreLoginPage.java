@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class PreLoginPage extends BaseClass {
-    public WebDriver _driver;
+    private WebDriver _driver;
     public PreLoginPage(WebDriver driver) {
         super(driver);
         this._driver = driver;
@@ -16,6 +16,8 @@ public class PreLoginPage extends BaseClass {
 
     }
 
+    @FindBy(xpath = "//h2[text()='Login']")
+    private WebElement loginHeaderTxt;
 
     @FindBy(xpath = "//button[normalize-space()='Staff Login']")
     private WebElement staffLoginbtn;
@@ -25,6 +27,10 @@ public class PreLoginPage extends BaseClass {
 
     @FindBy(xpath = "//button[text()='Guest Login']")
     private WebElement guestbtn;
+
+    public WebElement getLoginHeaderTxt() {
+        return loginHeaderTxt;
+    }
 
     public WebElement getStaffLoginbtn() {
         return staffLoginbtn;
@@ -68,6 +74,11 @@ public class PreLoginPage extends BaseClass {
 
     public void clickBtnguestLogin() {
         elementClick(getGuestbtn());
+    }
+
+    public void verifyLoginHeaderTxt(){
+        String logintxt = elementGetText(getLoginHeaderTxt());
+        Assert.assertEquals(logintxt,"Login");
     }
 
 

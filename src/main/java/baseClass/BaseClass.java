@@ -332,4 +332,14 @@ public class BaseClass {
         elementClick(ele);
     }
 
+    public void waitForVisibility(By locator){
+        WebDriverWait wait = new WebDriverWait(_driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public void scrollByWindow(){
+        JavascriptExecutor js = (JavascriptExecutor) _driver;
+        js.executeScript("window.scrollBy(1600,0)");
+    }
+
 }

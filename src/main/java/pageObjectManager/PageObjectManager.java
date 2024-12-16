@@ -17,7 +17,7 @@ public class PageObjectManager {
     private ProfilePage profilePage;
     private SignUpPage signUpPage;
     private StaffLoginPage staffLoginPage;
-//    private IntroductionPage introductionPage;
+    private IntroductionPage introductionPage;
 //    private PrefacePage prefacePage;
 
 
@@ -61,12 +61,12 @@ public class PageObjectManager {
         }
         return homePage;
     }
-//    public IntroductionPage introductionPage(){
-//        if(introductionPage == null){
-//            introductionPage =  new IntroductionPage();
-//        }
-//        return introductionPage;
-//    }
+    public IntroductionPage introductionPage(){
+        if(introductionPage == null){
+            introductionPage =  new IntroductionPage(_driver);
+        }
+        return introductionPage;
+    }
 
     public StaffLoginPage staffLoginPage(){
         if (staffLoginPage == null){
@@ -86,6 +86,14 @@ public class PageObjectManager {
             profilePage = new ProfilePage(_driver);
         }
         return profilePage;
+
+    }
+
+    public FaqPage faqPage(){
+        if(faqPage == null){
+            faqPage = new FaqPage(_driver);
+        }
+        return faqPage;
 
     }
 

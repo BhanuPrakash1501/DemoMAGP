@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import baseClass.BaseClass;
 
 public class FavouritesPage extends BaseClass {
-    public WebDriver _driver;
+    private WebDriver _driver;
 
     public FavouritesPage(WebDriver driver) {
         super(driver);

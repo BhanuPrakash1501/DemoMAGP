@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ProfilePage extends BaseClass {
-    public WebDriver _driver;
+    private WebDriver _driver;
 
     public ProfilePage(WebDriver driver) {
         super(driver);

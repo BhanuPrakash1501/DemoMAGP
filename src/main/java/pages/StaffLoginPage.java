@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 public class StaffLoginPage extends BaseClass {
-    public WebDriver _driver;
+    private WebDriver _driver;
 
     public StaffLoginPage(WebDriver driver) {
         super(driver);
