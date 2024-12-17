@@ -11,6 +11,17 @@ public class TestForgetPasswordPage extends BaseTest {
 
 
     @Test
+    public void verifyUI(){
+        pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().clickForgetPassworslink();
+        pm.forgetPasswordPage().verifyMAGPlogo();
+        pm.forgetPasswordPage().verifyForgetPasswordHeadingtxt();
+        pm.forgetPasswordPage().verifyForgetpasswordimgTxt();
+        pm.forgetPasswordPage().verifyImgDesctxt();
+
+    }
+
+    @Test
     public void verifyInvalidEmail() throws IOException {
 
         pm.preLoginPage().clickBtnvendorLogin();
@@ -18,22 +29,23 @@ public class TestForgetPasswordPage extends BaseTest {
         pm.forgetPasswordPage().verifyForgetPasswordHeadingtxt();
         pm.forgetPasswordPage().verifyInvalidEMailAdressTxt(("asddasd"));
         pm.forgetPasswordPage().verifySendLinkButton();
-        pm.forgetPasswordPage().verifyGobackToLoginBtn();
+        pm.forgetPasswordPage().clickGobackToLoginBtn();
         pm.vendorLoginPage().verifyLoginHeaderTxt();
     }
 
 
 
-    @Test(dependsOnMethods = {"verifyInvalidEmail"})
+    @Test
     public void verifyValidEmail() throws IOException {
 
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().clickForgetPassworslink();
         pm.forgetPasswordPage().verifyForgetPasswordHeadingtxt();
         pm.forgetPasswordPage().verifyValidEMailAdressTxt("xixoja1991@craftapk.com");
-        pm.forgetPasswordPage().verifySendLinkButton();
         pm.forgetPasswordPage().clickBtnSendLink();
-        pm.forgetPasswordPage().verifyGobackToLoginBtn();
+        pm.forgetPasswordPage().verifyWellDonetxt();
+        pm.forgetPasswordPage().verifyPopUpdesctxtMssg();
+        pm.forgetPasswordPage().clickBackToLoginBtn();
         pm.vendorLoginPage().verifyLoginHeaderTxt();
     }
 

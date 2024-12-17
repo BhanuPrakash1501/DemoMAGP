@@ -1,6 +1,7 @@
 package pages;
 
 import baseClass.BaseClass;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +10,9 @@ import org.testng.Assert;
 
 public class PreLoginPage extends BaseClass {
     private WebDriver _driver;
+
+
+
     public PreLoginPage(WebDriver driver) {
         super(driver);
         this._driver = driver;
@@ -16,8 +20,17 @@ public class PreLoginPage extends BaseClass {
 
     }
 
+    @FindBy(xpath = "//img[@src='/MAGP/home/logo.png']")
+    private WebElement magpLogo;
+
     @FindBy(xpath = "//h2[text()='Login']")
     private WebElement loginHeaderTxt;
+
+    @FindBy(xpath = "//h3[text()='Welcome']")
+    private WebElement welcomeTxt;
+
+    @FindBy(xpath = "//h5[text()='Procurement Manual of Procurement Policies, Procedures & Guidelines']")
+    private WebElement loginDescTxt;
 
     @FindBy(xpath = "//button[normalize-space()='Staff Login']")
     private WebElement staffLoginbtn;
@@ -27,6 +40,18 @@ public class PreLoginPage extends BaseClass {
 
     @FindBy(xpath = "//button[text()='Guest Login']")
     private WebElement guestbtn;
+
+    public WebElement getMagpLogo() {
+        return magpLogo;
+    }
+
+    public WebElement getWelcomeTxt() {
+        return welcomeTxt;
+    }
+
+    public WebElement getLoginDescTxt() {
+        return loginDescTxt;
+    }
 
     public WebElement getLoginHeaderTxt() {
         return loginHeaderTxt;
@@ -42,6 +67,20 @@ public class PreLoginPage extends BaseClass {
 
     public WebElement getGuestbtn() {
         return guestbtn;
+    }
+
+    public void verifyMAGPlogo(){
+        Assert.assertTrue(getMagpLogo().isDisplayed());
+    }
+
+    public void verifyWelcometxt() {
+        String weltxt = elementGetText(getWelcomeTxt());
+        Assert.assertEquals(weltxt, "Welcome");
+    }
+
+    public void verifyDesctxt() {
+        String desctxt = elementGetText(getLoginDescTxt());
+        Assert.assertEquals(desctxt, "Procurement Manual of Procurement Policies, Procedures & Guidelines");
     }
 
     public void verifyPreLoginPage() {
@@ -80,6 +119,10 @@ public class PreLoginPage extends BaseClass {
         String logintxt = elementGetText(getLoginHeaderTxt());
         Assert.assertEquals(logintxt,"Login");
     }
+
+
+
+
 
 
 }

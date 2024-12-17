@@ -11,13 +11,34 @@ import pageObjectManager.PageObjectManager;
 @Listeners(reports.ExtentReportManager.class)
 public class TestPreLoginPage extends BaseTest {
 
-
+    @Test
+    public void verifyUI(){
+        pm.preLoginPage().verifyMAGPlogo();
+        pm.preLoginPage().verifyWelcometxt();
+        pm.preLoginPage().verifyDesctxt();
+    }
     @Test
     public void testProLoginPageUI() {
         pm.preLoginPage().verifyPreLoginPage();
         pm.preLoginPage().verifyStaffLoginButton();
         pm.preLoginPage().verifyVendorLoginButton();
         pm.preLoginPage().verifyGuestLoginButton();
+    }
+
+    @Test
+    public void clickStaffLoginBtn(){
+        pm.preLoginPage().clickBtnstaffLogin();
+
+    }
+    @Test
+    public void clickVendorLoginBtn(){
+        pm.preLoginPage().clickBtnvendorLogin();
+
+    }
+    @Test
+    public void clickGuestLoginBtn(){
+        pm.preLoginPage().clickBtnguestLogin();
+
     }
 
 

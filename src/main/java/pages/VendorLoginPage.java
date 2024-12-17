@@ -20,6 +20,9 @@ public class VendorLoginPage extends BaseClass {
 
     }
 
+    @FindBy(xpath = "//img[@src='/MAGP/home/logo.png']")
+    private WebElement magpLogo;
+
     @FindBy(id = "Email Address")
     private WebElement emailId;
 
@@ -38,7 +41,7 @@ public class VendorLoginPage extends BaseClass {
     @FindBy(xpath = "//button[text()='Submit']")
     private WebElement submitbtn;
 
-    @FindBy(xpath = "//button[@class='btn btn-outline-secondary me-5 align-items-center']")
+    @FindBy(xpath = "//p[text()='Google']")
     private WebElement googlebtn;
 
     @FindBy(xpath = "//button[@class='btn btn-outline-secondary']")
@@ -69,6 +72,10 @@ public class VendorLoginPage extends BaseClass {
         return xBtn;
     }
 
+    public WebElement getMagpLogo() {
+        return magpLogo;
+    }
+
 
     public WebElement getLoginHeaderTxt() {
         return loginHeaderTxt;
@@ -76,6 +83,10 @@ public class VendorLoginPage extends BaseClass {
 
     public String getActualPassWordtext() {
         return actualPassWordtext;
+    }
+
+    public void verifyMAGPlogo() {
+        Assert.assertTrue(getMagpLogo().isDisplayed());
     }
 
     public WebElement getPleaseEnterAValidEmailAddressTxt() {
@@ -212,11 +223,11 @@ public class VendorLoginPage extends BaseClass {
         Assert.assertEquals(logintxt, "Login");
     }
 
-    public void xbutton(){
+    public void xbutton() {
         elementClick(xBtn);
     }
 
-    public void clickbtnGoogle(){
+    public void clickbtnGoogle() {
         elementClick(getGooglebtn());
     }
 

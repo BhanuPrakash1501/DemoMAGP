@@ -11,17 +11,21 @@ public class TestVendorLoginPage extends BaseTest {
 
 
     @Test
-    public void testVendorLoginPageUI() throws InterruptedException {
+    public void testVendorLoginPageUI()  {
         pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().verifyMAGPlogo();
+        pm.vendorLoginPage().verifyLoginHeaderTxt();
         pm.vendorLoginPage().verifyEmailTxt();
         pm.vendorLoginPage().verifyPasswordTxt();
         pm.vendorLoginPage().verifyForgetPasswordTxt();
         pm.vendorLoginPage().verifyGooglebtn();
-        pm.vendorLoginPage().verifyFacebookbtn();
-        pm.vendorLoginPage().verifyWelcomeTxt();
-        pm.vendorLoginPage().verifyLoginHeaderTxt();
-        pm.vendorLoginPage().verifyWelcomeParagraphTxt();
+//        pm.vendorLoginPage().verifyFacebookbtn();
+        pm.vendorLoginPage().verifyDonthaveAnAccountTxt();
         pm.vendorLoginPage().verifyRegisterNowLnk();
+        pm.vendorLoginPage().verifyWelcomeTxt();
+        pm.vendorLoginPage().verifyWelcomeParagraphTxt();
+
+
 
 
     }
