@@ -42,7 +42,7 @@ public class TestGuestPage extends BaseTest {
     }
 
     @Test
-    public void clickOnViewAllBrn() {
+    public void clickOnViewAllBtn() {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
         pm.homePage().verifyViewAll();
@@ -52,22 +52,29 @@ public class TestGuestPage extends BaseTest {
     }
 
     @Test
-    public void clickContactdirectoryLink() throws InterruptedException {
+    public void clickContactdirectoryLink()  {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
-        pm.homePage().xbutton();
-        Thread.sleep(2000);
+//        pm.homePage().xbutton();
         pm.homePage().clickOnContactDirectoryLink();
 
     }
 
     @Test
-    public void clickProcureHereLink() throws InterruptedException {
+    public void clickProcureHereLink()  {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
-        pm.homePage().xbutton();
-        Thread.sleep(2000);
+//        pm.homePage().xbutton();
         pm.homePage().clickOnProcureHereLoginLink();
+
+    }
+
+    @Test
+    public void clickVMSLink()  {
+        pm.preLoginPage().clickBtnguestLogin();
+        pm.homePage().clickXbtnLoginPopUp();
+//        pm.homePage().xbutton();
+        pm.homePage().clickOnVenderManagementSystemLink();
 
     }
 

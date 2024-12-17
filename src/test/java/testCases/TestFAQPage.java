@@ -12,4 +12,15 @@ public class TestFAQPage extends BaseTest {
         pm.homePage().clickFaq();
         pm.faqPage().searchFaq();
     }
+
+    @Test
+    public void listFaq() throws InterruptedException {
+        pm.preLoginPage().clickBtnguestLogin();
+        pm.homePage().clickXbtnLoginPopUp();
+        pm.homePage().clickFaq();
+        pm.faqPage().listOfFaqs();
+
+
+
+    }
 }

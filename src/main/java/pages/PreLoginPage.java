@@ -12,7 +12,6 @@ public class PreLoginPage extends BaseClass {
     private WebDriver _driver;
 
 
-
     public PreLoginPage(WebDriver driver) {
         super(driver);
         this._driver = driver;
@@ -40,6 +39,7 @@ public class PreLoginPage extends BaseClass {
 
     @FindBy(xpath = "//button[text()='Guest Login']")
     private WebElement guestbtn;
+
 
     public WebElement getMagpLogo() {
         return magpLogo;
@@ -69,7 +69,7 @@ public class PreLoginPage extends BaseClass {
         return guestbtn;
     }
 
-    public void verifyMAGPlogo(){
+    public void verifyMAGPlogo() {
         Assert.assertTrue(getMagpLogo().isDisplayed());
     }
 
@@ -77,6 +77,7 @@ public class PreLoginPage extends BaseClass {
         String weltxt = elementGetText(getWelcomeTxt());
         Assert.assertEquals(weltxt, "Welcome");
     }
+
 
     public void verifyDesctxt() {
         String desctxt = elementGetText(getLoginDescTxt());
@@ -115,14 +116,10 @@ public class PreLoginPage extends BaseClass {
         elementClick(getGuestbtn());
     }
 
-    public void verifyLoginHeaderTxt(){
+    public void verifyLoginHeaderTxt() {
         String logintxt = elementGetText(getLoginHeaderTxt());
-        Assert.assertEquals(logintxt,"Login");
+        Assert.assertEquals(logintxt, "Login");
     }
-
-
-
-
 
 
 }

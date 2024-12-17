@@ -147,7 +147,7 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//p[normalize-space()='Contract Closeout']")
     private WebElement contractCloseoutLink;
 
-    @FindBy(xpath = "//h2[normalize-space()='Vendor Management']")
+    @FindBy(xpath = "//h2[normalize-space()='Vendor Management System']")
     private WebElement vendorManagementLink;
 
     @FindBy(xpath = "//p[normalize-space()='Vendor Registration']")
@@ -576,33 +576,46 @@ public class HomePage extends BaseClass {
 
     }
 
-    public void clickOnContactDirectoryLink() throws InterruptedException {
+    public void clickOnContactDirectoryLink() {
         scrollPageToDown();
-        Thread.sleep(2000);
+        waitForVisibility(By.xpath("//h2[normalize-space()='Contact Directory']"));
         elementClick(getContactUsbtn());
         String contactDir = elementGetText(getMAHBHeadingTxt());
         Assert.assertEquals(contactDir,"MAHB Procurement Contact Directory");
 
     }
 
-    public void clickOnProcureHereLoginLink() throws InterruptedException {
+    public void clickOnProcureHereLoginLink()  {
         scrollPageToDown();
-        Thread.sleep(2000);
+        waitForVisibility(By.xpath("//h2[normalize-space()='Procurehere login']"));
         elementClick((getProcurehereLoginLink()));
 
-        Thread.sleep(2000);
+
         String pWindow = getWindowHandle();
         Set<String> handles = getWindowHandles();
         for (String handle : handles) {
 
             if (!handle.equals(pWindow)) {
                 switchToWindow(handle);
-                System.out.println(getAppTitle());
+                implicitWait(10);
+//                System.out.println(getAppTitle());
 
             }
 
+
+
         }
 
+         System.out.println(getAppTitle());
+
+
+
+    }
+
+    public void clickOnVenderManagementSystemLink(){
+        scrollPageToDown();
+        waitForVisibility(By.xpath("//h2[normalize-space()='Vendor Management System']"));
+        elementClick(getVendorManagementLink());
     }
 
     public void clickIntroductionManual(){

@@ -16,6 +16,7 @@ public class TestSignUpPage extends BaseTest {
     public void registerNowUIValidations() {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().clickRegisterNowlink();
+        pm.signUpPage().verifyMAGPlogo();
         pm.signUpPage().verifySignUpHeaderTxt();
         pm.signUpPage().verifyemailHeaderTxt();
         pm.signUpPage().verifymobileNoHeaderTxt();
@@ -26,7 +27,10 @@ public class TestSignUpPage extends BaseTest {
         pm.signUpPage().verifystreetCityAddressHeaderTxt();
         pm.signUpPage().verifypostCodeHeaderTxt();
         pm.signUpPage().verifyGoogleBtn();
-        pm.signUpPage().verifyFacebookBtn();
+//        pm.signUpPage().verifyFacebookBtn();
+        pm.signUpPage().verifyAlreadyHaveAnAccountTxt();
+        pm.signUpPage().verifyWelcometxt();
+        pm.signUpPage().verifyDesctxt();
         pm.signUpPage().verifyLoginHereLink();
 
 

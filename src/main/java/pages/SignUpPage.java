@@ -19,6 +19,9 @@ public class SignUpPage extends BaseClass {
 
     }
 
+    @FindBy(xpath = "//img[@src='/MAGP/home/logo.png']")
+    private WebElement magpLogo;
+
     @FindBy(id = "Email")
     private WebElement enterEmailId;
 
@@ -105,6 +108,43 @@ public class SignUpPage extends BaseClass {
 
     @FindBy(xpath = "(//img[contains(@class, 'icon')])[2]")
     private WebElement facebookBtn;
+
+    @FindBy(xpath = "//h3[text()='Welcome']")
+    private WebElement welcomeTxt;
+
+    @FindBy(xpath = "//h5[text()='Procurement Manual of Procurement Policies, Procedures & Guidelines']")
+    private WebElement loginDescTxt;
+
+    @FindBy(xpath = "//p[@class='auth-bottom-text my-4 text-center']")
+    private WebElement alreadyHaveAnAccount;
+
+    public WebElement getMagpLogo() {
+        return magpLogo;
+    }
+
+    public WebElement getLoginDescTxt() {
+        return loginDescTxt;
+    }
+
+    public void verifyWelcometxt() {
+        String weltxt = elementGetText(getWelcomeTxt());
+        Assert.assertEquals(weltxt, "Welcome");
+    }
+    public WebElement getAlreadyHaveAnAccount() {
+        return alreadyHaveAnAccount;
+    }
+
+    public void verifyDesctxt() {
+        String desctxt = elementGetText(getLoginDescTxt());
+        Assert.assertEquals(desctxt, "Procurement Manual of Procurement Policies, Procedures & Guidelines");
+    }
+    public void verifyAlreadyHaveAnAccountTxt(){
+        Assert.assertTrue(getAlreadyHaveAnAccount().isDisplayed());
+    }
+
+    public WebElement getWelcomeTxt() {
+        return welcomeTxt;
+    }
 
     public WebElement getEmailAdressErrorMssgTxt() {
         return emailAdressErrorMssgTxt;
@@ -415,6 +455,9 @@ public class SignUpPage extends BaseClass {
     public void clickLoginHereLink() {
         elementClick(getLoginhereLink());
 
+    }
+    public void verifyMAGPlogo(){
+        Assert.assertTrue(getMagpLogo().isDisplayed());
     }
 
 
