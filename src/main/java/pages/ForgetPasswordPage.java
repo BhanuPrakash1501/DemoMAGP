@@ -134,19 +134,23 @@ public class ForgetPasswordPage extends BaseClass {
     }
 
     public void verifyForgetpasswordimgTxt(){
-        Assert.assertTrue(getForgotPasswordImgTxt().isDisplayed());
+        String forgetHeadingIMGtxt = getForgotPasswordImgTxt().getText();
+        Assert.assertEquals(forgetHeadingIMGtxt, "Forgot Password");
     }
 
     public void verifyImgDesctxt(){
-        Assert.assertTrue(getDescImgTxt().isDisplayed());
+        String descImgtxt = getDescImgTxt().getText();
+        Assert.assertEquals(descImgtxt, "Don’t worry it happens. Please enter the email address associated with your account.");
     }
 
     public void verifyWellDonetxt(){
-        Assert.assertTrue(getWellDoneTxt().isDisplayed());
+        String wellDonetxt = getWellDoneTxt().getText();
+        Assert.assertEquals(wellDonetxt, "Well Done");
     }
 
     public void verifyPopUpdesctxtMssg(){
-        Assert.assertTrue(getPasswordresetMssgTxt().isDisplayed());
+        String passResettxt = getPasswordresetMssgTxt().getText();
+        Assert.assertEquals(passResettxt, "Password reset email successfully sent to your registered email. Please check your inbox and follow the instructions to reset your password.");
     }
     public void clickBackToLoginBtn() {
         elementClick(getBackToLoginBtn());

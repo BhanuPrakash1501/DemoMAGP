@@ -90,17 +90,19 @@ public class PreLoginPage extends BaseClass {
     }
 
     public void verifyVendorLoginButton() {
-        Assert.assertTrue(getVendorLoginbtn().isDisplayed());
-
+        String vendorTxt = elementGetText(getVendorLoginbtn());
+        Assert.assertEquals(vendorTxt, "Vendor Login");
     }
 
     public void verifyStaffLoginButton() {
 
-        Assert.assertTrue(getStaffLoginbtn().isDisplayed());
+        String staffTxt = elementGetText(getStaffLoginbtn());
+        Assert.assertEquals(staffTxt, "Staff Login");
     }
 
     public void verifyGuestLoginButton() {
-        Assert.assertTrue(getGuestbtn().isDisplayed());
+        String guestTxt = elementGetText(getGuestbtn());
+        Assert.assertEquals(guestTxt, "Guest Login");
     }
 
 

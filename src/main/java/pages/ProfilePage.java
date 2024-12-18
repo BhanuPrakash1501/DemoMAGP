@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class ProfilePage extends BaseClass {
     private WebDriver _driver;
@@ -15,6 +16,22 @@ public class ProfilePage extends BaseClass {
         PageFactory.initElements(driver, this);
 
     }
+
+    @FindBy(xpath = "//b[text()='User Profile']")
+    private WebElement userProfileTxt;
+
+    @FindBy(xpath = "//p[text()='Login ID']")
+    private WebElement loginIdTxt;
+
+    public WebElement getAreYouSureWantToLogouttxt() {
+        return areYouSureWantToLogouttxt;
+    }
+
+    @FindBy(xpath = "//span[text()='Need to Purchase']")
+    private WebElement needToPurchaseTxt;
+
+    @FindBy(xpath = "//p[text()='Are you sure you want to Logout? ']")
+    private WebElement areYouSureWantToLogouttxt;
 
     @FindBy(xpath = "//img[@src='/MAGP/p2.png']")
     private WebElement btnProfileIcon;
@@ -157,8 +174,60 @@ public class ProfilePage extends BaseClass {
         return btnProfileIcon;
     }
 
+    public WebElement getLoginIdTxt() {
+        return loginIdTxt;
+    }
+
+    public WebElement getNeedToPurchaseTxt() {
+        return needToPurchaseTxt;
+    }
+
+    public WebElement getUserProfileTxt() {
+        return userProfileTxt;
+    }
+
     public void clickProfileBtn() {
         elementClick(getBtnProfileIcon());
+    }
+
+    public void verifyUserProfileTxt(){
+        String ustxt = elementGetText(getUserProfileTxt());
+        Assert.assertEquals(ustxt, "User Profile");
+    }
+
+    public void verifyLoginIDTxt(){
+        String lgIDtxt = elementGetText(getLoginIdTxt());
+        Assert.assertEquals(lgIDtxt, "Login ID");
+    }
+
+    public void verifyNeedtoPurchaseTxt(){
+        String needToPurchasetxt = elementGetText(getNeedToPurchaseTxt());
+        Assert.assertEquals(needToPurchasetxt, "Need to Purchase");
+    }
+
+    public void verifyLogoutTxt(){
+        String logouttxt = elementGetText(getLogoutbtn());
+        Assert.assertEquals(logouttxt, "Logout");
+    }
+
+    public void verifyNoKeepLoginTxt(){
+        String nokeepLogintxt = elementGetText(getNokeepLoginbtn());
+        Assert.assertEquals(nokeepLogintxt, "No, Keep Login");
+    }
+
+    public void verifyYesLogoutTxt(){
+        String yeslogouttxt = elementGetText(getYesLogoutbtn());
+        Assert.assertEquals(yeslogouttxt, "Yes, Logout");
+    }
+
+    public void verifyAreYouSureWantToLogoutTxt(){
+        String areYouSureWantToLogouttxt = elementGetText(getAreYouSureWantToLogouttxt());
+        Assert.assertEquals(areYouSureWantToLogouttxt, "Are you sure you want to Logout?");
+    }
+
+    public void verifySaveTxt(){
+        String savetxt = elementGetText(getSavebtn());
+        Assert.assertEquals(savetxt, "Save");
     }
 
 
@@ -190,6 +259,7 @@ public class ProfilePage extends BaseClass {
 
 
     public void clickBtnLogout() {
+
         elementClick(getLogoutbtn());
     }
 
@@ -223,7 +293,6 @@ public class ProfilePage extends BaseClass {
         elementClick(getEditProfilePictureBtn());
 //        getEditProfilePictureBtn().sendKeys("C:\\Users\\Mind-Graph\\Downloads\\bird-thumbnail.jpg");
         elementSendKeysFileUpload(getEditProfilePictureBtn(), "C:\\Users\\Mind-Graph\\Downloads\\bird-thumbnail.jpg");
-
 
     }
 

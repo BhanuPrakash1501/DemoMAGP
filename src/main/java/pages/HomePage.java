@@ -553,25 +553,25 @@ public class HomePage extends BaseClass {
         clickUsingJavaScript(getIntroduction());
     }
 
-    public void clickXbtnLoginPopUp(){
+    public void clickXbtnLoginPopUp() {
         elementClick(getXBtnLoginPopup());
     }
 
-    public void xbutton(){
+    public void xbutton() {
         elementClick(xBtn);
     }
 
-    public void verifyLoginIDpopUpTxt(){
+    public void verifyLoginIDpopUpTxt() {
         String ele = elementGetText(getTxtLoginPopUp());
-        Assert.assertEquals(ele,"Kindly proceed with the login process to access an expanded array of modules and features.");
+        Assert.assertEquals(ele, "Kindly proceed with the login process to access an expanded array of modules and features.");
     }
 
-    public void clickLoginBtn(){
+    public void clickLoginBtn() {
         elementClick(getLoginbtn());
 
     }
 
-    public void clickViewAllBtn(){
+    public void clickViewAllBtn() {
         elementClick(getViewAll());
 
     }
@@ -581,15 +581,14 @@ public class HomePage extends BaseClass {
         waitForVisibility(By.xpath("//h2[normalize-space()='Contact Directory']"));
         elementClick(getContactUsbtn());
         String contactDir = elementGetText(getMAHBHeadingTxt());
-        Assert.assertEquals(contactDir,"MAHB Procurement Contact Directory");
+        Assert.assertEquals(contactDir, "MAHB Procurement Contact Directory");
 
     }
 
-    public void clickOnProcureHereLoginLink()  {
+    public void clickOnProcureHereLoginLink() throws InterruptedException {
         scrollPageToDown();
         waitForVisibility(By.xpath("//h2[normalize-space()='Procurehere login']"));
         elementClick((getProcurehereLoginLink()));
-
 
         String pWindow = getWindowHandle();
         Set<String> handles = getWindowHandles();
@@ -597,28 +596,24 @@ public class HomePage extends BaseClass {
 
             if (!handle.equals(pWindow)) {
                 switchToWindow(handle);
-                implicitWait(10);
-//                System.out.println(getAppTitle());
+                Thread.sleep(2000);
+                System.out.println(getAppTitle());
 
             }
 
-
-
         }
-
-         System.out.println(getAppTitle());
-
-
-
+        closeWindow();
+        switchToWindow(pWindow);
+        System.out.println(getAppTitle());
     }
 
-    public void clickOnVenderManagementSystemLink(){
+    public void clickOnVenderManagementSystemLink() {
         scrollPageToDown();
         waitForVisibility(By.xpath("//h2[normalize-space()='Vendor Management System']"));
         elementClick(getVendorManagementLink());
     }
 
-    public void clickIntroductionManual(){
+    public void clickIntroductionManual() {
         scrollToElement(getIntroduction());
         elementClick(getIntroduction());
     }

@@ -61,7 +61,7 @@ public class TestGuestPage extends BaseTest {
     }
 
     @Test
-    public void clickProcureHereLink()  {
+    public void clickProcureHereLink() throws InterruptedException {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
 //        pm.homePage().xbutton();

@@ -16,10 +16,6 @@ public class TestPreLoginPage extends BaseTest {
         pm.preLoginPage().verifyMAGPlogo();
         pm.preLoginPage().verifyWelcometxt();
         pm.preLoginPage().verifyDesctxt();
-    }
-    @Test
-    public void testProLoginPageUI() {
-        pm.preLoginPage().verifyPreLoginPage();
         pm.preLoginPage().verifyStaffLoginButton();
         pm.preLoginPage().verifyVendorLoginButton();
         pm.preLoginPage().verifyGuestLoginButton();
