@@ -273,8 +273,13 @@ public class BaseClass {
 
     public static void scrollToElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) _driver;
-        js.executeScript("arguments[0].scrollIntoView()", element);
+        js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
 
+    }
+
+    public void scrollToElementAndWait(WebElement element) {
+        scrollToElement(element);
+        waitForElementToBeClickable(element);
     }
 
     public static void scrollPageToDown() {
@@ -340,6 +345,11 @@ public class BaseClass {
     public void scrollByWindow(){
         JavascriptExecutor js = (JavascriptExecutor) _driver;
         js.executeScript("window.scrollBy(1600,0)");
+    }
+
+    public void waitForElementToBeClickable(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(_driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
 }
