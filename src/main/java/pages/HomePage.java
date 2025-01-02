@@ -468,6 +468,10 @@ public class HomePage extends BaseClass {
 
     }
 
+    public void clickFavouritesTab(){
+        elementClick(getFavourites());
+    }
+
     public void clickOnLinksAndVerify() throws InterruptedException {
         Thread.sleep(1000);
         elementClick(getCrossbtn());

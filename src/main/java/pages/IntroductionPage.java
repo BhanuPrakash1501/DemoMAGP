@@ -40,6 +40,10 @@ public class IntroductionPage extends BaseClass {
     @FindBy(xpath = "//h2[text()='Procurement Codes of ethics']")
     private WebElement procurementCodesofethicstxt;
 
+    public WebElement getProcCodesofEthicsTab() {
+        return procCodesofEthicsTab;
+    }
+
     @FindBy(xpath = "//h2[text()='General Provision']")
     private WebElement generalProvisiontxt;
 
@@ -55,14 +59,42 @@ public class IntroductionPage extends BaseClass {
     @FindBy(xpath = "//h2[text()='General Provision']/following-sibling::a")
     private WebElement generalProvisionviewMorebtn;
 
+    @FindBy(xpath = "//h6[text()='General Provision']")
+    private WebElement generalProvisionTab;
+
     @FindBy(xpath = "//h2[text()='Terms and Definitions']/following-sibling::a")
     private WebElement termsandDefinitionsviewMorebtn;
+
+    public WebElement getTermsandDefinitionsTab() {
+        return termsandDefinitionsTab;
+    }
+
+    public WebElement getGeneralProvisionTab() {
+        return generalProvisionTab;
+    }
+
+    public WebElement getProcessesSymbolsaTab() {
+        return processesSymbolsaTab;
+    }
+
+    public WebElement getProcurementValueChainTab() {
+        return procurementValueChainTab;
+    }
+
+    @FindBy(xpath = "//h6[text()='Terms and Definitions']")
+    private WebElement termsandDefinitionsTab;
 
     @FindBy(xpath = "//h2[text()='Processes Symbols']/following-sibling::a")
     private WebElement processesSymbolsviewMorebtn;
 
+    @FindBy(xpath = "//h6[text()='Processes Symbols']")
+    private WebElement processesSymbolsaTab;
+
     @FindBy(xpath = "//h2[text()='MAHB's Procurement Value Chain']/following-sibling::a")
     private WebElement procurementValueChainviewMorebtn;
+
+    @FindBy(xpath = "//h6[text()='MAHB's Procurement Value Chain']")
+    private WebElement procurementValueChainTab;
 
     @FindBy(xpath = "//h5[text()='Want to view more?']")
     private WebElement wantToViewMoreTxt;
@@ -90,6 +122,9 @@ public class IntroductionPage extends BaseClass {
 
     @FindBy(xpath = "//span[text()='Mark as Favourite']")
     private WebElement favBtn;
+
+    @FindBy(xpath = "//h6[text()='Procurement Codes of ethics']")
+    private WebElement procCodesofEthicsTab;
 
     public WebElement getFavBtn() {
         return favBtn;
@@ -182,21 +217,39 @@ public class IntroductionPage extends BaseClass {
 
         }
         String prefacetabTxt = elementGetText(getPrefacetabname());
-        Assert.assertEquals(prefacetabTxt,"Preface");
+        Assert.assertEquals(prefacetabTxt, "Preface");
 
     }
 
     public void clickProcurementCodesofethics() {
 
         scrollToElement(getProcurementCodesofethicsviewMorebtn());
+        waitForVisibility(By.xpath("//h2[text()='Procurement Codes of ethics']/following-sibling::a"));
         clickUsingJavaScript(getProcurementCodesofethicsviewMorebtn());
+        scrollToElementAndWait(getProcCodesofEthicsTab());
+        String favTxt = elementGetText(getFavBtn());
+        try {
+            if (favTxt.equalsIgnoreCase("Mark as Favourite")) {
+                waitForVisibility(By.xpath("//span[text()='Mark as Favourite']"));
+                elementClick(getFavBtn());
+            }
+        } catch (Exception e) {
+
+        }
+        String prefacetabTxt = elementGetText(getProcCodesofEthicsTab());
+        Assert.assertEquals(prefacetabTxt, "Procurement Codes of ethics");
 
     }
 
     public void clickGeneralProvisions() {
 
         scrollToElement(getGeneralProvisionviewMorebtn());
+        waitForVisibility(By.xpath("//h2[text()='General Provision']/following-sibling::a"));
         clickUsingJavaScript(getGeneralProvisionviewMorebtn());
+        scrollToElementAndWait(getGeneralProvisionTab());
+        String prefacetabTxt = elementGetText(getGeneralProvisionTab());
+        Assert.assertEquals(prefacetabTxt, "General Provision");
+
     }
 
 
@@ -214,8 +267,7 @@ public class IntroductionPage extends BaseClass {
 
     public void verifyWeWillNotifyYouTxt() {
         String weWillNotifyYouTxt = getWeWillNotifyYouTxt().getText();
-        Assert.assertEquals(weWillNotifyYouTxt,
-                "We will notify you as soon as this feature becomes available. Thank you for your patience!");
+        Assert.assertEquals(weWillNotifyYouTxt, "We will notify you as soon as this feature becomes available. Thank you for your patience!");
 
     }
 
@@ -242,50 +294,50 @@ public class IntroductionPage extends BaseClass {
         WebDriverWait wait = new WebDriverWait(_driver, Duration.ofSeconds(60));
         WebElement status = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[@class='banner-title mb-5']")));
         String bnnrIntrotxt = elementGetText(getIntrobannertxt());
-        Assert.assertEquals(bnnrIntrotxt,"Introduction");
+        Assert.assertEquals(bnnrIntrotxt, "Introduction");
 
     }
 
-    public void verifyPrefaceTxt(){
+    public void verifyPrefaceTxt() {
         scrollToElement(getPrefacetxt());
         String prefaceIntrotxt = elementGetText(getPrefacetxt());
-        Assert.assertEquals(prefaceIntrotxt,"Preface");
+        Assert.assertEquals(prefaceIntrotxt, "Preface");
     }
 
-    public void verifyProcurementCodesofethicstxt(){
+    public void verifyProcurementCodesofethicstxt() {
         scrollToElement(getProcurementCodesofethicstxt());
         String proCodeOfEthicsIntrotxt = elementGetText(getProcurementCodesofethicstxt());
-        Assert.assertEquals(proCodeOfEthicsIntrotxt,"Procurement Codes of ethics");
+        Assert.assertEquals(proCodeOfEthicsIntrotxt, "Procurement Codes of ethics");
     }
 
-    public void verifyGeneralProvisiontxt(){
+    public void verifyGeneralProvisiontxt() {
         scrollToElement(getGeneralProvisiontxt());
         String GeneralProvisiontxtIntrotxt = elementGetText(getGeneralProvisiontxt());
-        Assert.assertEquals(GeneralProvisiontxtIntrotxt,"General Provision");
+        Assert.assertEquals(GeneralProvisiontxtIntrotxt, "General Provision");
     }
 
-    public void verifyWantToViewMoretxt(){
+    public void verifyWantToViewMoretxt() {
         scrollToElement(getWantToViewMoreTxt());
         String wantToViewMoreIntrotxt = elementGetText(getWantToViewMoreTxt());
-        Assert.assertEquals(wantToViewMoreIntrotxt,"Want to view more?");
+        Assert.assertEquals(wantToViewMoreIntrotxt, "Want to view more?");
     }
 
-    public void verifyWantToViewMoreDesctxt(){
+    public void verifyWantToViewMoreDesctxt() {
         scrollToElement(getWantToViewMoreContentTxt());
         String wantToViewMoreDescIntrotxt = elementGetText(getWantToViewMoreContentTxt());
-        Assert.assertEquals(wantToViewMoreDescIntrotxt,"If you want to view more content please Purchase Login ID");
+        Assert.assertEquals(wantToViewMoreDescIntrotxt, "If you want to view more content please Purchase Login ID");
     }
 
-    public void verifyPurchasedIdTxt(){
+    public void verifyPurchasedIdTxt() {
         scrollToElement(getPurchaseLoginIDBtn());
         String purchasedIdTxt = elementGetText(getPurchaseLoginIDBtn());
-        Assert.assertEquals(purchasedIdTxt,"Purchase Login ID");
+        Assert.assertEquals(purchasedIdTxt, "Purchase Login ID");
     }
 
-    public void clickBtnPurchasedLoginID(){
+    public void clickBtnPurchasedLoginID() {
         scrollToElement(getPurchaseLoginIDBtn());
         waitForVisibility(By.xpath("//a[text()='Purchase Login ID']"));
-       clickUsingJavaScript(getPurchaseLoginIDBtn());
+        clickUsingJavaScript(getPurchaseLoginIDBtn());
     }
 
 

@@ -39,6 +39,25 @@ public class TestIntroductionPage extends BaseTest {
 
     }
 
+    @Test
+    public void clickProcurementCodesOfEthics(){
+        pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.homePage().clickIntroductionManual();
+        pm.introductionPage().clickProcurementCodesofethics();
+
+    }
+
+    @Test
+    public void clickGeneralProvision() throws InterruptedException {
+        pm.preLoginPage().clickBtnstaffLogin();
+        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
+        pm.staffLoginPage().performPassword("Apss@042024");
+        Thread.sleep(6000);
+        pm.homePage().clickIntroductionManual();
+        pm.introductionPage().clickGeneralProvisions();
+
+    }
 
 
 
