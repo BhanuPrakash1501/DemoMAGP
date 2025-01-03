@@ -552,10 +552,7 @@ public class HomePage extends BaseClass {
         Assert.assertEquals(viewAllTxt, "View All");
     }
 
-    public void clickOnIntroductionModule() {
-        popUpClose(getCrossbtn());
-        clickUsingJavaScript(getIntroduction());
-    }
+
 
     public void clickXbtnLoginPopUp() {
         elementClick(getXBtnLoginPopup());
@@ -620,6 +617,16 @@ public class HomePage extends BaseClass {
     public void clickIntroductionManual() {
         scrollToElement(getIntroduction());
         elementClick(getIntroduction());
+    }
+
+    public void clickProcurementPlanningManual() {
+        scrollToElement(getProcurementPlanning());
+        elementClick(getProcurementPlanning());
+    }
+
+    public void clickRequistionManual() {
+        scrollToElement(getRequisition());
+        elementClick(getRequisition());
     }
 
     public void clickFaq() throws InterruptedException {

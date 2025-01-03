@@ -27,10 +27,17 @@ public class FavouritesPage extends BaseClass {
     private WebElement tendersTab;
 
     @FindBy(xpath = "//div[@class='d-flex px-4 py-2 flex-wrap justify-content-between']//h2")
-    private List<WebElement> favouritesList;
+    private List<WebElement> favouritesManualList;
 
-    public List<WebElement> getFavouritesList() {
-        return favouritesList;
+    @FindBy(xpath = "//div[@class='card-body an-card']//div[@class='d-flex justify-content-between align-items-start']/h2")
+    private List<WebElement> favouritesTenderList;
+
+    public List<WebElement> getFavouritesManualListList() {
+        return favouritesManualList;
+    }
+
+    public List<WebElement> getFavouritesTenderList() {
+        return favouritesTenderList;
     }
 
     public WebElement getManualsTab() {
@@ -48,17 +55,40 @@ public class FavouritesPage extends BaseClass {
 
     public void clickTenderTab() {
         scrollToElement(getTendersTab());
-        elementClick(getTendersTab());
+        clickUsingJavaScript(getTendersTab());
 
     }
 
-    public void favList(){
+    public void favManualList() {
+        int count = getFavouritesManualListList().size();
+        System.out.println(count);
+        if (count > 0) {
 
-        for(int i=1; i<getFavouritesList().size();i++){
-            String txt = getFavouritesList().get(i).getText();
-            System.out.println(txt);
+            for (int i = 1; i < getFavouritesManualListList().size(); i++) {
+                String txt = getFavouritesManualListList().get(i).getText();
+                System.out.println(txt);
+            }
+        } else {
+            System.out.println("No Favourites found for Manuals");
+
         }
+
     }
 
+    public void favTenderList() {
+        int count = getFavouritesTenderList().size();
+        System.out.println(count);
+        if (count > 0) {
+
+            for (int i = 1; i < getFavouritesTenderList().size(); i++) {
+                String txt = getFavouritesTenderList().get(i).getText();
+                System.out.println(txt);
+            }
+        } else {
+            System.out.println("No Favourites found for Tenders");
+
+        }
+
+    }
 }
 

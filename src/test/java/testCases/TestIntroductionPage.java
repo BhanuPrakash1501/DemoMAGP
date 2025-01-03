@@ -59,6 +59,40 @@ public class TestIntroductionPage extends BaseTest {
 
     }
 
+    @Test
+    public void clickTermsAndDefinationManual() throws InterruptedException {
+        pm.preLoginPage().clickBtnstaffLogin();
+        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
+        pm.staffLoginPage().performPassword("Apss@042024");
+        Thread.sleep(6000);
+        pm.homePage().clickIntroductionManual();
+        pm.introductionPage().clickTermsAndDefinations();
+
+    }
+
+    @Test
+    public void clickProcessSymbols() throws InterruptedException {
+        pm.preLoginPage().clickBtnstaffLogin();
+        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
+        pm.staffLoginPage().performPassword("Apss@042024");
+        Thread.sleep(6000);
+        pm.homePage().clickIntroductionManual();
+        pm.introductionPage().clickProcessSymbols();
+
+    }
+
+    @Test
+    public void clickValueChain() throws InterruptedException {
+        pm.preLoginPage().clickBtnstaffLogin();
+        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
+        pm.staffLoginPage().performPassword("Apss@042024");
+        Thread.sleep(6000);
+        pm.homePage().clickIntroductionManual();
+        pm.introductionPage().clickvalueChain();
+
+    }
+
+
 
 
 }

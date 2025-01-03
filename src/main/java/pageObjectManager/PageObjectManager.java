@@ -18,6 +18,8 @@ public class PageObjectManager {
     private SignUpPage signUpPage;
     private StaffLoginPage staffLoginPage;
     private IntroductionPage introductionPage;
+    private ProcurementPlanningPage procurementPlanningPage;
+    private RequistionPage requistionPage;
 //    private PrefacePage prefacePage;
 
 
@@ -66,6 +68,20 @@ public class PageObjectManager {
             introductionPage =  new IntroductionPage(_driver);
         }
         return introductionPage;
+    }
+
+    public ProcurementPlanningPage procurementPlanningPage(){
+        if(procurementPlanningPage == null){
+            procurementPlanningPage =  new ProcurementPlanningPage(_driver);
+        }
+        return procurementPlanningPage;
+    }
+
+    public RequistionPage requistionPage(){
+        if(requistionPage == null){
+            requistionPage =  new RequistionPage(_driver);
+        }
+        return requistionPage;
     }
 
     public StaffLoginPage staffLoginPage(){

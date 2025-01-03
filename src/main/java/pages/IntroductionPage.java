@@ -90,10 +90,10 @@ public class IntroductionPage extends BaseClass {
     @FindBy(xpath = "//h6[text()='Processes Symbols']")
     private WebElement processesSymbolsaTab;
 
-    @FindBy(xpath = "//h2[text()='MAHB's Procurement Value Chain']/following-sibling::a")
+    @FindBy(xpath = "//h2[contains(.,\"MAHB's Procurement Value Chain\")]/following-sibling::a")
     private WebElement procurementValueChainviewMorebtn;
 
-    @FindBy(xpath = "//h6[text()='MAHB's Procurement Value Chain']")
+    @FindBy(xpath = "//h6[text()=\"MAHB's Procurement Value Chain\"]")
     private WebElement procurementValueChainTab;
 
     @FindBy(xpath = "//h5[text()='Want to view more?']")
@@ -236,19 +236,48 @@ public class IntroductionPage extends BaseClass {
         } catch (Exception e) {
 
         }
-        String prefacetabTxt = elementGetText(getProcCodesofEthicsTab());
-        Assert.assertEquals(prefacetabTxt, "Procurement Codes of ethics");
+        String tabTxt = elementGetText(getProcCodesofEthicsTab());
+        Assert.assertEquals(tabTxt, "Procurement Codes of ethics");
 
     }
 
     public void clickGeneralProvisions() {
-
         scrollToElement(getGeneralProvisionviewMorebtn());
         waitForVisibility(By.xpath("//h2[text()='General Provision']/following-sibling::a"));
         clickUsingJavaScript(getGeneralProvisionviewMorebtn());
         scrollToElementAndWait(getGeneralProvisionTab());
-        String prefacetabTxt = elementGetText(getGeneralProvisionTab());
-        Assert.assertEquals(prefacetabTxt, "General Provision");
+        String tabTxt = elementGetText(getGeneralProvisionTab());
+        Assert.assertEquals(tabTxt, "General Provision");
+
+    }
+
+    public void clickTermsAndDefinations() {
+        scrollToElement(getTermsandDefinitionsviewMorebtn());
+        waitForVisibility(By.xpath("//h2[text()='Terms and Definitions']/following-sibling::a"));
+        clickUsingJavaScript(getTermsandDefinitionsviewMorebtn());
+        scrollToElementAndWait(getTermsandDefinitionsTab());
+        String tabTxt = elementGetText(getTermsandDefinitionsTab());
+        Assert.assertEquals(tabTxt, "Terms and Definitions");
+
+    }
+
+    public void clickProcessSymbols() {
+        scrollToElement(getProcessesSymbolsviewMorebtn());
+        waitForVisibility(By.xpath("//h2[text()='Processes Symbols']/following-sibling::a"));
+        clickUsingJavaScript(getProcessesSymbolsviewMorebtn());
+        scrollToElementAndWait(getProcessesSymbolsaTab());
+        String tabTxt = elementGetText(getProcessesSymbolsaTab());
+        Assert.assertEquals(tabTxt, "Processes Symbols");
+
+    }
+
+    public void clickvalueChain() {
+        scrollToElement(getProcurementValueChainviewMorebtn());
+        waitForVisibility(By.xpath("//h2[contains(.,\"MAHB's Procurement Value Chain\")]/following-sibling::a"));
+        clickUsingJavaScript(getProcurementValueChainviewMorebtn());
+        scrollToElementAndWait(getProcurementValueChainTab());
+        String tabTxt = elementGetText(getProcurementValueChainTab());
+        Assert.assertEquals(tabTxt, "MAHB's Procurement Value Chain");
 
     }
 
