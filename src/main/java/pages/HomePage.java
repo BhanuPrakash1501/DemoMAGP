@@ -468,7 +468,7 @@ public class HomePage extends BaseClass {
 
     }
 
-    public void clickFavouritesTab(){
+    public void clickFavouritesTab() {
         elementClick(getFavourites());
     }
 
@@ -553,7 +553,6 @@ public class HomePage extends BaseClass {
     }
 
 
-
     public void clickXbtnLoginPopUp() {
         elementClick(getXBtnLoginPopup());
     }
@@ -629,11 +628,30 @@ public class HomePage extends BaseClass {
         elementClick(getRequisition());
     }
 
+    public void clickSourcingManual() {
+        scrollToElement(getSourcing());
+        elementClick(getSourcing());
+    }
+
+    public void clickContractAdministrationManual() {
+        scrollToElement(getContractAdministration());
+        elementClick(getContractAdministration());
+    }
+
+    public void clickVendorManagentManual() {
+        scrollToElement(getVendorMgnt());
+        elementClick(getVendorMgnt());
+    }
+
+
     public void clickFaq() throws InterruptedException {
         Thread.sleep(3000);
         elementClick(getfAQs());
     }
 
+    public void clickCalendarTab() {
+
+    }
 
 }
 

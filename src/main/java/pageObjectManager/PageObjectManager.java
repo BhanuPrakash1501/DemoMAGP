@@ -20,6 +20,10 @@ public class PageObjectManager {
     private IntroductionPage introductionPage;
     private ProcurementPlanningPage procurementPlanningPage;
     private RequistionPage requistionPage;
+    private SourcingPage sourcingPage;
+    private ContractManagementPage contractManagementPage;
+    private CalendarPage calendarPage;
+    private GalleryPage galleryPage;
 //    private PrefacePage prefacePage;
 
 
@@ -84,6 +88,13 @@ public class PageObjectManager {
         return requistionPage;
     }
 
+    public SourcingPage sourcingPage(){
+        if(sourcingPage == null){
+            sourcingPage =  new SourcingPage(_driver);
+        }
+        return sourcingPage;
+    }
+
     public StaffLoginPage staffLoginPage(){
         if (staffLoginPage == null){
             staffLoginPage= new StaffLoginPage(_driver);
@@ -95,6 +106,20 @@ public class PageObjectManager {
             favouritesPage = new FavouritesPage(_driver);
         }
         return favouritesPage;
+    }
+
+    public CalendarPage calendarPage(){
+        if (calendarPage  == null){
+            calendarPage = new CalendarPage(_driver);
+        }
+        return calendarPage;
+    }
+
+    public GalleryPage galleryPage(){
+        if (galleryPage  == null){
+            galleryPage = new GalleryPage(_driver);
+        }
+        return galleryPage;
     }
 
     public ProfilePage profilePage(){
