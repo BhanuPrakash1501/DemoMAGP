@@ -24,6 +24,7 @@ public class PageObjectManager {
     private ContractManagementPage contractManagementPage;
     private CalendarPage calendarPage;
     private GalleryPage galleryPage;
+    private NotificationsPage notificationsPage;
 //    private PrefacePage prefacePage;
 
 
@@ -120,6 +121,13 @@ public class PageObjectManager {
             galleryPage = new GalleryPage(_driver);
         }
         return galleryPage;
+    }
+
+    public NotificationsPage notificationsPage(){
+        if (notificationsPage  == null){
+            notificationsPage = new NotificationsPage(_driver);
+        }
+        return notificationsPage;
     }
 
     public ProfilePage profilePage(){

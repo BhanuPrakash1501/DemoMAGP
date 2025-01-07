@@ -13,6 +13,8 @@ public class TestProcurementPlanningPage extends BaseTest {
         Thread.sleep(6000);
         pm.homePage().clickProcurementPlanningManual();
         pm.procurementPlanningPage().clickbusinessCase();
+        Thread.sleep(2000);
+        pm.procurementPlanningPage().businessCasePolicies();
 
     }
 

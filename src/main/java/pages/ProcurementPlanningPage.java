@@ -24,6 +24,20 @@ public class ProcurementPlanningPage extends BaseClass {
     @FindBy(xpath = "//h6[text()='Overview']")
     private WebElement Overviewtabname;
 
+    public WebElement getPoliciestabname() {
+        return policiestabname;
+    }
+
+    public WebElement getProcessFlowCharttabname() {
+        return processFlowCharttabname;
+    }
+
+    @FindBy(xpath = "//h6[text()='Policies']")
+    private WebElement policiestabname;
+
+    @FindBy(xpath = "//h6[text()='Process Flow Chart']")
+    private WebElement processFlowCharttabname;
+
     public WebElement getAnnualProcurementPlanningViewMoreBtn() {
         return AnnualProcurementPlanningViewMoreBtn;
     }
@@ -46,7 +60,7 @@ public class ProcurementPlanningPage extends BaseClass {
     @FindBy(xpath = "//h2[text()='1.3 Strategy Paper']/following-sibling::a")
     private WebElement StrategyPaperViewMoreBtn;
 
-    public void clickbusinessCase(){
+    public void clickbusinessCase() {
         scrollToElement(getBusinesscaseViewMoreBtn());
         waitForVisibility(By.xpath("//h2[text()='1.1 Business Case']/following-sibling::a"));
         clickUsingJavaScript(getBusinesscaseViewMoreBtn());
@@ -56,7 +70,14 @@ public class ProcurementPlanningPage extends BaseClass {
 
     }
 
-    public void clickAnnualProcurementplanning(){
+    public void businessCasePolicies() {
+        clickUsingJavaScript(getPoliciestabname());
+        String tabTxt = elementGetText(getPoliciestabname());
+        Assert.assertEquals(tabTxt, "Policies");
+
+    }
+
+    public void clickAnnualProcurementplanning() {
         scrollToElement(getAnnualProcurementPlanningViewMoreBtn());
         waitForVisibility(By.xpath("//h2[text()='1.2 Annual Procurement Planning']/following-sibling::a"));
         clickUsingJavaScript(getAnnualProcurementPlanningViewMoreBtn());
@@ -66,7 +87,7 @@ public class ProcurementPlanningPage extends BaseClass {
 
     }
 
-    public void clickStrategypaper(){
+    public void clickStrategypaper() {
         scrollToElement(getStrategyPaperViewMoreBtn());
         waitForVisibility(By.xpath("//h2[text()='1.3 Strategy Paper']/following-sibling::a"));
         clickUsingJavaScript(getStrategyPaperViewMoreBtn());

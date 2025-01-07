@@ -9,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 public class CalendarPage extends BaseClass {
 
     private WebDriver _driver;
+
+
     public CalendarPage(WebDriver driver) {
         super(driver);
         this._driver = driver;
@@ -16,6 +18,18 @@ public class CalendarPage extends BaseClass {
     }
 
     @FindBy(xpath = "//h2[text()='Calendar']")
-    private WebElement calendartab;
+    private WebElement calendarHeading;
+
+
+    public WebElement getCalendarHeading() {
+        return calendarHeading;
+    }
+
+    public void Calendar(){
+        scrollToElement(getCalendarHeading());
+
+
+    }
+
 
 }

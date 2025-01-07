@@ -32,6 +32,20 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//a[normalize-space()='Calendar']")
     private WebElement calendar;
 
+    @FindBy(xpath = "//a[text()='Gallery']")
+    private WebElement gallery;
+
+    public WebElement getNotifications() {
+        return notifications;
+    }
+
+    public WebElement getGallery() {
+        return gallery;
+    }
+
+    @FindBy(xpath = "//a[@href='/user/notifications']")
+    private WebElement notifications;
+
     @FindBy(xpath = "//a[normalize-space()='FAQ']")
     private WebElement fAQs;
 
@@ -650,6 +664,17 @@ public class HomePage extends BaseClass {
     }
 
     public void clickCalendarTab() {
+        elementClick(getCalendar());
+
+    }
+
+    public void clickGalleryTab() {
+        elementClick(getGallery());
+
+    }
+
+    public void clickNotificationsTab() {
+        elementClick(getNotifications());
 
     }
 
