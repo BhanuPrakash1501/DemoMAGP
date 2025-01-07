@@ -117,7 +117,7 @@ public class PageObjectManager {
     }
 
     public GalleryPage galleryPage(){
-        if (galleryPage  == null){
+        if(galleryPage == null){
             galleryPage = new GalleryPage(_driver);
         }
         return galleryPage;
