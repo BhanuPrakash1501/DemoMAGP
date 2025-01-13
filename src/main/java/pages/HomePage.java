@@ -80,7 +80,7 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//a[@href='/user/introduction?id=get-vendor-management-list&name=Vendor+Management']")
     private WebElement vendorMgnt;
 
-    @FindBy(xpath = "//button[text()='View All']")
+    @FindBy(xpath = "//a[text()='View All']")
     private WebElement viewAll;
 
     @FindBy(xpath = "//h2[normalize-space()='Introduction']")
@@ -561,7 +561,7 @@ public class HomePage extends BaseClass {
 
     public void verifyViewAll() {
         scrollToElement(getViewAll());
-        waitForVisibility(By.xpath("//button[text()='View All']"));
+        waitForVisibility(By.xpath("//a[text()='View All']"));
         String viewAllTxt = getViewAll().getText();
         Assert.assertEquals(viewAllTxt, "View All");
     }
@@ -629,7 +629,7 @@ public class HomePage extends BaseClass {
 
     public void clickIntroductionManual() {
         scrollToElement(getIntroduction());
-        elementClick(getIntroduction());
+        clickUsingJavaScript(getIntroduction());
     }
 
     public void clickProcurementPlanningManual() {
@@ -644,7 +644,7 @@ public class HomePage extends BaseClass {
 
     public void clickSourcingManual() {
         scrollToElement(getSourcing());
-        elementClick(getSourcing());
+        clickUsingJavaScript(getSourcing());
     }
 
     public void clickContractAdministrationManual() {

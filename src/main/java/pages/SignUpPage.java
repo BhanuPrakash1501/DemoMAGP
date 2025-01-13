@@ -97,8 +97,15 @@ public class SignUpPage extends BaseClass {
     @FindBy(xpath = "//div[text()='Password must contain at least one special character.']")
     private WebElement atLeastOneSpecialcharErrorMssgTxt;
 
-    @FindBy(xpath = "//div[text()='This field must be at least 2 characters long']")
+    @FindBy(xpath = "//div[text()='Please enter a valid first name']")
     private WebElement fieldCharLengthErrorMssgTxt;
+
+    @FindBy(xpath = "//div[text()='This field must be at least 2 characters long']")
+    private WebElement fieldErrorMssgTxt;
+
+    public WebElement getFieldErrorMssgTxt() {
+        return fieldErrorMssgTxt;
+    }
 
     @FindBy(xpath = "//div[text()='Please enter a valid 4-6 pincode']")
     private WebElement postCodeErrorMssgTxt;
@@ -371,27 +378,27 @@ public class SignUpPage extends BaseClass {
         scrollInsideSignUpPopup();
         elementSendKeys(getFirstName(), fn);
         String firstNameErrortxt = getFieldCharLengthErrorMssgTxt().getText();
-        Assert.assertEquals(firstNameErrortxt, "This field must be at least 2 characters long");
+        Assert.assertEquals(firstNameErrortxt, "Please enter a valid first name");
 
     }
 
     public void performlastNameValidation(String ln) {
         elementSendKeys(getLastName(), ln);
         String lastNameErrortxt = getFieldCharLengthErrorMssgTxt().getText();
-        Assert.assertEquals(lastNameErrortxt, "This field must be at least 2 characters long");
+        Assert.assertEquals(lastNameErrortxt, "Please enter a valid first name");
 
     }
 
     public void performAptSuiteBldgValidation(String aptsutbldg) {
         elementSendKeys(getAptsuitebldg(), aptsutbldg);
-        String aptSuiteBldgErrortxt = getFieldCharLengthErrorMssgTxt().getText();
+        String aptSuiteBldgErrortxt = getFieldErrorMssgTxt().getText();
         Assert.assertEquals(aptSuiteBldgErrortxt, "This field must be at least 2 characters long");
 
     }
 
     public void performStreetCityAddressValidation(String streetCityAdd) {
         elementSendKeys(getStreetcityadd(), streetCityAdd);
-        String streetCityAddressBldgErrortxt = getFieldCharLengthErrorMssgTxt().getText();
+        String streetCityAddressBldgErrortxt = getFieldErrorMssgTxt().getText();
         Assert.assertEquals(streetCityAddressBldgErrortxt, "This field must be at least 2 characters long");
 
     }

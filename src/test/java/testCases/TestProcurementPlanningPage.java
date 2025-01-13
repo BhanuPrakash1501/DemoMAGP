@@ -8,8 +8,8 @@ public class TestProcurementPlanningPage extends BaseTest {
     @Test
     public void clickBusinessCase() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
-        pm.staffLoginPage().performPassword("Apss@042024");
+        pm.staffLoginPage().performLogin();
+        pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.homePage().clickProcurementPlanningManual();
         pm.procurementPlanningPage().clickbusinessCase();
@@ -21,8 +21,8 @@ public class TestProcurementPlanningPage extends BaseTest {
     @Test
     public void clickAnnualProcurementplanningmanual() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
-        pm.staffLoginPage().performPassword("Apss@042024");
+        pm.staffLoginPage().performLogin();
+        pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.homePage().clickProcurementPlanningManual();
         pm.procurementPlanningPage().clickAnnualProcurementplanning();
@@ -34,8 +34,8 @@ public class TestProcurementPlanningPage extends BaseTest {
     @Test
     public void clickStrategypaperManual() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
-        pm.staffLoginPage().performPassword("Apss@042024");
+        pm.staffLoginPage().performLogin();
+        pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.homePage().clickProcurementPlanningManual();
         pm.procurementPlanningPage().clickStrategypaper();

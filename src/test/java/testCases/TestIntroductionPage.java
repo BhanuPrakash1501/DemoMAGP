@@ -8,7 +8,7 @@ public class TestIntroductionPage extends BaseTest {
     @Test
     public void verifyUI(){
         pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.vendorLoginPage().performLogin();
         pm.homePage().clickIntroductionManual();
         pm.introductionPage().verifyIntroductionTxt();
         pm.introductionPage().verifyPrefaceTxt();
@@ -22,7 +22,7 @@ public class TestIntroductionPage extends BaseTest {
     @Test
     public void clickPurchasedIdButton(){
         pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.vendorLoginPage().performLogin();
         pm.homePage().clickIntroductionManual();
         pm.introductionPage().clickBtnPurchasedLoginID();
         pm.introductionPage().verifyComingSoonTxt();
@@ -33,7 +33,7 @@ public class TestIntroductionPage extends BaseTest {
     @Test
     public void clickPrefaceManual(){
         pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.vendorLoginPage().performLogin();
         pm.homePage().clickIntroductionManual();
         pm.introductionPage().clickPreface();
 
@@ -42,7 +42,7 @@ public class TestIntroductionPage extends BaseTest {
     @Test
     public void clickProcurementCodesOfEthics(){
         pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.vendorLoginPage().performLogin();
         pm.homePage().clickIntroductionManual();
         pm.introductionPage().clickProcurementCodesofethics();
 
@@ -51,8 +51,8 @@ public class TestIntroductionPage extends BaseTest {
     @Test
     public void clickGeneralProvision() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
-        pm.staffLoginPage().performPassword("Apss@042024");
+        pm.staffLoginPage().performLogin();
+        pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.homePage().clickIntroductionManual();
         pm.introductionPage().clickGeneralProvisions();
@@ -62,8 +62,8 @@ public class TestIntroductionPage extends BaseTest {
     @Test
     public void clickTermsAndDefinationManual() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
-        pm.staffLoginPage().performPassword("Apss@042024");
+        pm.staffLoginPage().performLogin();
+        pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.homePage().clickIntroductionManual();
         pm.introductionPage().clickTermsAndDefinations();
@@ -73,8 +73,8 @@ public class TestIntroductionPage extends BaseTest {
     @Test
     public void clickProcessSymbols() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
-        pm.staffLoginPage().performPassword("Apss@042024");
+        pm.staffLoginPage().performLogin();
+        pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.homePage().clickIntroductionManual();
         pm.introductionPage().clickProcessSymbols();
@@ -84,8 +84,8 @@ public class TestIntroductionPage extends BaseTest {
     @Test
     public void clickValueChain() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
-        pm.staffLoginPage().performPassword("Apss@042024");
+        pm.staffLoginPage().performLogin();
+        pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.homePage().clickIntroductionManual();
         pm.introductionPage().clickvalueChain();

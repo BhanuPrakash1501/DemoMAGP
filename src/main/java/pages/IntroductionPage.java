@@ -207,15 +207,6 @@ public class IntroductionPage extends BaseClass {
         waitForVisibility(By.xpath("//h2[text()='Preface']/following-sibling::a"));
         clickUsingJavaScript(getPrefaceViewMorebtn());
         scrollToElementAndWait(getPrefacetabname());
-        String favTxt = elementGetText(getFavBtn());
-        try {
-            if (favTxt.equalsIgnoreCase("Mark as Favourite")) {
-                waitForVisibility(By.xpath("//span[text()='Mark as Favourite']"));
-                elementClick(getFavBtn());
-            }
-        } catch (Exception e) {
-
-        }
         String prefacetabTxt = elementGetText(getPrefacetabname());
         Assert.assertEquals(prefacetabTxt, "Preface");
 
@@ -227,15 +218,6 @@ public class IntroductionPage extends BaseClass {
         waitForVisibility(By.xpath("//h2[text()='Procurement Codes of ethics']/following-sibling::a"));
         clickUsingJavaScript(getProcurementCodesofethicsviewMorebtn());
         scrollToElementAndWait(getProcCodesofEthicsTab());
-        String favTxt = elementGetText(getFavBtn());
-        try {
-            if (favTxt.equalsIgnoreCase("Mark as Favourite")) {
-                waitForVisibility(By.xpath("//span[text()='Mark as Favourite']"));
-                elementClick(getFavBtn());
-            }
-        } catch (Exception e) {
-
-        }
         String tabTxt = elementGetText(getProcCodesofEthicsTab());
         Assert.assertEquals(tabTxt, "Procurement Codes of ethics");
 

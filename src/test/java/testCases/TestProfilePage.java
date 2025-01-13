@@ -12,7 +12,7 @@ public class TestProfilePage extends BaseTest {
     @Test
     public void verifyUI(){
         pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.vendorLoginPage().performLogin();
         pm.profilePage().clickProfileBtn();
         pm.profilePage().verifyUserProfileTxt();
         pm.profilePage().verifyLoginIDTxt();
@@ -31,7 +31,7 @@ public class TestProfilePage extends BaseTest {
     @Test
     public void testProfilePage() {
         pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.vendorLoginPage().performLogin();
 //        pm.vendorLoginPage().xbutton();
         pm.profilePage().clickProfileBtn();
     }
@@ -39,7 +39,7 @@ public class TestProfilePage extends BaseTest {
     @Test
     public void testEditProfileFields() {
         pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.vendorLoginPage().performLogin();
 //        pm.vendorLoginPage().xbutton();
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickEditProfileBtn();
@@ -50,7 +50,7 @@ public class TestProfilePage extends BaseTest {
     @Test
     public void testXbuttonEditProfile() {
         pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.vendorLoginPage().performLogin();
 //        pm.vendorLoginPage().xbutton();
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickEditProfileBtn();
@@ -62,7 +62,7 @@ public class TestProfilePage extends BaseTest {
     @Test
     public void testNoLogoutFunctionality() {
         pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.vendorLoginPage().performLogin();
 //        pm.vendorLoginPage().xbutton();
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickBtnLogout();
@@ -73,7 +73,7 @@ public class TestProfilePage extends BaseTest {
     @Test
     public void testYesLogoutFunctionality() {
         pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.vendorLoginPage().performLogin();
 //        pm.vendorLoginPage().xbutton();
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickBtnLogout();
@@ -85,7 +85,7 @@ public class TestProfilePage extends BaseTest {
     @Test
     public void testPrefaceQuickLink(){
         pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.vendorLoginPage().performLogin();
 //        pm.vendorLoginPage().xbutton();
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickLinkPreface();
@@ -95,7 +95,7 @@ public class TestProfilePage extends BaseTest {
     @Test
     public void testCalendarEventLink(){
         pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.vendorLoginPage().performLogin();
 //        pm.vendorLoginPage().xbutton();
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickLinkCalendarEvents();
@@ -105,7 +105,7 @@ public class TestProfilePage extends BaseTest {
     @Test
     public void testGeneralProvisionLink(){
         pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin("xixoja1991@craftapk.com", "Test@123");
+        pm.vendorLoginPage().performLogin();
 //        pm.vendorLoginPage().xbutton();
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickLinkGeneralProvision();

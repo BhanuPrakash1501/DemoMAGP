@@ -11,6 +11,8 @@ public class VendorLoginPage extends BaseClass {
     private WebDriver _driver;
     private final String actualEmailtext = "Email Address *";
     private final String actualPassWordtext = "Password *";
+    public String username = "nouloffaufouki-2906@yopmail.com";
+    public String password = "Test@321";
 
 
     public VendorLoginPage(WebDriver driver) {
@@ -145,7 +147,7 @@ public class VendorLoginPage extends BaseClass {
         return welcomeNoteParagraphTxt;
     }
 
-    public void performLogin(String username, String password) {
+    public void performLogin() {
         elementSendKeys(getEmailId(), username);
         elementSendKeys(getPswd(), password);
         elementClick(getSubmitbtn());

@@ -8,8 +8,8 @@ public class TestGalleryPage extends BaseTest {
     @Test
     public void clickGallery() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
-        pm.staffLoginPage().performPassword("Apss@042024");
+        pm.staffLoginPage().performLogin();
+        pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.homePage().clickGalleryTab();
         pm.galleryPage().gallery();

@@ -61,10 +61,10 @@ public class FavouritesPage extends BaseClass {
 
     public void favManualList() {
         int count = getFavouritesManualListList().size();
-        System.out.println(count);
+       
         if (count > 0) {
 
-            for (int i = 1; i < getFavouritesManualListList().size(); i++) {
+            for (int i = 0; i < getFavouritesManualListList().size(); i++) {
                 String txt = getFavouritesManualListList().get(i).getText();
                 System.out.println(txt);
             }
@@ -75,20 +75,6 @@ public class FavouritesPage extends BaseClass {
 
     }
 
-    public void favTenderList() {
-        int count = getFavouritesTenderList().size();
-        System.out.println(count);
-        if (count > 0) {
 
-            for (int i = 1; i < getFavouritesTenderList().size(); i++) {
-                String txt = getFavouritesTenderList().get(i).getText();
-                System.out.println(txt);
-            }
-        } else {
-            System.out.println("No Favourites found for Tenders");
-
-        }
-
-    }
 }
 

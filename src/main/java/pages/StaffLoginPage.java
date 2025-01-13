@@ -53,19 +53,20 @@ public class StaffLoginPage extends BaseClass {
         return nobtn;
     }
 
-    public void performLogin(String username) {
-        elementSendKeys(getSignEmail(), username);
+    public void performLogin() {
+        elementSendKeys(getSignEmail(), "uday@malaysiaairports.com.my");
         elementClick(getNextbtn());
 
     }
 
-    public void performPassword(String password) {
+    public void performPassword() {
 
-        elementSendKeys(getPdwbtn(), password);
+        elementSendKeys(getPdwbtn(), "Apss@042024");
         elementClick(getSignInbtn());
         elementClick(getNobtn());
 
     }
+
 
 }
 

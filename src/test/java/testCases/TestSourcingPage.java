@@ -8,8 +8,8 @@ public class TestSourcingPage extends BaseTest {
     @Test
     public void clickTenderManagementmanual() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
-        pm.staffLoginPage().performPassword("Apss@042024");
+        pm.staffLoginPage().performLogin();
+        pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.homePage().clickSourcingManual();
         pm.sourcingPage().clickTenderManagement();
@@ -19,8 +19,8 @@ public class TestSourcingPage extends BaseTest {
     @Test
     public void clickTenderAdministrationmanual() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
-        pm.staffLoginPage().performPassword("Apss@042024");
+        pm.staffLoginPage().performLogin();
+        pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.homePage().clickSourcingManual();
         pm.sourcingPage().clickTenderAdministration();
@@ -30,8 +30,8 @@ public class TestSourcingPage extends BaseTest {
     @Test
     public void clickTenderEvaluationmanual() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
-        pm.staffLoginPage().performPassword("Apss@042024");
+        pm.staffLoginPage().performLogin();
+        pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.homePage().clickSourcingManual();
         pm.sourcingPage().clickTenderEvaluation();
@@ -41,8 +41,8 @@ public class TestSourcingPage extends BaseTest {
     @Test
     public void clickAbortofTendermanual() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
-        pm.staffLoginPage().performPassword("Apss@042024");
+        pm.staffLoginPage().performLogin();
+        pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.homePage().clickSourcingManual();
         pm.sourcingPage().clickAbortofTender();
@@ -52,8 +52,8 @@ public class TestSourcingPage extends BaseTest {
     @Test
     public void clickClarificationNegotiationpriortoAwardmanual() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin("uday@malaysiaairports.com.my");
-        pm.staffLoginPage().performPassword("Apss@042024");
+        pm.staffLoginPage().performLogin();
+        pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.homePage().clickSourcingManual();
         pm.sourcingPage().clickClarificationNegotiationpriortoAward();

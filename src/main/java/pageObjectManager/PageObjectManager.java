@@ -21,7 +21,6 @@ public class PageObjectManager {
     private ProcurementPlanningPage procurementPlanningPage;
     private RequistionPage requistionPage;
     private SourcingPage sourcingPage;
-    private ContractManagementPage contractManagementPage;
     private CalendarPage calendarPage;
     private GalleryPage galleryPage;
     private NotificationsPage notificationsPage;

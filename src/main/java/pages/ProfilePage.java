@@ -248,7 +248,7 @@ public class ProfilePage extends BaseClass {
         getStreetcityadd().sendKeys(randomString(5));
         elementClear(getPostcode());
         getPostcode().sendKeys(randomNumber(6));
-        elementClick(savebtn);
+        clickUsingJavaScript(getSavebtn());
 
 
     }
