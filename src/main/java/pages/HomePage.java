@@ -80,7 +80,7 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//a[@href='/user/introduction?id=get-vendor-management-list&name=Vendor+Management']")
     private WebElement vendorMgnt;
 
-    @FindBy(xpath = "//a[text()='View All']")
+    @FindBy(xpath = "//button[text()='View All']")
     private WebElement viewAll;
 
     @FindBy(xpath = "//h2[normalize-space()='Introduction']")
@@ -559,9 +559,10 @@ public class HomePage extends BaseClass {
         Assert.assertEquals(last7DaysTxt, "Last 7 days");
     }
 
-    public void verifyViewAll() {
+    public void verifyViewAll() throws InterruptedException {
+        Thread.sleep(3000);
         scrollToElement(getViewAll());
-        waitForVisibility(By.xpath("//a[text()='View All']"));
+        waitForVisibility(By.xpath("//button[text()='View All']"));
         String viewAllTxt = getViewAll().getText();
         Assert.assertEquals(viewAllTxt, "View All");
     }
@@ -602,7 +603,7 @@ public class HomePage extends BaseClass {
     public void clickOnProcureHereLoginLink() throws InterruptedException {
         scrollPageToDown();
         waitForVisibility(By.xpath("//h2[normalize-space()='Procurehere login']"));
-        elementClick((getProcurehereLoginLink()));
+        clickUsingJavaScript((getProcurehereLoginLink()));
 
         String pWindow = getWindowHandle();
         Set<String> handles = getWindowHandles();
@@ -627,7 +628,8 @@ public class HomePage extends BaseClass {
         elementClick(getVendorManagementLink());
     }
 
-    public void clickIntroductionManual() {
+    public void clickIntroductionManual() throws InterruptedException {
+        Thread.sleep(3000);
         scrollToElement(getIntroduction());
         clickUsingJavaScript(getIntroduction());
     }
@@ -649,7 +651,7 @@ public class HomePage extends BaseClass {
 
     public void clickContractAdministrationManual() {
         scrollToElement(getContractAdministration());
-        elementClick(getContractAdministration());
+        clickUsingJavaScript(getContractAdministration());
     }
 
     public void clickVendorManagentManual() {

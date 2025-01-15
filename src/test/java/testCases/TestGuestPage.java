@@ -42,7 +42,7 @@ public class TestGuestPage extends BaseTest {
     }
 
     @Test
-    public void clickOnViewAllBtn() {
+    public void clickOnViewAllBtn() throws InterruptedException {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
         pm.homePage().verifyViewAll();
@@ -79,7 +79,7 @@ public class TestGuestPage extends BaseTest {
     }
 
     @Test
-    public void clickOnIntroductionModule() {
+    public void clickOnIntroductionModule() throws InterruptedException {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
 //        pm.homePage().xbutton();

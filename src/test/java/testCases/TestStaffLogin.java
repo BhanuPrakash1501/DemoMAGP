@@ -13,7 +13,7 @@ public class TestStaffLogin extends BaseTest {
     }
 
     @Test
-    public void clickPrefaceManual(){
+    public void clickPrefaceManual() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
         pm.staffLoginPage().performPassword();
@@ -23,7 +23,7 @@ public class TestStaffLogin extends BaseTest {
     }
 
     @Test
-    public void clickProcurementCodesOfEthics(){
+    public void clickProcurementCodesOfEthics() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
         pm.staffLoginPage().performPassword();
@@ -412,15 +412,7 @@ public class TestStaffLogin extends BaseTest {
         pm.faqPage().profile();
     }
 
-    @Test
-    public void verifyUI() throws InterruptedException {
-        pm.preLoginPage().clickBtnguestLogin();
-        pm.homePage().clickXbtnLoginPopUp();
-        pm.homePage().clickfaqtab();
-        pm.faqPage().listOfFaqs();
 
-
-    }
 
     @Test
     public void clickNotifications() throws InterruptedException {
@@ -463,25 +455,16 @@ public class TestStaffLogin extends BaseTest {
         Thread.sleep(6000);
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickEditProfileBtn();
+        pm.profilePage().clickXbuttonEditProfile();
+        pm.profilePage().clickEditProfileBtn();
         pm.profilePage().enterValuesStaffEditProfile();
 
     }
 
-    @Test
-    public void testXbuttonEditProfile() throws InterruptedException {
-        pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin();
-        pm.staffLoginPage().performPassword();
-        Thread.sleep(6000);
-        pm.profilePage().clickProfileBtn();
-        pm.profilePage().clickEditProfileBtn();
-        pm.profilePage().clickXbuttonEditProfile();
 
-
-    }
 
     @Test
-    public void testNoLogoutFunctionality() throws InterruptedException {
+    public void testLogoutFunctionality() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
         pm.staffLoginPage().performPassword();
@@ -489,54 +472,32 @@ public class TestStaffLogin extends BaseTest {
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickBtnLogout();
         pm.profilePage().clickBtnNoKeepLogout();
-
-    }
-
-    @Test
-    public void testYesLogoutFunctionality() throws InterruptedException {
-        pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin();
-        pm.staffLoginPage().performPassword();
-        Thread.sleep(6000);
-        pm.profilePage().clickProfileBtn();
+        Thread.sleep(3000);
         pm.profilePage().clickBtnLogout();
         pm.profilePage().clickBtnYesLogout();
         pm.vendorLoginPage().verifyLoginHeaderTxt();
 
     }
 
+
     @Test
-    public void testPrefaceQuickLink() throws InterruptedException {
+    public void testQuickLinks() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
         pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickLinkPreface();
-
-    }
-
-    @Test
-    public void testCalendarEventLink() throws InterruptedException {
-        pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin();
-        pm.staffLoginPage().performPassword();
-        Thread.sleep(6000);
-        pm.profilePage().clickProfileBtn();
+        Thread.sleep(3000);
+        driver.navigate().back();
         pm.profilePage().clickLinkCalendarEvents();
-
-    }
-
-    @Test
-    public void testGeneralProvisionLink() throws InterruptedException {
-        pm.preLoginPage().clickBtnstaffLogin();
-        pm.staffLoginPage().performLogin();
-        pm.staffLoginPage().performPassword();
-        Thread.sleep(6000);
-        pm.profilePage().clickProfileBtn();
+        Thread.sleep(3000);
+        driver.navigate().back();
         pm.profilePage().clickLinkGeneralProvision();
 
     }
+
+
 
 
 }

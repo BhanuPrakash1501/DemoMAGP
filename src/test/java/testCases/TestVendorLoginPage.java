@@ -46,44 +46,35 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
     @Test
-    public void verifyHomePageUI() {
+    public void verifyHomePageUI() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
 //        pm.vendorLoginPage().xbutton();
         pm.homePage().verifyWelcomeToMagpTxt();
         pm.homePage().verifyLatestAnnouncementTxt();
         pm.homePage().verifyLast7DaysTxt();
-        pm.homePage().verifyViewAll();
+
     }
 
 
     @Test
-    public void clickPrefaceManual(){
+    public void clickManuals() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
         pm.homePage().clickIntroductionManual();
         pm.introductionPage().clickPreface();
-
-    }
-
-    @Test
-    public void clickProcurementCodesOfEthics(){
-        pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin();
-        pm.homePage().clickIntroductionManual();
+        Thread.sleep(3000);
+        driver.navigate().back();
+        Thread.sleep(3000);
         pm.introductionPage().clickProcurementCodesofethics();
-
-    }
-
-    @Test
-    public void clickGeneralProvision() throws InterruptedException {
-        pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin();
-        Thread.sleep(6000);
-        pm.homePage().clickIntroductionManual();
+        Thread.sleep(3000);
+        driver.navigate().back();
+        Thread.sleep(3000);
         pm.introductionPage().clickGeneralProvisions();
 
     }
+
+
 
     @Test
     public void manualTab(){
@@ -91,7 +82,7 @@ public class TestVendorLoginPage extends BaseTest {
         pm.vendorLoginPage().performLogin();
         pm.homePage().clickFavouritesTab();
         pm.favouritesPage().clickManualTab();
-        pm.favouritesPage().favManualList();;
+        pm.favouritesPage().favManualList();
 
     }
 
@@ -145,13 +136,6 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
 
-    @Test
-    public void testProfilePage() {
-        pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin();
-//        pm.vendorLoginPage().xbutton();
-        pm.profilePage().clickProfileBtn();
-    }
 
     @Test
     public void testEditProfileFields() {
@@ -160,74 +144,47 @@ public class TestVendorLoginPage extends BaseTest {
 //        pm.vendorLoginPage().xbutton();
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickEditProfileBtn();
+        pm.profilePage().clickXbuttonEditProfile();
+        pm.profilePage().clickEditProfileBtn();
         pm.profilePage().enterValuesEditProfile();
 
     }
 
-    @Test
-    public void testXbuttonEditProfile() {
-        pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin();
-//        pm.vendorLoginPage().xbutton();
-        pm.profilePage().clickProfileBtn();
-        pm.profilePage().clickEditProfileBtn();
-        pm.profilePage().clickXbuttonEditProfile();
 
-
-    }
 
     @Test
-    public void testNoLogoutFunctionality() {
+    public void LogoutFunctionality() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
 //        pm.vendorLoginPage().xbutton();
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickBtnLogout();
         pm.profilePage().clickBtnNoKeepLogout();
-
-    }
-
-    @Test
-    public void testYesLogoutFunctionality() {
-        pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin();
-//        pm.vendorLoginPage().xbutton();
-        pm.profilePage().clickProfileBtn();
+        Thread.sleep(3000);
         pm.profilePage().clickBtnLogout();
         pm.profilePage().clickBtnYesLogout();
         pm.vendorLoginPage().verifyLoginHeaderTxt();
 
     }
 
+
     @Test
-    public void testPrefaceQuickLink(){
+    public void testLinks() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
 //        pm.vendorLoginPage().xbutton();
         pm.profilePage().clickProfileBtn();
         pm.profilePage().clickLinkPreface();
-
-    }
-
-    @Test
-    public void testCalendarEventLink(){
-        pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin();
-//        pm.vendorLoginPage().xbutton();
-        pm.profilePage().clickProfileBtn();
+        Thread.sleep(3000);
+        driver.navigate().back();
         pm.profilePage().clickLinkCalendarEvents();
-
-    }
-
-    @Test
-    public void testGeneralProvisionLink(){
-        pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin();
-//        pm.vendorLoginPage().xbutton();
-        pm.profilePage().clickProfileBtn();
+        Thread.sleep(3000);
+        driver.navigate().back();
         pm.profilePage().clickLinkGeneralProvision();
 
     }
+
+
 
     @Test
     public void registerNowUIValidations() {

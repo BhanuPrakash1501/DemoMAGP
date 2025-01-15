@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class TestIntroductionPage extends BaseTest {
 
     @Test
-    public void verifyUI(){
+    public void verifyUI() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
         pm.homePage().clickIntroductionManual();
@@ -20,7 +20,7 @@ public class TestIntroductionPage extends BaseTest {
 
     }
     @Test
-    public void clickPurchasedIdButton(){
+    public void clickPurchasedIdButton() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
         pm.homePage().clickIntroductionManual();
@@ -31,7 +31,7 @@ public class TestIntroductionPage extends BaseTest {
     }
 
     @Test
-    public void clickPrefaceManual(){
+    public void clickPrefaceManual() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
         pm.homePage().clickIntroductionManual();
@@ -40,7 +40,7 @@ public class TestIntroductionPage extends BaseTest {
     }
 
     @Test
-    public void clickProcurementCodesOfEthics(){
+    public void clickProcurementCodesOfEthics() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
         pm.homePage().clickIntroductionManual();

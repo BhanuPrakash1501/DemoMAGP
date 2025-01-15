@@ -48,6 +48,7 @@ public class GalleryPage extends BaseClass {
             Assert.assertEquals(txt, "Airport Alor Star");
         } else {
             Assert.fail();
+
         }
     }
 }
