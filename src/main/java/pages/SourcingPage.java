@@ -54,6 +54,13 @@ public class SourcingPage extends BaseClass {
     @FindBy(xpath = "//h6[text()='Process Flow Chart Clarification Prior to Award']")
     private WebElement processFlowChartabCPA;
 
+    @FindBy(xpath = "//span[text()='Sourcing']")
+    private WebElement SourcingTabLink;
+
+    public WebElement getSourcingTabLink() {
+        return SourcingTabLink;
+    }
+
     public WebElement getTenderManagementViewMoreBtn() {
         return TenderManagementViewMoreBtn;
     }
@@ -217,5 +224,9 @@ public class SourcingPage extends BaseClass {
         clickUsingJavaScript(getProcessFlowChartabCPA());
         String tabTxt = elementGetText(getProcessFlowChartabCPA());
         Assert.assertEquals(tabTxt, "Process Flow Chart Clarification Prior to Award");
+    }
+
+    public void clickSourcingTabLink(){
+        clickUsingJavaScript(getSourcingTabLink());
     }
 }

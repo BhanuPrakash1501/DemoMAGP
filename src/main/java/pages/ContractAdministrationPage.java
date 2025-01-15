@@ -38,6 +38,13 @@ public class ContractAdministrationPage extends BaseClass {
     @FindBy(xpath = "//h2[text()='4.4 Contract Closeout']/following-sibling::a")
     private WebElement contractCloseoutViewMoreBtn;
 
+    @FindBy(xpath = "//span[text()='Contract Administration']")
+    private WebElement contractAdministrationTabLink;
+
+    public WebElement getContractAdministrationTabLink() {
+        return contractAdministrationTabLink;
+    }
+
     public WebElement getContractManagementImplemetationViewMoreBtn() {
         return ContractManagementImplemetationViewMoreBtn;
     }
@@ -112,6 +119,10 @@ public class ContractAdministrationPage extends BaseClass {
         scrollToElementAndWait(getOverviewtabname());
         String tabTxt = elementGetText(getOverviewtabname());
         Assert.assertEquals(tabTxt, "Overview");
+    }
+
+    public void clickcontractAdministrationTabLink(){
+        clickUsingJavaScript(getContractAdministrationTabLink());
     }
 }
 

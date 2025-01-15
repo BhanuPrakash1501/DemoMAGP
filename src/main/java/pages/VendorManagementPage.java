@@ -47,6 +47,13 @@ public class VendorManagementPage extends BaseClass {
     @FindBy(xpath = "//h6[text()='Process Flow Chart (Schedule)']")
     private WebElement processFlowCharttabSched;
 
+    public WebElement getVendorManagementTabLink() {
+        return vendorManagementTabLink;
+    }
+
+    @FindBy(xpath = "//span[text()='Vendor Management']")
+    private WebElement vendorManagementTabLink;
+
     public WebElement getProcessFlowCharttabSched() {
         return processFlowCharttabSched;
     }
@@ -148,5 +155,9 @@ public class VendorManagementPage extends BaseClass {
         clickUsingJavaScript(getProcessFlowCharttabSched());
         String tabTxt = elementGetText(getProcessFlowCharttabSched());
         Assert.assertEquals(tabTxt, "Process Flow Chart (Schedule)");
+    }
+
+    public void clickVendorManagementTabLink(){
+        clickUsingJavaScript(getVendorManagementTabLink());
     }
 }

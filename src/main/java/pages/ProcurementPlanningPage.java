@@ -27,6 +27,13 @@ public class ProcurementPlanningPage extends BaseClass {
     @FindBy(xpath = "//h6[text()='Policies']")
     private WebElement Policiestabname;
 
+    public WebElement getProcurementPlanningTabLink() {
+        return procurementPlanningTabLink;
+    }
+
+    @FindBy(xpath = "//span[text()='Procurement Planning']")
+    private WebElement procurementPlanningTabLink;
+
     @FindBy(xpath = "//h6[text()='Process Flow Chart']")
     private WebElement processFlowCharttabname;
 
@@ -141,5 +148,9 @@ public class ProcurementPlanningPage extends BaseClass {
         clickUsingJavaScript(getProcessFlowChartOTtabname());
         String tabTxt = elementGetText(getProcessFlowChartOTtabname());
         Assert.assertEquals(tabTxt, "Process Flow Chart (Open Tender / Invitation To Bid)");
+    }
+
+    public void clickProcurementPlanningTabLink(){
+        clickUsingJavaScript(getProcurementPlanningTabLink());
     }
 }

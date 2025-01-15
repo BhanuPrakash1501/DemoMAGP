@@ -30,6 +30,13 @@ public class RequistionPage extends BaseClass {
     @FindBy(xpath = "//h6[text()='Process Flow Chart']")
     private WebElement processFlowChartabname;
 
+    @FindBy(xpath = "//span[text()='Requisition']")
+    private WebElement requisitionTabLink;
+
+    public WebElement getRequisitionTabLink() {
+        return requisitionTabLink;
+    }
+
     public WebElement getPurchaseRequistionViewMoreBtn() {
         return purchaseRequistionViewMoreBtn;
     }
@@ -95,7 +102,9 @@ public class RequistionPage extends BaseClass {
         Assert.assertEquals(tabTxt, "Process Flow Chart");
 
     }
-
+    public void clickRequisitionTabLink(){
+        clickUsingJavaScript(getRequisitionTabLink());
+    }
 
 }
 
