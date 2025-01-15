@@ -20,10 +20,12 @@ public class PageObjectManager {
     private IntroductionPage introductionPage;
     private ProcurementPlanningPage procurementPlanningPage;
     private RequistionPage requistionPage;
+    private ContractAdministrationPage contractAdministrationPage;
     private SourcingPage sourcingPage;
     private CalendarPage calendarPage;
     private GalleryPage galleryPage;
     private NotificationsPage notificationsPage;
+    private VendorManagementPage vendorManagementPage;
 //    private PrefacePage prefacePage;
 
 
@@ -88,11 +90,25 @@ public class PageObjectManager {
         return requistionPage;
     }
 
+    public ContractAdministrationPage contractAdministrationPage(){
+        if(contractAdministrationPage == null){
+            contractAdministrationPage = new ContractAdministrationPage(_driver);
+        }
+        return contractAdministrationPage;
+    }
+
     public SourcingPage sourcingPage(){
         if(sourcingPage == null){
             sourcingPage =  new SourcingPage(_driver);
         }
         return sourcingPage;
+    }
+
+    public VendorManagementPage vendorManagementPage(){
+        if(vendorManagementPage == null){
+            vendorManagementPage =  new VendorManagementPage(_driver);
+        }
+        return vendorManagementPage;
     }
 
     public StaffLoginPage staffLoginPage(){

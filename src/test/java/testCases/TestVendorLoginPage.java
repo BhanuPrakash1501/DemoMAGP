@@ -56,13 +56,7 @@ public class TestVendorLoginPage extends BaseTest {
         pm.homePage().verifyViewAll();
     }
 
-    @Test
-    public void testGoogleLoginFunctionality() {
-        pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().clickbtnGoogle();
 
-
-    }
     @Test
     public void clickPrefaceManual(){
         pm.preLoginPage().clickBtnvendorLogin();

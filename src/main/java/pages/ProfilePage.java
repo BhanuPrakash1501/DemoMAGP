@@ -190,42 +190,42 @@ public class ProfilePage extends BaseClass {
         elementClick(getBtnProfileIcon());
     }
 
-    public void verifyUserProfileTxt(){
+    public void verifyUserProfileTxt() {
         String ustxt = elementGetText(getUserProfileTxt());
         Assert.assertEquals(ustxt, "User Profile");
     }
 
-    public void verifyLoginIDTxt(){
+    public void verifyLoginIDTxt() {
         String lgIDtxt = elementGetText(getLoginIdTxt());
         Assert.assertEquals(lgIDtxt, "Login ID");
     }
 
-    public void verifyNeedtoPurchaseTxt(){
+    public void verifyNeedtoPurchaseTxt() {
         String needToPurchasetxt = elementGetText(getNeedToPurchaseTxt());
         Assert.assertEquals(needToPurchasetxt, "Need to Purchase");
     }
 
-    public void verifyLogoutTxt(){
+    public void verifyLogoutTxt() {
         String logouttxt = elementGetText(getLogoutbtn());
         Assert.assertEquals(logouttxt, "Logout");
     }
 
-    public void verifyNoKeepLoginTxt(){
+    public void verifyNoKeepLoginTxt() {
         String nokeepLogintxt = elementGetText(getNokeepLoginbtn());
         Assert.assertEquals(nokeepLogintxt, "No, Keep Login");
     }
 
-    public void verifyYesLogoutTxt(){
+    public void verifyYesLogoutTxt() {
         String yeslogouttxt = elementGetText(getYesLogoutbtn());
         Assert.assertEquals(yeslogouttxt, "Yes, Logout");
     }
 
-    public void verifyAreYouSureWantToLogoutTxt(){
+    public void verifyAreYouSureWantToLogoutTxt() {
         String areYouSureWantToLogouttxt = elementGetText(getAreYouSureWantToLogouttxt());
         Assert.assertEquals(areYouSureWantToLogouttxt, "Are you sure you want to Logout?");
     }
 
-    public void verifySaveTxt(){
+    public void verifySaveTxt() {
         String savetxt = elementGetText(getSavebtn());
         Assert.assertEquals(savetxt, "Save");
     }
@@ -251,6 +251,18 @@ public class ProfilePage extends BaseClass {
         clickUsingJavaScript(getSavebtn());
 
 
+    }
+
+    public void enterValuesStaffEditProfile() {
+        elementClear(getMobileNo());
+        getMobileNo().sendKeys(randomNumber(9));
+        elementClear(getAptsuitebldg());
+        getAptsuitebldg().sendKeys(randomString(5));
+        elementClear(getStreetcityadd());
+        getStreetcityadd().sendKeys(randomString(5));
+        elementClear(getPostcode());
+        getPostcode().sendKeys(randomNumber(6));
+        clickUsingJavaScript(getSavebtn());
     }
 
     public void clickXbuttonEditProfile() {

@@ -3,18 +3,78 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/Mind-Graph/IdeaProjects/DemoMAGP">
         <classes>
+            <class name="testCases.TestCalendarPage">
+                <methods>
+                    <include name="ClickOnCalendar"/>
+                </methods>
+            </class>
+            <class name="testCases.TestFavouritesPage">
+                <methods>
+                    <include name="manualTab"/>
+                    <include name="tenderTab"/>
+                </methods>
+            </class>
             <class name="testCases.TestForgetPasswordPage">
                 <methods>
+                    <include name="verifyUI"/>
                     <include name="verifyInvalidEmail"/>
+                    <include name="verifyValidEmail"/>
+                </methods>
+            </class>
+            <class name="testCases.TestGalleryPage">
+                <methods>
+                    <include name="clickGallery"/>
+                </methods>
+            </class>
+            <class name="testCases.TestGuestPage">
+                <methods>
+                    <include name="clickGuestLoginBtn"/>
+                    <include name="verifyLoginPopUPUI"/>
+                    <include name="clickLoginButtonInPopUp"/>
+                    <include name="clickprofileIcon"/>
+                    <include name="verifyLatestAnnouncements"/>
+                    <include name="clickOnViewAllBtn"/>
+                    <include name="clickContactdirectoryLink"/>
+                    <include name="clickProcureHereLink"/>
+                    <include name="clickVMSLink"/>
+                    <include name="clickOnIntroductionModule"/>
+                </methods>
+            </class>
+            <class name="testCases.TestIntroductionPage">
+                <methods>
+                    <include name="verifyUI"/>
+                    <include name="clickPurchasedIdButton"/>
+                    <include name="clickPrefaceManual"/>
+                    <include name="clickProcurementCodesOfEthics"/>
+                    <include name="clickGeneralProvision"/>
+                    <include name="clickTermsAndDefinationManual"/>
+                    <include name="clickProcessSymbols"/>
+                    <include name="clickValueChain"/>
+                </methods>
+            </class>
+            <class name="testCases.TestNotificationPage">
+                <methods>
+                    <include name="clickNotifications"/>
                 </methods>
             </class>
             <class name="testCases.TestPreLoginPage">
                 <methods>
-                    <include name="testProLoginPageUI"/>
+                    <include name="verifyUI"/>
+                    <include name="clickStaffLoginBtn"/>
+                    <include name="clickVendorLoginBtn"/>
+                    <include name="clickGuestLoginBtn"/>
+                </methods>
+            </class>
+            <class name="testCases.TestProcurementPlanningPage">
+                <methods>
+                    <include name="clickBusinessCase"/>
+                    <include name="clickAnnualProcurementplanningmanual"/>
+                    <include name="clickStrategypaperManual"/>
                 </methods>
             </class>
             <class name="testCases.TestProfilePage">
                 <methods>
+                    <include name="verifyUI"/>
                     <include name="testProfilePage"/>
                     <include name="testEditProfileFields"/>
                     <include name="testXbuttonEditProfile"/>
@@ -25,11 +85,52 @@
                     <include name="testGeneralProvisionLink"/>
                 </methods>
             </class>
+            <class name="testCases.TestRequistionPage">
+                <methods>
+                    <include name="clickPurchaseRequistionmanual"/>
+                    <include name="clickProcessOfPurchaseRequistionmanual"/>
+                </methods>
+            </class>
             <class name="testCases.TestSignUpPage">
                 <methods>
                     <include name="registerNowUIValidations"/>
                     <include name="signUpFieldValidations"/>
                     <include name="enterValuesForSignUP"/>
+                </methods>
+            </class>
+            <class name="testCases.TestSourcingPage">
+                <methods>
+                    <include name="clickTenderManagementmanual"/>
+                    <include name="clickTenderAdministrationmanual"/>
+                    <include name="clickTenderEvaluationmanual"/>
+                    <include name="clickAbortofTendermanual"/>
+                    <include name="clickClarificationNegotiationpriortoAwardmanual"/>
+                </methods>
+            </class>
+            <class name="testCases.TestStaffLogin">
+                <methods>
+                    <include name="TestStaffLoginWithValidCredentials"/>
+                    <include name="ClickOnCalendar"/>
+                    <include name="manualTab"/>
+                    <include name="tenderTab"/>
+                    <include name="clickGallery"/>
+                    <include name="clickPrefaceManual"/>
+                    <include name="clickProcurementCodesOfEthics"/>
+                    <include name="clickGeneralProvision"/>
+                    <include name="clickTermsAndDefinationManual"/>
+                    <include name="clickProcessSymbols"/>
+                    <include name="clickValueChain"/>
+                    <include name="clickBusinessCase"/>
+                    <include name="clickAnnualProcurementplanningmanual"/>
+                    <include name="clickStrategypaperManual"/>
+                    <include name="clickPurchaseRequistionmanual"/>
+                    <include name="clickProcessOfPurchaseRequistionmanual"/>
+                    <include name="clickTenderManagementmanual"/>
+                    <include name="clickTenderAdministrationmanual"/>
+                    <include name="clickTenderEvaluationmanual"/>
+                    <include name="clickAbortofTendermanual"/>
+                    <include name="clickClarificationNegotiationpriortoAwardmanual"/>
+                    <include name="clickNotifications"/>
                 </methods>
             </class>
             <class name="testCases.TestVendorLoginPage">
@@ -39,6 +140,25 @@
                     <include name="testVendorWithInValidCredentials"/>
                     <include name="verifyHomePageUI"/>
                     <include name="testGoogleLoginFunctionality"/>
+                    <include name="clickPrefaceManual"/>
+                    <include name="clickProcurementCodesOfEthics"/>
+                    <include name="clickGeneralProvision"/>
+                    <include name="manualTab"/>
+                    <include name="tenderTab"/>
+                    <include name="clickGallery"/>
+                    <include name="clickNotifications"/>
+                    <include name="verifyUI"/>
+                    <include name="testProfilePage"/>
+                    <include name="testEditProfileFields"/>
+                    <include name="testXbuttonEditProfile"/>
+                    <include name="testNoLogoutFunctionality"/>
+                    <include name="testYesLogoutFunctionality"/>
+                    <include name="testPrefaceQuickLink"/>
+                    <include name="testCalendarEventLink"/>
+                    <include name="testGeneralProvisionLink"/>
+                    <include name="registerNowUIValidations"/>
+                    <include name="signUpFieldValidations"/>
+                    <include name="enterValuesForSignUP"/>
                 </methods>
             </class>
         </classes>
