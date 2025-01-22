@@ -85,6 +85,34 @@ public class TestGuestPage extends BaseTest {
 //        pm.homePage().xbutton();
         pm.homePage().clickIntroductionManual();
         pm.introductionPage().verifyIntroductionTxt();
+        pm.introductionPage().verifyPrefaceDesctxt();
+        pm.introductionPage().verifyWantToViewMoretxt();
+        pm.introductionPage().verifyIfWantToViewMoretxt();
+        pm.introductionPage().verifyLoginBtntxt();
+
+    }
+
+    @Test
+    public void clickLoginBtn() throws InterruptedException {
+        pm.preLoginPage().clickBtnguestLogin();
+        pm.homePage().clickXbtnLoginPopUp();
+//        pm.homePage().xbutton();
+        pm.homePage().clickIntroductionManual();
+        pm.introductionPage().verifyWantToViewMoretxt();
+        pm.introductionPage().verifyIfWantToViewMoretxt();
+        pm.introductionPage().verifyLoginBtntxt();
+        pm.introductionPage().clickloginBtn();
+
+    }
+
+    @Test
+    public void verifytabs(){
+        pm.preLoginPage().clickBtnguestLogin();
+        pm.homePage().clickXbtnLoginPopUp();
+        pm.homePage().verifyHometab();
+        pm.homePage().verifyFAQtab();
+        pm.homePage().verifyENGtab();
+
 
     }
 

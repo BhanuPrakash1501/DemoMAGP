@@ -6,8 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 
@@ -15,6 +18,7 @@ import java.util.Set;
 public class HomePage extends BaseClass {
 
     private WebDriver _driver;
+    public  WebDriverWait wait = new WebDriverWait(_driver, Duration.ofSeconds(10));
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -49,6 +53,7 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//a[normalize-space()='FAQ']")
     private WebElement fAQs;
 
+
     @FindBy(xpath = "//input[@placeholder='Tender Name']")
     private WebElement searchbar;
 
@@ -61,6 +66,13 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//a[@role='button']//img[@src=\"/MAGP/home/p1.png\"]")
     private WebElement profile;
     // a[@href="/user/introduction?id=get-introduction-list&name=Introduction"]
+
+    public WebElement getProfileIcon() {
+        return profileIcon;
+    }
+
+    @FindBy(xpath = "//button[@role='button']//img[@src='/MAGP/home/p1.png']")
+    private WebElement profileIcon;
 
     @FindBy(xpath = "//a[contains(@href,'/user/introduction?id=get-introduction-list&name=Introduction')]")
     private WebElement introduction;
@@ -684,6 +696,29 @@ public class HomePage extends BaseClass {
         elementClick(getfAQs());
 
 
+    }
+
+    public void verifyHometab(){
+        waitForVisibility(By.xpath("//a[text()='Home']"));
+        String hometxt = elementGetText(getHome());
+        Assert.assertEquals(hometxt,"Home");
+    }
+
+    public void verifyFAQtab(){
+        waitForVisibility(By.xpath("//a[text()='FAQ']"));
+        String Faqtxt = elementGetText(getfAQs());
+        Assert.assertEquals(Faqtxt,"FAQ");
+    }
+
+    public void verifyENGtab(){
+        waitForVisibility(By.xpath("//a[text()='ENG']"));
+        String engtxt = elementGetText(getEng());
+        Assert.assertEquals(engtxt,"ENG");
+    }
+
+    public void verifyprofiletab(){
+       wait.until(ExpectedConditions.visibilityOf(getProfileIcon()));
+        Assert.assertTrue(getProfile().isDisplayed());
     }
 
 }

@@ -27,6 +27,27 @@ public class IntroductionPage extends BaseClass {
     @FindBy(xpath = "//h3[@class='banner-title mb-5']")
     private WebElement introbannertxt;
 
+    @FindBy(xpath = "//button[text()='Login']")
+    private WebElement loginBtntxt;
+
+    @FindBy(xpath = "(//p[text()='If you want to view more content please login'])[1]")
+    private WebElement wantToViewMoreLogintxt;
+
+    public WebElement getPrefaceDesctxt() {
+        return prefaceDesctxt;
+    }
+
+    @FindBy(xpath = "//p[contains(.,'3rd Edition,')]")
+    private WebElement prefaceDesctxt;
+
+    public WebElement getWantToViewMoreLogintxt() {
+        return wantToViewMoreLogintxt;
+    }
+
+    public WebElement getLoginBtntxt() {
+        return loginBtntxt;
+    }
+
     @FindBy(xpath = "//h2[text()='Preface']")
     private WebElement prefacetxt;
 
@@ -328,6 +349,7 @@ public class IntroductionPage extends BaseClass {
     }
 
     public void verifyWantToViewMoretxt() {
+        waitForVisibility(By.xpath("(//h5[text()='Want to view more?'])[1]"));
         scrollToElement(getWantToViewMoreTxt());
         String wantToViewMoreIntrotxt = elementGetText(getWantToViewMoreTxt());
         Assert.assertEquals(wantToViewMoreIntrotxt, "Want to view more?");
@@ -337,6 +359,13 @@ public class IntroductionPage extends BaseClass {
         scrollToElement(getWantToViewMoreContentTxt());
         String wantToViewMoreDescIntrotxt = elementGetText(getWantToViewMoreContentTxt());
         Assert.assertEquals(wantToViewMoreDescIntrotxt, "If you want to view more content please Purchase Login ID");
+    }
+
+    public void verifyIfWantToViewMoretxt() {
+        waitForVisibility(By.xpath("(//p[text()='If you want to view more content please login'])[1]"));
+        scrollToElement(getWantToViewMoreLogintxt());
+        String ifwantToViewMoreIntrotxt = elementGetText(getWantToViewMoreLogintxt());
+        Assert.assertEquals(ifwantToViewMoreIntrotxt, "If you want to view more content please login");
     }
 
     public void verifyPurchasedIdTxt() {
@@ -349,6 +378,23 @@ public class IntroductionPage extends BaseClass {
         scrollToElement(getPurchaseLoginIDBtn());
         waitForVisibility(By.xpath("//a[text()='Purchase Login ID']"));
         clickUsingJavaScript(getPurchaseLoginIDBtn());
+    }
+
+    public void verifyLoginBtntxt() {
+        scrollToElement(getLoginBtntxt());
+        String loginbtntxt = elementGetText(getLoginBtntxt());
+        Assert.assertEquals(loginbtntxt, "Login");
+    }
+
+    public void clickloginBtn(){
+        waitForElementToBeClickable(getLoginBtntxt());
+        clickUsingJavaScript(getLoginBtntxt());
+    }
+
+    public void verifyPrefaceDesctxt() {
+//        scrollToElement(getPrefaceDesctxt());
+        String prefaceDesctxt = elementGetText(getPrefaceDesctxt());
+        Assert.assertEquals(prefaceDesctxt, "This Procurement Manual is a new edition of the Procurement Policies, Procedures & Guidelines (3rd Edition, January 2008) or widely known as 3Ps.");
     }
 
 
