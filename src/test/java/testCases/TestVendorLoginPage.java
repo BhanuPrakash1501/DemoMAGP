@@ -246,5 +246,18 @@ public class TestVendorLoginPage extends BaseTest {
 
     }
 
+    @Test
+    public void clickfavoutitesManual() throws InterruptedException {
+        pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().performLogin();
+        pm.homePage().verifyViewAll();
+        pm.homePage().clickViewAllBtn();
+        pm.favouritesPage().clickfavTender();
+//        pm.homePage().clickFavouritesTab();
+//        pm.favouritesPage().clickTenderTab();
+//        pm.favouritesPage().favTenderList();
+
+    }
+
 
 }

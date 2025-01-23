@@ -21,9 +21,11 @@ public class TestFavouritesPage extends BaseTest {
         pm.vendorLoginPage().performLogin();
         pm.homePage().clickFavouritesTab();
         pm.favouritesPage().clickTenderTab();
+        pm.favouritesPage().favTenderList();
 
 
     }
+
 
 
 }
