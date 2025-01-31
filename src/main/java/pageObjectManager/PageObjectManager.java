@@ -26,6 +26,7 @@ public class PageObjectManager {
     private GalleryPage galleryPage;
     private NotificationsPage notificationsPage;
     private VendorManagementPage vendorManagementPage;
+    private AnnouncementPage announcementPage;
 //    private PrefacePage prefacePage;
 
 
@@ -160,6 +161,15 @@ public class PageObjectManager {
         return faqPage;
 
     }
+    public AnnouncementPage announcementPage(){
+        if(announcementPage == null){
+            announcementPage = new AnnouncementPage(_driver);
+        }
+        return announcementPage;
+
+    }
+
+
 
 
 }
