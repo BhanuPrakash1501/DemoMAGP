@@ -19,6 +19,9 @@ public class AnnouncementPage extends BaseClass {
     @FindBy(xpath = "//h6[normalize-space()='General']")
     private WebElement generalTab;
 
+    @FindBy(xpath = "//h6[normalize-space()='General']")
+    private WebElement generalTab;
+
 
 
 }
