@@ -103,6 +103,8 @@ public class TestStaffLogin extends BaseTest {
         pm.staffLoginPage().performLogin();
         pm.staffLoginPage().performPassword();
         Thread.sleep(6000);
+        pm.homePage().xbutton();
+        Thread.sleep(6000);
         pm.homePage().clickProcurementPlanningManual();
         pm.procurementPlanningPage().clickbusinessCase();
         Thread.sleep(2000);

@@ -77,7 +77,7 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//a[contains(@href,'/user/introduction?id=get-introduction-list&name=Introduction')]")
     private WebElement introduction;
 
-    @FindBy(xpath = "//a[@href='/user/introduction?id=get-procurement-planning-list&name=Procurement+Planning']")
+    @FindBy(xpath = "//a[@href='/user/manuals/procurement-planning']")
     private WebElement procurementPlanning;
 
     @FindBy(xpath = "//a[@href='/user/introduction?id=get-requisition-list&name=Requisition']")
@@ -599,7 +599,7 @@ public class HomePage extends BaseClass {
     }
 
     public void clickViewAllBtn() {
-        elementClick(getViewAll());
+        clickUsingJavaScript(getViewAll());
 
     }
 
@@ -618,6 +618,7 @@ public class HomePage extends BaseClass {
         clickUsingJavaScript((getProcurehereLoginLink()));
 
         String pWindow = getWindowHandle();
+
         Set<String> handles = getWindowHandles();
         for (String handle : handles) {
 
@@ -630,7 +631,11 @@ public class HomePage extends BaseClass {
 
         }
         closeWindow();
+        Thread.sleep(2000);
         switchToWindow(pWindow);
+        Thread.sleep(2000);
+        System.out.println(_driver.getCurrentUrl());
+        Thread.sleep(2000);
         System.out.println(getAppTitle());
     }
 

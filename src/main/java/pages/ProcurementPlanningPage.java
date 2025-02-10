@@ -31,7 +31,7 @@ public class ProcurementPlanningPage extends BaseClass {
         return procurementPlanningTabLink;
     }
 
-    @FindBy(xpath = "//span[text()='Procurement Planning']")
+    @FindBy(xpath = "//span[text()='procurement-planning']")
     private WebElement procurementPlanningTabLink;
 
     @FindBy(xpath = "//h6[text()='Process Flow Chart']")

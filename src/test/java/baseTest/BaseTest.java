@@ -1,5 +1,8 @@
 package baseTest;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -8,7 +11,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pageObjectManager.PageObjectManager;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
@@ -19,7 +24,7 @@ public class BaseTest {
     private String url;
 
     @BeforeMethod
-    public void lunchBrowser() {
+    public void lunchBrowser() throws IOException {
         try {
             String dir = System.getProperty("user.dir");
             FileInputStream fis = new FileInputStream(dir + "//src//test//resources//config.properties");
@@ -42,6 +47,7 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         pm = new PageObjectManager(driver);
+
 
     }
 

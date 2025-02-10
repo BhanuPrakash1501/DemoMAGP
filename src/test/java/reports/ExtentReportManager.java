@@ -26,7 +26,7 @@ public class ExtentReportManager implements ITestListener {
         String timeStamp = new SimpleDateFormat("dd.MM.yyyy.hh.mm.ss").format(new Date());
         String repName = "Test- Report_ "+ timeStamp + ".html";
 
-        sparkReporter = new ExtentSparkReporter("C:\\Users\\Mind-Graph\\IdeaProjects\\DemoMAGP\\src\\test\\screenshots"+repName);//specify location of the report
+        sparkReporter = new ExtentSparkReporter("C:\\Users\\Mind-Graph\\IdeaProjects\\DemoMAGP\\screenshots"+repName);//specify location of the report
 
         sparkReporter.config().setDocumentTitle("Automation Report"); // TiTle of report
         sparkReporter.config().setReportName("Functional Testing"); // name of the report

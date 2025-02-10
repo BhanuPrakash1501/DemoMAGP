@@ -2,7 +2,7 @@ package baseClass;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+//import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -173,43 +173,43 @@ public class BaseClass {
     }
 
 
-    public String getCellValue(String sheetName, int rowNum, int cellNum) throws IOException {
-        String res = "";
+//    public String getCellValue(String sheetName, int rowNum, int cellNum) throws IOException {
+//        String res = "";
+//
+//        File file = new File(".\\excel\\TestData.xlsx");
+//        FileInputStream stream = new FileInputStream(file);
+//        Workbook workbook = new XSSFWorkbook(stream);
+//        org.apache.poi.ss.usermodel.Sheet sheet = workbook.getSheet(sheetName);
+//        Row row = sheet.getRow(rowNum);
+//        Cell cell = row.getCell(cellNum);
+//        CellType type = cell.getCellType();
+//        switch (type) {
+//            case STRING:
+//                res = cell.getStringCellValue();
+//                break;
+//            case NUMERIC:
+//                if (DateUtil.isCellDateFormatted(cell)) {
+//                    Date dateCellValue = cell.getDateCellValue();
+//                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//                    res = dateFormat.format(dateCellValue);
+//                } else {
+//                    double numericCellValue = cell.getNumericCellValue();
+//                    long check = Math.round(numericCellValue);
+//                    if (check == numericCellValue) {
+//                        res = String.valueOf(numericCellValue);
+//                    } else {
+//                        res = String.valueOf(check);
+//                    }
+//                }
+//                break;
+//            default:
+//                break;
+//        }
+//        return res;
+//    }
 
-        File file = new File(".\\excel\\TestData.xlsx");
-        FileInputStream stream = new FileInputStream(file);
-        Workbook workbook = new XSSFWorkbook(stream);
-        org.apache.poi.ss.usermodel.Sheet sheet = workbook.getSheet(sheetName);
-        Row row = sheet.getRow(rowNum);
-        Cell cell = row.getCell(cellNum);
-        CellType type = cell.getCellType();
-        switch (type) {
-            case STRING:
-                res = cell.getStringCellValue();
-                break;
-            case NUMERIC:
-                if (DateUtil.isCellDateFormatted(cell)) {
-                    Date dateCellValue = cell.getDateCellValue();
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                    res = dateFormat.format(dateCellValue);
-                } else {
-                    double numericCellValue = cell.getNumericCellValue();
-                    long check = Math.round(numericCellValue);
-                    if (check == numericCellValue) {
-                        res = String.valueOf(numericCellValue);
-                    } else {
-                        res = String.valueOf(check);
-                    }
-                }
-                break;
-            default:
-                break;
-        }
-        return res;
-    }
 
-
-    public void updateCellData(String sheetName, int rowNum, int cellNum, String oldData, String newData)
+/*    public void updateCellData(String sheetName, int rowNum, int cellNum, String oldData, String newData)
             throws IOException {
 
         File file = new File("C:\\MAGPWeb\\MAGPWeb\\excel\\TestData.xlsx");

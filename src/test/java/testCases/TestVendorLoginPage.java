@@ -33,7 +33,7 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
     @Test
-    public void testVendorWithValidCredentials() {
+    public void testVendorWithValidCredentials()  {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
 
@@ -256,6 +256,17 @@ public class TestVendorLoginPage extends BaseTest {
 //        pm.homePage().clickFavouritesTab();
 //        pm.favouritesPage().clickTenderTab();
 //        pm.favouritesPage().favTenderList();
+
+    }
+
+    @Test
+    public void searchByTitlesinGeneralTab() throws InterruptedException {
+        pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().performLogin();
+        pm.vendorLoginPage().xbutton();
+        pm.homePage().verifyViewAll();
+        pm.homePage().clickViewAllBtn();
+        pm.announcementPage().clickGeneralTab();
 
     }
 

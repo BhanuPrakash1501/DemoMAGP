@@ -1,18 +1,24 @@
 package pages;
 
 import baseClass.BaseClass;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import java.io.File;
+import java.io.IOException;
+
 public class VendorLoginPage extends BaseClass {
     private WebDriver _driver;
     private final String actualEmailtext = "Email Address *";
     private final String actualPassWordtext = "Password *";
-    public String username = "nouloffaufouki-2906@yopmail.com";
-    public String password = "Test@321";
+    public String username = "avutibhanuprakash@gmail.com";
+    public String password = "Test@12345";
 
 
     public VendorLoginPage(WebDriver driver) {
@@ -147,10 +153,11 @@ public class VendorLoginPage extends BaseClass {
         return welcomeNoteParagraphTxt;
     }
 
-    public void performLogin() {
+    public void performLogin()  {
         elementSendKeys(getEmailId(), username);
         elementSendKeys(getPswd(), password);
         elementClick(getSubmitbtn());
+
     }
 
     public void clickForgetPassworslink() {
@@ -226,7 +233,7 @@ public class VendorLoginPage extends BaseClass {
     }
 
     public void xbutton() {
-        elementClick(xBtn);
+        clickUsingJavaScript(xBtn);
     }
 
     public void clickbtnGoogle() {

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Mind-Graph/IdeaProjects/DemoMAGP/src/test/java/testCases/TestVendorLoginPage.java">
+        <groups>
+            <run>
+                <include name="sanity"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="testCases.TestVendorLoginPage">
+                <methods>
+                    <include name="testVendorWithValidCredentials"/>
+                    <include name="testVendorWithInValidCredentials"/>
+                    <include name="verifyHomePageUI"/>
+                    <include name="clickManuals"/>
+                    <include name="manualTab"/>
+                    <include name="tenderTab"/>
+                    <include name="clickGallery"/>
+                    <include name="clickNotifications"/>
+                    <include name="verifyUI"/>
+                    <include name="testEditProfileFields"/>
+                    <include name="LogoutFunctionality"/>
+                    <include name="testLinks"/>
+                    <include name="registerNowUIValidations"/>
+                    <include name="signUpFieldValidations"/>
+                    <include name="enterValuesForSignUP"/>
+                    <include name="clickfavoutitesManual"/>
+                    <include name="searchByTitlesinGeneralTab"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
