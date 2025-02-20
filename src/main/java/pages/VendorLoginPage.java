@@ -58,7 +58,7 @@ public class VendorLoginPage extends BaseClass {
     @FindBy(xpath = "//a[text()='Register Now']")
     private WebElement registernowLink;
 
-    @FindBy(xpath = "//h3[text()='Welcome']")
+    @FindBy(xpath = "//h3[text()='WELCOME']")
     private WebElement welcomeTxt;
 
     @FindBy(xpath = "//p[text()='Dont have an account? ']")
@@ -202,7 +202,7 @@ public class VendorLoginPage extends BaseClass {
 
     public void verifyWelcomeTxt() {
         String welcomeTxt = getWelcomeTxt().getText();
-        Assert.assertEquals(welcomeTxt, "Welcome");
+        Assert.assertEquals(welcomeTxt, "WELCOME");
     }
 
     public void verifyWelcomeParagraphTxt() {

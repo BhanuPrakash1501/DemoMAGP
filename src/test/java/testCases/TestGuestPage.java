@@ -5,12 +5,12 @@ import org.testng.annotations.Test;
 
 public class TestGuestPage extends BaseTest {
 
-    @Test
+    @Test(groups = {"sanity"})
     public void clickGuestLoginBtn() {
         pm.preLoginPage().clickBtnguestLogin();
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void verifyLoginPopUPUI() {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().verifyLoginIDpopUpTxt();
@@ -18,7 +18,7 @@ public class TestGuestPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickLoginButtonInPopUp() {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickLoginBtn();
@@ -26,7 +26,7 @@ public class TestGuestPage extends BaseTest {
     }
 
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickprofileIcon() {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
@@ -34,14 +34,14 @@ public class TestGuestPage extends BaseTest {
         pm.preLoginPage().verifyLoginHeaderTxt();
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void verifyLatestAnnouncements() {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
         pm.homePage().verifyLatestAnnouncementTxt();
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickOnViewAllBtn() throws InterruptedException {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
@@ -51,7 +51,7 @@ public class TestGuestPage extends BaseTest {
         pm.preLoginPage().verifyLoginHeaderTxt();
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickContactdirectoryLink()  {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
@@ -60,7 +60,7 @@ public class TestGuestPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickProcureHereLink() throws InterruptedException {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
@@ -69,7 +69,7 @@ public class TestGuestPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickVMSLink()  {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
@@ -78,7 +78,7 @@ public class TestGuestPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickOnIntroductionModule() throws InterruptedException {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
@@ -92,7 +92,7 @@ public class TestGuestPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickLoginBtn() throws InterruptedException {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
@@ -105,7 +105,7 @@ public class TestGuestPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void verifytabs(){
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();

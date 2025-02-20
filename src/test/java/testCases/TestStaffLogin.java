@@ -4,15 +4,15 @@ import baseTest.BaseTest;
 import org.testng.annotations.Test;
 
 public class TestStaffLogin extends BaseTest {
-    @Test
-    public void TestStaffLoginWithValidCredentials(){
+    @Test(groups = {"regression"})
+    public void TestStaffLoginWithValidCredentials() {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
         pm.staffLoginPage().performPassword();
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickIntroductionManual() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
@@ -97,7 +97,7 @@ public class TestStaffLogin extends BaseTest {
 //
 //    }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickBusinessCase() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
@@ -165,7 +165,7 @@ public class TestStaffLogin extends BaseTest {
 //
 //    }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickPurchaseRequistionmanual() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
@@ -204,7 +204,7 @@ public class TestStaffLogin extends BaseTest {
 //
 //    }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickTenderManagementmanual() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
@@ -256,9 +256,6 @@ public class TestStaffLogin extends BaseTest {
         pm.sourcingPage().clickClarificationNegotiationpriortoAwardprocessFlowChartabNego();
         Thread.sleep(2000);
         pm.sourcingPage().clickClarificationNegotiationpriortoAwardprocessFlowChartabCPA();
-
-
-
 
 
     }
@@ -327,7 +324,7 @@ public class TestStaffLogin extends BaseTest {
 //
 //    }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickContractManagementImplementation() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
@@ -415,7 +412,7 @@ public class TestStaffLogin extends BaseTest {
 //        pm.contractAdministrationPage().clickprocessFlowChart();
 //    }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickVendorRegistration() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
@@ -452,7 +449,6 @@ public class TestStaffLogin extends BaseTest {
         pm.vendorManagementPage().clickprocessFlowChartSched();
 
 
-
     }
 
 //    @Test
@@ -487,7 +483,7 @@ public class TestStaffLogin extends BaseTest {
 //        pm.vendorManagementPage().clickprocessFlowChartSched();
 //    }
 
-    @Test
+    @Test(groups = {"regression"})
     public void ClickOnCalendar() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
@@ -498,8 +494,8 @@ public class TestStaffLogin extends BaseTest {
 
     }
 
-    @Test
-    public void manualTab(){
+    @Test(groups = {"regression"})
+    public void manualTab() {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
         pm.staffLoginPage().performPassword();
@@ -509,8 +505,8 @@ public class TestStaffLogin extends BaseTest {
 
     }
 
-    @Test
-    public void tenderTab(){
+    @Test(groups = {"regression"})
+    public void tenderTab() {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
         pm.staffLoginPage().performPassword();
@@ -520,7 +516,7 @@ public class TestStaffLogin extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickGallery() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
@@ -531,22 +527,23 @@ public class TestStaffLogin extends BaseTest {
 
     }
 
-    @Test (priority = 0)
-    public void globalSearchFAQ(){
+    @Test(groups = {"regression"})
+    public void globalSearchFAQ() {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
         pm.homePage().clickfaqtab();
         pm.faqPage().globalSearchFAQ();
     }
 
-    @Test (priority = 1)
-    public void searchFaq(){
+    @Test(groups = {"regression"})
+    public void searchFaq() {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
         pm.homePage().clickfaqtab();
         pm.faqPage().searchFAQ();
     }
-    @Test (priority = 2)
+
+    @Test(groups = {"regression"})
     public void clicktext() throws InterruptedException {
         pm.preLoginPage().clickBtnguestLogin();
         pm.homePage().clickXbtnLoginPopUp();
@@ -559,8 +556,7 @@ public class TestStaffLogin extends BaseTest {
     }
 
 
-
-    @Test
+    @Test(groups = {"regression"})
     public void clickNotifications() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
@@ -572,7 +568,7 @@ public class TestStaffLogin extends BaseTest {
     }
 
 
-    @Test
+    @Test(groups = {"regression"})
     public void verifyProfileUI() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
@@ -591,9 +587,7 @@ public class TestStaffLogin extends BaseTest {
     }
 
 
-
-
-    @Test
+    @Test(groups = {"regression"})
     public void testEditProfileFields() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
@@ -608,8 +602,7 @@ public class TestStaffLogin extends BaseTest {
     }
 
 
-
-    @Test
+    @Test(groups = {"regression"})
     public void testLogoutFunctionality() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
@@ -626,7 +619,7 @@ public class TestStaffLogin extends BaseTest {
     }
 
 
-    @Test
+    @Test(groups = {"regression"})
     public void testQuickLinks() throws InterruptedException {
         pm.preLoginPage().clickBtnstaffLogin();
         pm.staffLoginPage().performLogin();
@@ -642,8 +635,6 @@ public class TestStaffLogin extends BaseTest {
         pm.profilePage().clickLinkGeneralProvision();
 
     }
-
-
 
 
 }

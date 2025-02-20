@@ -53,7 +53,7 @@ public class AnnouncementPage extends BaseClass {
         String title = tenderTitleName.getText();
        String[] str = title.split(": ");
 
-        getSearch().sendKeys(str[1]);
+        getSearch().sendKeys(str);
 
         String value = getSearch().getAttribute("value");
         System.out.println(value);

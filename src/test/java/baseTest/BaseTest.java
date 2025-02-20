@@ -23,7 +23,7 @@ public class BaseTest {
     private String browser;
     private String url;
 
-    @BeforeMethod
+    @BeforeMethod(groups = {"sanity"})
     public void lunchBrowser() throws IOException {
         try {
             String dir = System.getProperty("user.dir");
@@ -51,12 +51,12 @@ public class BaseTest {
 
     }
 
-//    @AfterMethod
-//    public void tearDown() {
-//        if (driver != null) {
-//            driver.quit();
-//
-//        }
-//    }
+    @AfterMethod(groups = {"sanity"})
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+
+        }
+    }
 
 }

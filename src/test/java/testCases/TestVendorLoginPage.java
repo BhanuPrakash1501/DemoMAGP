@@ -8,11 +8,11 @@ import pageObjectManager.PageObjectManager;
 
 import java.io.IOException;
 
-@Listeners(reports.ExtentReportManager.class)
+//@Listeners(reports.ExtentReportManager.class)
 public class TestVendorLoginPage extends BaseTest {
 
 
-    @Test
+    @Test(groups = {"sanity"})
     public void testVendorLoginPageUI()  {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().verifyMAGPlogo();
@@ -32,20 +32,20 @@ public class TestVendorLoginPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void testVendorWithValidCredentials()  {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void testVendorWithInValidCredentials() {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().verifyInvalidEmail("assa");
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void verifyHomePageUI() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -57,7 +57,7 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickManuals() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -76,7 +76,7 @@ public class TestVendorLoginPage extends BaseTest {
 
 
 
-    @Test
+    @Test(groups = {"regression"})
     public void manualTab(){
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -86,7 +86,7 @@ public class TestVendorLoginPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void tenderTab(){
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -96,7 +96,7 @@ public class TestVendorLoginPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickGallery() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -107,7 +107,7 @@ public class TestVendorLoginPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickNotifications() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -117,7 +117,7 @@ public class TestVendorLoginPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void verifyUI(){
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -137,7 +137,7 @@ public class TestVendorLoginPage extends BaseTest {
 
 
 
-    @Test
+    @Test(groups = {"regression"})
     public void testEditProfileFields() {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -152,7 +152,7 @@ public class TestVendorLoginPage extends BaseTest {
 
 
 
-    @Test
+    @Test(groups = {"regression"})
     public void LogoutFunctionality() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -168,7 +168,7 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
 
-    @Test
+    @Test(groups = {"regression"})
     public void testLinks() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -186,7 +186,7 @@ public class TestVendorLoginPage extends BaseTest {
 
 
 
-    @Test
+    @Test(groups = {"regression"})
     public void registerNowUIValidations() {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().clickRegisterNowlink();
@@ -210,7 +210,7 @@ public class TestVendorLoginPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void signUpFieldValidations() throws IOException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().clickRegisterNowlink();
@@ -229,7 +229,7 @@ public class TestVendorLoginPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void enterValuesForSignUP() {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().clickRegisterNowlink();
@@ -246,7 +246,7 @@ public class TestVendorLoginPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void clickfavoutitesManual() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -259,11 +259,11 @@ public class TestVendorLoginPage extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"sanity"})
     public void searchByTitlesinGeneralTab() throws InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
-        pm.vendorLoginPage().xbutton();
+//        pm.vendorLoginPage().xbutton();
         pm.homePage().verifyViewAll();
         pm.homePage().clickViewAllBtn();
         pm.announcementPage().clickGeneralTab();
