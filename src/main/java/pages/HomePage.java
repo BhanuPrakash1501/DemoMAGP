@@ -17,16 +17,20 @@ import java.util.Set;
 
 public class HomePage extends BaseClass {
 
+    // WebDriver instance for browser interaction
     private WebDriver _driver;
-    public  WebDriverWait wait = new WebDriverWait(_driver, Duration.ofSeconds(10));
 
+    // WebDriverWait instance with a timeout of 10 seconds for explicit waits
+    public WebDriverWait wait = new WebDriverWait(_driver, Duration.ofSeconds(10));
+
+    // Constructor to initialize the HomePage class with a WebDriver instance
     public HomePage(WebDriver driver) {
         super(driver);
         this._driver = driver;
-        PageFactory.initElements(driver, this);
-
+        PageFactory.initElements(driver, this); // Initialize web elements using PageFactory
     }
 
+    // Web elements identified using @FindBy annotation with their respective XPaths
     @FindBy(xpath = "//a[normalize-space()='Home']")
     private WebElement home;
 
@@ -38,14 +42,6 @@ public class HomePage extends BaseClass {
 
     @FindBy(xpath = "//a[text()='Gallery']")
     private WebElement gallery;
-
-    public WebElement getNotifications() {
-        return notifications;
-    }
-
-    public WebElement getGallery() {
-        return gallery;
-    }
 
     @FindBy(xpath = "//a[@href='/user/notifications']")
     private WebElement notifications;
@@ -235,6 +231,14 @@ public class HomePage extends BaseClass {
 
     @FindBy(xpath = "//h3[text()='MAHB Procurement Contact Directory']")
     private WebElement MAHBHeadingTxt;
+
+    public WebElement getNotifications() {
+        return notifications;
+    }
+
+    public WebElement getGallery() {
+        return gallery;
+    }
 
     public WebElement getMAHBHeadingTxt() {
         return MAHBHeadingTxt;
@@ -493,234 +497,357 @@ public class HomePage extends BaseClass {
         Assert.assertEquals(welcomeToMagpTxt, "Welcome to MAGP");
 
     }
-
+    /**
+     * Clicks on the "Favourites" tab.
+     */
     public void clickFavouritesTab() {
         elementClick(getFavourites());
     }
 
+    /**
+     * Clicks on various links, verifies navigation, and handles window switching.
+     *
+     * @throws InterruptedException Added to handle Thread.sleep() but should be replaced with explicit waits.
+     */
     public void clickOnLinksAndVerify() throws InterruptedException {
-        Thread.sleep(1000);
-        elementClick(getCrossbtn());
+        Thread.sleep(1000); // Consider replacing with explicit wait
+        elementClick(getCrossbtn()); // Click the close button (possibly a popup)
         Thread.sleep(3000);
 
+        // Scrolls to the "MAHB Contact Directory" link and clicks it
         scrollToElement(getMahbContactDirectoryLink());
         Thread.sleep(1000);
+        String pWindow = getWindowHandle(); // Store the parent window handle
 
-        String pWindow = getWindowHandle();
-
-        elementClick(getMahbContactDirectoryLink());
+        elementClick(getMahbContactDirectoryLink()); // Open the contact directory link
         Thread.sleep(2000);
 
-        navigateBack();
-        popUpClose(getCrossbtn());
-        scrollPageToDown();
+        navigateBack(); // Navigate back to the previous page
+        popUpClose(getCrossbtn()); // Close popup if present
+        scrollPageToDown(); // Scroll down the page
 
+        // Click the "Procurehere Login" link and handle the new window
         elementClick(getProcurehereLoginLink());
         Thread.sleep(2000);
         Set<String> windows = getWindowHandles();
 
         for (String window : windows) {
-
             if (!window.equals(pWindow)) {
-                switchToWindow(window);
-                System.out.println(getAppTitle());
-
+                switchToWindow(window); // Switch to the new window
+                System.out.println(getAppTitle()); // Print the title of the new window
             }
-
         }
-        closeWindow();
-        switchToWindow(pWindow);
+
+        closeWindow(); // Close the new window
+        switchToWindow(pWindow); // Switch back to the main window
+
+        // Click on "Vendor Management System" link and handle the new window
         elementClick(getVendorManagementSystemLink());
         Thread.sleep(3000);
         Set<String> handles = getWindowHandles();
         for (String handle : handles) {
-
             if (!handle.equals(pWindow)) {
                 switchToWindow(handle);
-                System.out.println(getAppTitle());
-
+                System.out.println(getAppTitle()); // Print the title of the new window
             }
-
         }
-        closeWindow();
-        switchToWindow(pWindow);
-        Thread.sleep(2000);
-        quitWindow();
 
+        closeWindow(); // Close the vendor management window
+        switchToWindow(pWindow); // Switch back to the main window
+        Thread.sleep(2000);
+        quitWindow(); // Close all remaining browser windows
     }
 
+
+    /**
+     * Verifies that the "Purchase ID" text is displayed correctly.
+     */
     public void verifyPurchaseIdTxt() {
         String purchaseIdTxt = getPurchaseIDTxt().getText();
         Assert.assertEquals(purchaseIdTxt, "Purchase ID");
     }
 
+    /**
+     * Verifies that the description for "Purchase ID" is displayed correctly.
+     */
     public void verifyPurchaseIdDescTxt() {
         String purchaseIdDescTxt = getPurchaseIDTxt().getText();
         Assert.assertEquals(purchaseIdDescTxt, "Purchase login ID to access an expanded array of modules and features");
     }
 
+    /**
+     * Verifies that the "Latest Announcements" text is displayed correctly.
+     * Uses scrolling and explicit wait to ensure element visibility.
+     */
     public void verifyLatestAnnouncementTxt() {
-        scrollToElement(getLast7daysTxt());
-        waitForVisibility(By.xpath("//h2[text()='Latest Announcements']"));
+        scrollToElement(getLast7daysTxt()); // Scroll to the "Last 7 days" text
+        waitForVisibility(By.xpath("//h2[text()='Latest Announcements']")); // Wait for "Latest Announcements" to be visible
         String latestAnnouncementTxt = getLatestAnnouncementsTxt().getText();
         Assert.assertEquals(latestAnnouncementTxt, "Latest Announcements");
     }
 
+    /**
+     * Verifies that the "Last 7 days" text is displayed correctly.
+     */
     public void verifyLast7DaysTxt() {
         String last7DaysTxt = getLast7daysTxt().getText();
         Assert.assertEquals(last7DaysTxt, "Last 7 days");
     }
 
+    /**
+     * Verifies the "View All" text is displayed correctly.
+     * Uses scrolling and explicit waits for better reliability.
+     *
+     * @throws InterruptedException Consider replacing Thread.sleep with an explicit wait.
+     */
     public void verifyViewAll() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(3000); // Replace with explicit wait for better efficiency
         scrollToElement(getViewAll());
-        waitForVisibility(By.xpath("//a[text()='View All']"));
+        waitForVisibility(By.xpath("//a[text()='View All']")); // Wait for "View All" button to be visible
         String viewAllTxt = getViewAll().getText();
         Assert.assertEquals(viewAllTxt, "View All");
     }
 
-
+    /**
+     * Clicks the "X" button on the login popup.
+     */
     public void clickXbtnLoginPopUp() {
         elementClick(getXBtnLoginPopup());
     }
 
+    /**
+     * Clicks a generic "X" button.
+     * Ensure this is the intended button and not conflicting with similar buttons elsewhere.
+     */
     public void xbutton() {
         elementClick(xBtn);
     }
 
+
+    /**
+     * Verifies that the login popup text is displayed correctly.
+     * Ensures that the user is prompted to proceed with the login process.
+     */
     public void verifyLoginIDpopUpTxt() {
         String ele = elementGetText(getTxtLoginPopUp());
         Assert.assertEquals(ele, "Kindly proceed with the login process to access an expanded array of modules and features.");
     }
 
+    /**
+     * Clicks the login button.
+     * Assumes that the login button element is correctly retrieved.
+     */
     public void clickLoginBtn() {
         elementClick(getLoginbtn());
-
     }
 
+    /**
+     * Clicks the "View All" button using JavaScript execution.
+     * This method may be useful if the button is not interactable using standard click actions.
+     */
     public void clickViewAllBtn() {
         clickUsingJavaScript(getViewAll());
-
     }
 
+    /**
+     * Clicks on the "Contact Directory" link after ensuring it is visible.
+     * Scrolls down the page, waits for the element to be visible, and then clicks it.
+     * Verifies that the correct page or section is displayed by checking the heading text.
+     */
     public void clickOnContactDirectoryLink() {
-        scrollPageToDown();
-        waitForVisibility(By.xpath("//h2[normalize-space()='Contact Directory']"));
-        elementClick(getContactUsbtn());
+        scrollPageToDown(); // Scroll down the page to make the element visible
+        waitForVisibility(By.xpath("//h2[normalize-space()='Contact Directory']")); // Wait until the "Contact Directory" section is visible
+        elementClick(getContactUsbtn()); // Click the "Contact Us" button
+
+        // Verify that the correct page or section has been loaded by checking the heading text
         String contactDir = elementGetText(getMAHBHeadingTxt());
         Assert.assertEquals(contactDir, "MAHB Procurement Contact Directory");
-
     }
 
+    /**
+     * Clicks on the "ProcureHere Login" link and verifies the navigation to a new window.
+     * - Scrolls down to ensure the element is visible.
+     * - Waits for the "ProcureHere Login" section to be visible.
+     * - Clicks the link using JavaScript to handle any clickability issues.
+     * - Switches to the newly opened window and prints the application title.
+     * - Closes the new window and switches back to the original window.
+     * - Prints the current URL and application title after switching back.
+     *
+     * @throws InterruptedException to handle sleep delays (should be replaced with explicit waits).
+     */
     public void clickOnProcureHereLoginLink() throws InterruptedException {
-        scrollPageToDown();
-        waitForVisibility(By.xpath("//h2[normalize-space()='Procurehere login']"));
-        clickUsingJavaScript((getProcurehereLoginLink()));
+        scrollPageToDown(); // Scroll down to make the element visible
+        waitForVisibility(By.xpath("//h2[normalize-space()='Procurehere login']")); // Wait until the "ProcureHere Login" section is visible
+        clickUsingJavaScript(getProcurehereLoginLink()); // Click the link using JavaScript
 
-        String pWindow = getWindowHandle();
+        String pWindow = getWindowHandle(); // Store the parent window handle
 
-        Set<String> handles = getWindowHandles();
+        Set<String> handles = getWindowHandles(); // Get all open window handles
         for (String handle : handles) {
-
-            if (!handle.equals(pWindow)) {
+            if (!handle.equals(pWindow)) { // Switch to the newly opened window
                 switchToWindow(handle);
-                Thread.sleep(2000);
-                System.out.println(getAppTitle());
-
+                Thread.sleep(2000); // Wait for the new page to load (replace with explicit waits)
+                System.out.println(getAppTitle()); // Print the title of the new window
             }
-
         }
-        closeWindow();
+
+        closeWindow(); // Close the newly opened window
+        Thread.sleep(2000); // Small delay before switching back (should be replaced with explicit waits)
+        switchToWindow(pWindow); // Switch back to the parent window
+        Thread.sleep(2000); // Delay before fetching the URL
+        System.out.println(_driver.getCurrentUrl()); // Print the current URL
         Thread.sleep(2000);
-        switchToWindow(pWindow);
-        Thread.sleep(2000);
-        System.out.println(_driver.getCurrentUrl());
-        Thread.sleep(2000);
-        System.out.println(getAppTitle());
+        System.out.println(getAppTitle()); // Print the title of the current page
     }
 
+    /**
+     * Clicks on the "Vendor Management System" link.
+     * - Scrolls down to make the element visible.
+     * - Waits for the "Vendor Management System" section to be visible.
+     * - Clicks the link.
+     */
     public void clickOnVenderManagementSystemLink() {
-        scrollPageToDown();
-        waitForVisibility(By.xpath("//h2[normalize-space()='Vendor Management System']"));
-        elementClick(getVendorManagementLink());
+        scrollPageToDown(); // Scroll down to ensure visibility
+        waitForVisibility(By.xpath("//h2[normalize-space()='Vendor Management System']")); // Wait for the section to be visible
+        elementClick(getVendorManagementLink()); // Click on the "Vendor Management System" link
     }
 
+
+    /**
+     * Clicks on the "Introduction Manual" link.
+     * - Waits for 3 seconds (should be replaced with explicit waits).
+     * - Scrolls to the "Introduction Manual" section to ensure visibility.
+     * - Clicks the element using JavaScript in case of clickability issues.
+     *
+     * @throws InterruptedException due to the use of Thread.sleep() (should be optimized with WebDriverWait).
+     */
     public void clickIntroductionManual() throws InterruptedException {
-        Thread.sleep(3000);
-        scrollToElement(getIntroduction());
-        clickUsingJavaScript(getIntroduction());
+        Thread.sleep(3000); // Delay before interaction (should be replaced with an explicit wait)
+        scrollToElement(getIntroduction()); // Scroll to the "Introduction Manual" section
+        clickUsingJavaScript(getIntroduction()); // Click the element using JavaScript executor
     }
 
+    /**
+     * Clicks on the "Procurement Planning Manual" link.
+     * - Scrolls to the section to ensure visibility.
+     * - Clicks the link.
+     */
     public void clickProcurementPlanningManual() {
-        scrollToElement(getProcurementPlanning());
-        elementClick(getProcurementPlanning());
+        scrollToElement(getProcurementPlanning()); // Ensure element is visible
+        elementClick(getProcurementPlanning()); // Click the Procurement Planning Manual link
     }
 
+    /**
+     * Clicks on the "Requisition Manual" link.
+     * - Scrolls to the section to make it visible.
+     * - Clicks the link.
+     */
     public void clickRequistionManual() {
-        scrollToElement(getRequisition());
-        elementClick(getRequisition());
+        scrollToElement(getRequisition()); // Scroll to the element
+        elementClick(getRequisition()); // Click the Requisition Manual link
     }
 
+    /**
+     * Clicks on the "Sourcing Manual" link.
+     * - Scrolls to the section to make it visible.
+     * - Clicks the link using JavaScript for better interaction handling.
+     */
     public void clickSourcingManual() {
-        scrollToElement(getSourcing());
-        clickUsingJavaScript(getSourcing());
+        scrollToElement(getSourcing()); // Scroll to the element
+        clickUsingJavaScript(getSourcing()); // Click using JavaScript executor
     }
 
+    /**
+     * Clicks on the "Contract Administration Manual" link.
+     * - Scrolls to the section to make it visible.
+     * - Clicks the link using JavaScript.
+     */
     public void clickContractAdministrationManual() {
-        scrollToElement(getContractAdministration());
-        clickUsingJavaScript(getContractAdministration());
+        scrollToElement(getContractAdministration()); // Scroll to the element
+        clickUsingJavaScript(getContractAdministration()); // Click using JavaScript executor
     }
 
+    /**
+     * Clicks on the "Vendor Management Manual" link.
+     * - Scrolls to the section to ensure visibility.
+     * - Clicks the link.
+     */
     public void clickVendorManagentManual() {
-        scrollToElement(getVendorMgnt());
-        elementClick(getVendorMgnt());
+        scrollToElement(getVendorMgnt()); // Scroll to the element
+        elementClick(getVendorMgnt()); // Click the Vendor Management Manual link
     }
 
-
-
+    /**
+     * Clicks on the "Calendar" tab.
+     */
     public void clickCalendarTab() {
-        elementClick(getCalendar());
-
+        elementClick(getCalendar()); // Click the Calendar tab
     }
 
+    /**
+     * Clicks on the "Gallery" tab.
+     */
     public void clickGalleryTab() {
-        elementClick(getGallery());
-
+        elementClick(getGallery()); // Click the Gallery tab
     }
 
+    /**
+     * Clicks on the "Notifications" tab.
+     */
     public void clickNotificationsTab() {
-        elementClick(getNotifications());
-
+        elementClick(getNotifications()); // Click the Notifications tab
     }
 
+    /**
+     * Clicks on the "FAQ" tab.
+     */
     public void clickfaqtab() {
-        elementClick(getfAQs());
-
-
+        elementClick(getfAQs()); // Click the FAQ tab
     }
 
-    public void verifyHometab(){
-        waitForVisibility(By.xpath("//a[text()='Home']"));
-        String hometxt = elementGetText(getHome());
-        Assert.assertEquals(hometxt,"Home");
+    /**
+     * Verifies the "Home" tab is displayed correctly.
+     * - Waits for the visibility of the Home tab.
+     * - Retrieves the text of the Home tab and asserts it matches "Home".
+     */
+    public void verifyHometab() {
+        waitForVisibility(By.xpath("//a[text()='Home']")); // Wait for Home tab to be visible
+        String hometxt = elementGetText(getHome()); // Get the Home tab text
+        Assert.assertEquals(hometxt, "Home"); // Assert the text is as expected
     }
 
-    public void verifyFAQtab(){
-        waitForVisibility(By.xpath("//a[text()='FAQ']"));
-        String Faqtxt = elementGetText(getfAQs());
-        Assert.assertEquals(Faqtxt,"FAQ");
+    /**
+     * Verifies the "FAQ" tab is displayed correctly.
+     * - Waits for the FAQ tab to be visible.
+     * - Retrieves the text of the FAQ tab and asserts it matches "FAQ".
+     */
+    public void verifyFAQtab() {
+        waitForVisibility(By.xpath("//a[text()='FAQ']")); // Wait for FAQ tab to be visible
+        String Faqtxt = elementGetText(getfAQs()); // Get the FAQ tab text
+        Assert.assertEquals(Faqtxt, "FAQ"); // Assert the text is correct
     }
 
-    public void verifyENGtab(){
-        waitForVisibility(By.xpath("//a[text()='ENG']"));
-        String engtxt = elementGetText(getEng());
-        Assert.assertEquals(engtxt,"ENG");
+    /**
+     * Verifies the "ENG" tab is displayed correctly.
+     * - Waits for the ENG tab to be visible.
+     * - Retrieves the text of the ENG tab and asserts it matches "ENG".
+     */
+    public void verifyENGtab() {
+        waitForVisibility(By.xpath("//a[text()='ENG']")); // Wait for ENG tab to be visible
+        String engtxt = elementGetText(getEng()); // Get the ENG tab text
+        Assert.assertEquals(engtxt, "ENG"); // Assert the text is correct
     }
 
-    public void verifyprofiletab(){
-       wait.until(ExpectedConditions.visibilityOf(getProfileIcon()));
-        Assert.assertTrue(getProfile().isDisplayed());
+    /**
+     * Verifies that the "Profile" tab is displayed.
+     * - Waits for the Profile icon to be visible.
+     * - Asserts that the Profile tab is displayed.
+     */
+    public void verifyprofiletab() {
+        wait.until(ExpectedConditions.visibilityOf(getProfileIcon())); // Wait for Profile icon to be visible
+        Assert.assertTrue(getProfile().isDisplayed()); // Assert that the Profile tab is displayed
     }
+
 
 }
 

@@ -13,7 +13,7 @@ public class TestVendorLoginPage extends BaseTest {
 
 
     @Test(groups = {"sanity"})
-    public void testVendorLoginPageUI()  {
+    public void testVendorLoginPageUI() {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().verifyMAGPlogo();
         pm.vendorLoginPage().verifyLoginHeaderTxt();
@@ -28,12 +28,10 @@ public class TestVendorLoginPage extends BaseTest {
         pm.vendorLoginPage().verifyWelcomeParagraphTxt();
 
 
-
-
     }
 
     @Test(groups = {"regression"})
-    public void testVendorWithValidCredentials()  {
+    public void testVendorWithValidCredentials() {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
 
@@ -75,9 +73,8 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
 
-
     @Test(groups = {"regression"})
-    public void manualTab(){
+    public void manualTab() {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
         pm.homePage().clickFavouritesTab();
@@ -87,7 +84,7 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
     @Test(groups = {"regression"})
-    public void tenderTab(){
+    public void tenderTab() {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
         pm.homePage().clickFavouritesTab();
@@ -118,7 +115,7 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
     @Test(groups = {"regression"})
-    public void verifyUI(){
+    public void verifyUI() {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
         pm.profilePage().clickProfileBtn();
@@ -136,7 +133,6 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
 
-
     @Test(groups = {"regression"})
     public void testEditProfileFields() {
         pm.preLoginPage().clickBtnvendorLogin();
@@ -149,7 +145,6 @@ public class TestVendorLoginPage extends BaseTest {
         pm.profilePage().enterValuesEditProfile();
 
     }
-
 
 
     @Test(groups = {"regression"})
@@ -183,7 +178,6 @@ public class TestVendorLoginPage extends BaseTest {
         pm.profilePage().clickLinkGeneralProvision();
 
     }
-
 
 
     @Test(groups = {"regression"})
@@ -253,9 +247,7 @@ public class TestVendorLoginPage extends BaseTest {
         pm.homePage().verifyViewAll();
         pm.homePage().clickViewAllBtn();
         pm.favouritesPage().clickfavTender();
-//        pm.homePage().clickFavouritesTab();
-//        pm.favouritesPage().clickTenderTab();
-//        pm.favouritesPage().favTenderList();
+
 
     }
 
