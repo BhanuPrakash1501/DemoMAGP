@@ -70,7 +70,7 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//button[@role='button']//img[@src='/MAGP/home/p1.png']")
     private WebElement profileIcon;
 
-    @FindBy(xpath = "//a[contains(@href,'/user/introduction?id=get-introduction-list&name=Introduction')]")
+    @FindBy(xpath = "//a[contains(@href,'/user/manuals/introduction')]")
     private WebElement introduction;
 
     @FindBy(xpath = "//a[@href='/user/manuals/procurement-planning']")
@@ -88,8 +88,12 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//a[@href='/user/introduction?id=get-vendor-management-list&name=Vendor+Management']")
     private WebElement vendorMgnt;
 
-    @FindBy(xpath = "//a[text()='View All']")
+    @FindBy(xpath = "//button[text()='View All']")
     private WebElement viewAll;
+
+
+    @FindBy(xpath = "//a[text()='View All']")
+    private WebElement viewAllbtn;
 
     @FindBy(xpath = "//h2[normalize-space()='Introduction']")
     private WebElement introductionLink;
@@ -348,6 +352,11 @@ public class HomePage extends BaseClass {
         return viewAll;
     }
 
+
+    public WebElement getViewAllBtn() {
+        return viewAllbtn;
+    }
+
     public WebElement getIntroductionLink() {
         return introductionLink;
     }
@@ -603,8 +612,16 @@ public class HomePage extends BaseClass {
     public void verifyViewAll() throws InterruptedException {
         Thread.sleep(3000); // Replace with explicit wait for better efficiency
         scrollToElement(getViewAll());
-        waitForVisibility(By.xpath("//a[text()='View All']")); // Wait for "View All" button to be visible
+        waitForVisibility(By.xpath("//button[text()='View All']")); // Wait for "View All" button to be visible
         String viewAllTxt = getViewAll().getText();
+        Assert.assertEquals(viewAllTxt, "View All");
+    }
+
+    public void verifyViewAllBtn() throws InterruptedException {
+        Thread.sleep(3000); // Replace with explicit wait for better efficiency
+        scrollToElement(getViewAllBtn());
+        waitForVisibility(By.xpath("//a[text()='View All']")); // Wait for "View All" button to be visible
+        String viewAllTxt = getViewAllBtn().getText();
         Assert.assertEquals(viewAllTxt, "View All");
     }
 
@@ -629,6 +646,7 @@ public class HomePage extends BaseClass {
      * Ensures that the user is prompted to proceed with the login process.
      */
     public void verifyLoginIDpopUpTxt() {
+        waitForVisibility(By.xpath("//p[text()='Kindly proceed with the login process to access an expanded array of modules and features.']"));
         String ele = elementGetText(getTxtLoginPopUp());
         Assert.assertEquals(ele, "Kindly proceed with the login process to access an expanded array of modules and features.");
     }
@@ -646,6 +664,9 @@ public class HomePage extends BaseClass {
      * This method may be useful if the button is not interactable using standard click actions.
      */
     public void clickViewAllBtn() {
+        clickUsingJavaScript(getViewAllBtn());
+    }
+    public void clickViewAll() {
         clickUsingJavaScript(getViewAll());
     }
 
@@ -657,7 +678,7 @@ public class HomePage extends BaseClass {
     public void clickOnContactDirectoryLink() {
         scrollPageToDown(); // Scroll down the page to make the element visible
         waitForVisibility(By.xpath("//h2[normalize-space()='Contact Directory']")); // Wait until the "Contact Directory" section is visible
-        elementClick(getContactUsbtn()); // Click the "Contact Us" button
+        clickUsingJavaScript(getContactUsbtn()); // Click the "Contact Us" button
 
         // Verify that the correct page or section has been loaded by checking the heading text
         String contactDir = elementGetText(getMAHBHeadingTxt());
@@ -710,6 +731,7 @@ public class HomePage extends BaseClass {
         scrollPageToDown(); // Scroll down to ensure visibility
         waitForVisibility(By.xpath("//h2[normalize-space()='Vendor Management System']")); // Wait for the section to be visible
         elementClick(getVendorManagementLink()); // Click on the "Vendor Management System" link
+        _driver.close();
     }
 
 

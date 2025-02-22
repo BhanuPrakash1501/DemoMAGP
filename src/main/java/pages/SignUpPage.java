@@ -166,11 +166,11 @@ public class SignUpPage extends BaseClass {
 // Additional text elements
 
     /** Welcome message displayed on the signup page */
-    @FindBy(xpath = "//h3[text()='Welcome']")
+    @FindBy(xpath = "//h3[text()='WELCOME (SIGNUP)']")
     private WebElement welcomeTxt;
 
     /** Description text for login information */
-    @FindBy(xpath = "//h5[text()='Procurement Manual of Procurement Policies, Procedures & Guidelines']")
+    @FindBy(xpath = "//h5[text()='Procurement Manual of Procurement Policies, Procedures & Guidelines(Signup)']")
     private WebElement loginDescTxt;
 
     /** Text displaying the message "Already have an account?" */
@@ -464,7 +464,7 @@ public class SignUpPage extends BaseClass {
      */
     public void verifyWelcometxt() {
         String weltxt = elementGetText(getWelcomeTxt());
-        Assert.assertEquals(weltxt, "Welcome");
+        Assert.assertEquals(weltxt, "WELCOME (SIGNUP)");
     }
 
     /**
@@ -473,7 +473,7 @@ public class SignUpPage extends BaseClass {
      */
     public void verifyDesctxt() {
         String desctxt = elementGetText(getLoginDescTxt());
-        Assert.assertEquals(desctxt, "Procurement Manual of Procurement Policies, Procedures & Guidelines");
+        Assert.assertEquals(desctxt, "Procurement Manual of Procurement Policies, Procedures & Guidelines(Signup)");
     }
 
     /**

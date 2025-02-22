@@ -5,6 +5,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
@@ -54,9 +55,14 @@ public class BaseTest {
             browser = prop.getProperty("browser");
             url = prop.getProperty("url");
 
+            ChromeOptions options=new ChromeOptions();
+            options.addArguments("--incognito");
+            options.setExperimentalOption("excludeSwitches", new String[] {"enable-automation"});
+
+
             // Initializes the appropriate WebDriver based on the browser type.
             if (browser.equalsIgnoreCase("chrome"))
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
             else if (browser.equalsIgnoreCase("firefox"))
                 driver = new FirefoxDriver();
             else if (browser.equalsIgnoreCase("edge"))
@@ -84,14 +90,14 @@ public class BaseTest {
      * This method is executed after each test method in the "sanity" group.
      * It ensures that the WebDriver instance is properly closed to free up resources.
      */
-    @AfterMethod(groups = {"sanity"})
-    public void tearDown() {
-        // Checks if the WebDriver instance is not null to avoid NullPointerException.
-        if (driver != null) {
-            // Closes all browser windows and terminates the WebDriver session.
-            driver.quit();
-        }
-    }
+//    @AfterMethod(groups = {"sanity"})
+//    public void tearDown() {
+//        // Checks if the WebDriver instance is not null to avoid NullPointerException.
+//        if (driver != null) {
+//            // Closes all browser windows and terminates the WebDriver session.
+//            driver.quit();
+//        }
+//    }
 
 
 }

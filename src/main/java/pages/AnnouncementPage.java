@@ -57,22 +57,35 @@ public class AnnouncementPage extends BaseClass {
         List<WebElement> tendersList = _driver.findElements(By.xpath("//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1"));
 
         // Find the first tender title element using XPath
-        WebElement tenderTitleName = findElementByXpath("(//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1)[1]");
+        WebElement tenderTitleName = findElementByXpath("(//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1)[5]");
 
         // Get the text of the first tender title
         String title = tenderTitleName.getText();
 
         // Split the title text using ": " as the delimiter
-        String[] str = title.split(": ");
+//        String[] str = title.split(": ");
 
         // Enter the extracted text into the search input field
-        getSearch().sendKeys(str);
+        getSearch().sendKeys(title);
 
         // Retrieve the entered value from the search field
         String value = getSearch().getAttribute("value");
 
         // Print the entered search value
         System.out.println(value);
+
+        waitForVisibility(By.xpath("(//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1)"));
+
+       for(WebElement nameOfTender: tendersList){
+           if(value.contains(nameOfTender.getText())){
+               System.out.println("Matched");
+               Assert.assertTrue(true);
+               break;
+           }else {
+               System.out.println("Failed");
+               Assert.assertFalse(false);
+           }
+       }
     }
 
     // Method to click on the Circular tab

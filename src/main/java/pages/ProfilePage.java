@@ -402,6 +402,7 @@ public class ProfilePage extends BaseClass {
      * Verifies that the "Save" button text is displayed correctly.
      */
     public void verifySaveTxt() {
+        scrollToElementAndWait(getSavebtn());
         String savetxt = elementGetText(getSavebtn());
         Assert.assertEquals(savetxt, "Save");
     }
