@@ -75,6 +75,9 @@ public class BaseTest {
         // Navigates to the specified URL.
         driver.get(url);
 
+        // Clear cookies
+        driver.manage().deleteAllCookies();
+
         // Maximizes the browser window.
         driver.manage().window().maximize();
 
@@ -90,14 +93,14 @@ public class BaseTest {
      * This method is executed after each test method in the "sanity" group.
      * It ensures that the WebDriver instance is properly closed to free up resources.
      */
-//    @AfterMethod(groups = {"sanity"})
-//    public void tearDown() {
-//        // Checks if the WebDriver instance is not null to avoid NullPointerException.
-//        if (driver != null) {
-//            // Closes all browser windows and terminates the WebDriver session.
-//            driver.quit();
-//        }
-//    }
+    @AfterMethod(groups = {"sanity"})
+    public void tearDown() {
+        // Checks if the WebDriver instance is not null to avoid NullPointerException.
+        if (driver != null) {
+            // Closes all browser windows and terminates the WebDriver session.
+            driver.quit();
+        }
+    }
 
 
 }

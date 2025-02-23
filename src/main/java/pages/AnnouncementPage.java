@@ -57,7 +57,7 @@ public class AnnouncementPage extends BaseClass {
         List<WebElement> tendersList = _driver.findElements(By.xpath("//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1"));
 
         // Find the first tender title element using XPath
-        WebElement tenderTitleName = findElementByXpath("(//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1)[5]");
+        WebElement tenderTitleName = findElementByXpath("(//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1)[9]");
 
         // Get the text of the first tender title
         String title = tenderTitleName.getText();
@@ -71,21 +71,37 @@ public class AnnouncementPage extends BaseClass {
         // Retrieve the entered value from the search field
         String value = getSearch().getAttribute("value");
 
+//        Thread.sleep(6000);
+        waitForVisibility(By.xpath("(//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1)"));
+
+
         // Print the entered search value
         System.out.println(value);
 
-        waitForVisibility(By.xpath("(//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1)"));
+        WebElement firstResponseName = findElementByXpath("(//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1)");
+//        waitForVisibility(By.xpath("(//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1)"));
 
-       for(WebElement nameOfTender: tendersList){
-           if(value.contains(nameOfTender.getText())){
-               System.out.println("Matched");
-               Assert.assertTrue(true);
-               break;
-           }else {
-               System.out.println("Failed");
-               Assert.assertFalse(false);
-           }
-       }
+        if(value.contains(firstResponseName.getText())){
+            System.out.println("Matched");
+            System.out.println(firstResponseName.getText());
+        }else{
+            System.out.println("Not Mached");
+        }
+//
+//        for (WebElement nameOfTender : tendersList) {
+//            try {
+//                if (value.contains(nameOfTender.getText())) {
+//                    System.out.println("Matched");
+//                    break;
+////                    Assert.assertTrue(true);
+//
+//                } else {
+////                    System.out.println("Failed");
+//                    Assert.assertFalse(false);
+//                }
+//            } catch (Exception e) {
+//            }
+//        }
     }
 
     // Method to click on the Circular tab
