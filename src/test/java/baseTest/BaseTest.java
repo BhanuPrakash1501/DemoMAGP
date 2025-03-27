@@ -98,7 +98,7 @@ public class BaseTest {
         // Checks if the WebDriver instance is not null to avoid NullPointerException.
         if (driver != null) {
             // Closes all browser windows and terminates the WebDriver session.
-//            driver.quit();
+            driver.quit();
         }
     }
 

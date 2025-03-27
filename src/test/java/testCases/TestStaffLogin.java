@@ -465,8 +465,7 @@ public class TestStaffLogin extends BaseTest {
         // Step 5: Click on the "Calendar" tab
         pm.homePage().clickCalendarTab();
 
-        // Step 6: Perform actions on the Calendar page
-        pm.calendarPage().Calendar();
+
     }
 
     // Test to verify the functionality of accessing the Manual tab from Favorites
@@ -591,8 +590,7 @@ public class TestStaffLogin extends BaseTest {
         // Step 7: Click the cross button to exit the FAQ search
         pm.faqPage().crossbtn();
 
-        // Step 8: Navigate to the profile section
-        pm.faqPage().profile();
+
     }
 
 

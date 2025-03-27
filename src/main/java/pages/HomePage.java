@@ -702,11 +702,13 @@ public class HomePage extends BaseClass {
         clickUsingJavaScript(getProcurehereLoginLink()); // Click the link using JavaScript
 
         String pWindow = getWindowHandle(); // Store the parent window handle
+        System.out.println(pWindow);
 
         Set<String> handles = getWindowHandles(); // Get all open window handles
         for (String handle : handles) {
             if (!handle.equals(pWindow)) { // Switch to the newly opened window
                 switchToWindow(handle);
+                System.out.println(handle);
                 Thread.sleep(2000); // Wait for the new page to load (replace with explicit waits)
                 System.out.println(getAppTitle()); // Print the title of the new window
             }
@@ -717,8 +719,8 @@ public class HomePage extends BaseClass {
         switchToWindow(pWindow); // Switch back to the parent window
         Thread.sleep(2000); // Delay before fetching the URL
         System.out.println(_driver.getCurrentUrl()); // Print the current URL
-        Thread.sleep(2000);
-        System.out.println(getAppTitle()); // Print the title of the current page
+        Thread.sleep(4000);
+        System.out.println(_driver.getTitle()); // Print the title of the current page
     }
 
     /**

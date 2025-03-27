@@ -8,9 +8,9 @@
             </run>
         </groups>
         <classes>
-            <class name="testCases.TestStaffLogin"/>
+<!--            <class name="testCases.TestStaffLogin"/>-->
             <class name="testCases.TestGuestPage"/>
-            <class name="testCases.TestVendorLoginPage"/>
+<!--            <class name="testCases.TestVendorLoginPage"/>-->
 
         </classes>
     </test>

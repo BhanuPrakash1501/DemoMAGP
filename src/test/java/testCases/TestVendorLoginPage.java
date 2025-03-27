@@ -19,7 +19,7 @@ public class TestVendorLoginPage extends BaseTest {
      * This test validates the UI elements on the Vendor Login Page.
      * It ensures that all essential UI components are displayed correctly.
      */
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression", "sanity"})
     public void testVendorLoginPageUI() {
         // Clicks the "Vendor Login" button to navigate to the login page.
         pm.preLoginPage().clickBtnvendorLogin();
@@ -62,7 +62,7 @@ public class TestVendorLoginPage extends BaseTest {
      * This test verifies that a vendor can log in with valid credentials.
      * It ensures the login process is functional and redirects correctly.
      */
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression", "sanity"})
     public void testVendorWithValidCredentials() throws IOException {
         // Clicks the "Vendor Login" button to access the login page.
         pm.preLoginPage().clickBtnvendorLogin();
@@ -75,7 +75,7 @@ public class TestVendorLoginPage extends BaseTest {
      * This test verifies the system's behavior when a vendor enters invalid credentials.
      * It checks for proper error handling and validation messages.
      */
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression", "sanity"})
     public void testVendorWithInValidCredentials() {
         // Clicks the "Vendor Login" button to access the login page.
         pm.preLoginPage().clickBtnvendorLogin();
@@ -181,13 +181,12 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
 
-
 /***********************          HomePage           ********************************/
     /**
      * This test verifies that the home page UI elements are displayed correctly.
      * It ensures that the user successfully lands on the home page after logging in.
      */
-    @Test(groups = {"sanity"})
+    @Test(groups = {"regression", "sanity"})
     public void verifyHomePageUI() throws InterruptedException, IOException {
         // Clicks the "Vendor Login" button to navigate to the login page.
         pm.preLoginPage().clickBtnvendorLogin();
@@ -215,7 +214,7 @@ public class TestVendorLoginPage extends BaseTest {
      * This test verifies navigation through various manuals available in the system.
      * It ensures that clicking different manual sections works as expected.
      */
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression", "sanity"})
     public void clickManuals() throws InterruptedException, IOException {
         // Clicks the "Vendor Login" button to navigate to the login page.
         pm.preLoginPage().clickBtnvendorLogin();
@@ -257,7 +256,7 @@ public class TestVendorLoginPage extends BaseTest {
      * This test verifies the functionality of the "Favorites" tab under the manuals section.
      * It ensures that users can access their favorite manuals correctly.
      */
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression", "sanity"})
     public void manualTab() throws IOException {
         // Clicks the "Vendor Login" button to navigate to the login page.
         pm.preLoginPage().clickBtnvendorLogin();
@@ -279,7 +278,7 @@ public class TestVendorLoginPage extends BaseTest {
      * This test verifies the functionality of the "Tender" tab under the favorites section.
      * It ensures that the user can navigate to the Tender tab successfully.
      */
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression", "sanity"})
     public void tenderTab() throws IOException {
         // Clicks the "Vendor Login" button to navigate to the login page.
         pm.preLoginPage().clickBtnvendorLogin();
@@ -292,6 +291,8 @@ public class TestVendorLoginPage extends BaseTest {
 
         // Clicks on the "Tender" tab within the Favorites section.
         pm.favouritesPage().clickTenderTab();
+
+        pm.favouritesPage().favTenderList();
     }
 
     /**
@@ -319,7 +320,7 @@ public class TestVendorLoginPage extends BaseTest {
      * This test verifies the functionality of the "Gallery" tab.
      * It ensures that the user can access and interact with the gallery.
      */
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression", "sanity"})
     public void clickGallery() throws InterruptedException, IOException {
         // Clicks the "Vendor Login" button to navigate to the login page.
         pm.preLoginPage().clickBtnvendorLogin();
@@ -341,9 +342,7 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
 
-
 /***********************    Profile   ****************************************/
-
 
 
     /**
@@ -399,7 +398,7 @@ public class TestVendorLoginPage extends BaseTest {
      * This test verifies the functionality of editing profile fields.
      * It ensures that users can access and modify their profile details.
      */
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression", "sanity"})
     public void testEditProfileFields() throws IOException {
         // Clicks the "Vendor Login" button to navigate to the login page.
         pm.preLoginPage().clickBtnvendorLogin();
@@ -428,7 +427,7 @@ public class TestVendorLoginPage extends BaseTest {
      * This test verifies the logout functionality.
      * It ensures that users can log out successfully and are redirected to the login page.
      */
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression", "sanity"})
     public void LogoutFunctionality() throws InterruptedException, IOException {
         // Clicks the "Vendor Login" button to navigate to the login page.
         pm.preLoginPage().clickBtnvendorLogin();
@@ -485,17 +484,14 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
 
-
     /***********************    Announcements   ****************************************/
-
-
 
 
     /**
      * This test verifies the search functionality within the General tab.
      * It ensures that users can filter announcements based on search criteria.
      */
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression", "sanity"})
     public void searchByTitlesinGeneralTab() throws InterruptedException, IOException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -509,7 +505,7 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
 
-    @Test
+    @Test(groups = {"regression", "sanity"})
     public void searchByCirculartitles() throws IOException, InterruptedException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -520,7 +516,7 @@ public class TestVendorLoginPage extends BaseTest {
         pm.announcementPage().seachCurcularTitles();
     }
 
-    @Test
+    @Test(groups = {"regression", "sanity"})
     public void verifyViewAndPDFIcons() throws IOException, InterruptedException, AWTException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
@@ -531,7 +527,6 @@ public class TestVendorLoginPage extends BaseTest {
         pm.announcementPage().clickViewBtn();
         pm.announcementPage().clickPdfbtn();
     }
-
 
 
 /***********************    Notification   ****************************************/
@@ -576,5 +571,60 @@ public class TestVendorLoginPage extends BaseTest {
 
     }
 
+
+    /***********************    Calendar   ****************************************/
+
+    @Test(groups = {"regression", "sanity"})
+    public void verifycalendarUIElements() throws IOException, InterruptedException {
+        pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().performLogin();
+        pm.homePage().clickCalendarTab();
+        pm.calendarPage().verifyUI();
+        pm.calendarPage().clickPreviousAndNextBtn();
+        pm.calendarPage().verifytenders();
+    }
+
+
+    // Test to verify the functionality of searching within the FAQ section
+    @Test(groups = {"regression", "sanity"})
+    public void searchFaq() throws IOException {
+
+        pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().performLogin();
+
+        // Step 3: Click on the "FAQ" tab to navigate to the FAQ section
+        pm.homePage().clickfaqtab();
+
+        // Step 4: Perform a specific search within the FAQ section
+        pm.faqPage().searchFAQ();
+    }
+
+
+    // Test to verify the FAQ text interaction and profile navigation
+    @Test(groups = {"regression", "sanity"})
+    public void clicktext() throws InterruptedException, IOException {
+        pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().performLogin();
+
+        // Step 3: Click on the "FAQ" tab to navigate to the FAQ section
+        pm.homePage().clickfaqtab();
+
+        // Step 3: Navigate to the FAQ tab
+        pm.homePage().clickfaqtab();
+
+        // Step 4: Perform a search in the FAQ section
+        pm.faqPage().searchFAQ();
+
+        // Step 5: Click on the search result text
+        pm.faqPage().clicktext();
+
+        // Step 6: Close the text box that appears
+        pm.faqPage().closetextbox();
+
+        // Step 7: Click the cross button to exit the FAQ search
+        pm.faqPage().crossbtn();
+
+
+    }
 
 }

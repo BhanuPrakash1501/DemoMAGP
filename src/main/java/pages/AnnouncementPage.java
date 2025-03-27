@@ -74,7 +74,7 @@ public class AnnouncementPage extends BaseClass {
         List<WebElement> tendersList = _driver.findElements(By.xpath("//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1"));
 
         // Find the first tender title element using XPath
-        WebElement tenderTitleName = findElementByXpath("(//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1)[9]");
+        WebElement tenderTitleName = findElementByXpath("(//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1)[1]");
 
         // Get the text of the first tender title
         String title = tenderTitleName.getText();
