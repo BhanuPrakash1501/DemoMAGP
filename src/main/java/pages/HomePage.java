@@ -76,7 +76,7 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//a[@href='/user/manuals/procurement-planning']")
     private WebElement procurementPlanning;
 
-    @FindBy(xpath = "//a[@href='/user/introduction?id=get-requisition-list&name=Requisition']")
+    @FindBy(xpath = "//a[@href='/user/manuals/requisition']")
     private WebElement requisition;
 
     @FindBy(xpath = "//a[@href='/user/introduction?id=get-sourcing-list&name=Sourcing']")

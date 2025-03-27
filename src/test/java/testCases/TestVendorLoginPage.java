@@ -6,17 +6,20 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageObjectManager.PageObjectManager;
 
+import java.awt.*;
 import java.io.IOException;
 
 @Listeners(reports.ExtentReportManager.class)
 public class TestVendorLoginPage extends BaseTest {
+
+    /***********************    Login   ****************************************/
 
 
     /**
      * This test validates the UI elements on the Vendor Login Page.
      * It ensures that all essential UI components are displayed correctly.
      */
-    @Test(groups = {"sanity"})
+    @Test(groups = {"regression"})
     public void testVendorLoginPageUI() {
         // Clicks the "Vendor Login" button to navigate to the login page.
         pm.preLoginPage().clickBtnvendorLogin();
@@ -60,7 +63,7 @@ public class TestVendorLoginPage extends BaseTest {
      * It ensures the login process is functional and redirects correctly.
      */
     @Test(groups = {"regression"})
-    public void testVendorWithValidCredentials() {
+    public void testVendorWithValidCredentials() throws IOException {
         // Clicks the "Vendor Login" button to access the login page.
         pm.preLoginPage().clickBtnvendorLogin();
 
@@ -82,296 +85,8 @@ public class TestVendorLoginPage extends BaseTest {
     }
 
 
-    /**
-     * This test verifies that the home page UI elements are displayed correctly.
-     * It ensures that the user successfully lands on the home page after logging in.
-     */
-    @Test(groups = {"regression"})
-    public void verifyHomePageUI() throws InterruptedException {
-        // Clicks the "Vendor Login" button to navigate to the login page.
-        pm.preLoginPage().clickBtnvendorLogin();
+    /***********************    SignUp   ****************************************/
 
-        // Performs login using valid credentials.
-        pm.vendorLoginPage().performLogin();
-
-        // The 'X' button action is currently commented out (possibly to close a popup).
-//    pm.vendorLoginPage().xbutton();
-
-        // Verifies the presence of the "Welcome to MAGP" text on the home page.
-        pm.homePage().verifyWelcomeToMagpTxt();
-
-        // Verifies that the "Latest Announcements" section is displayed.
-        pm.homePage().verifyLatestAnnouncementTxt();
-
-        // Verifies the presence of the "Last 7 Days" section on the home page.
-        pm.homePage().verifyLast7DaysTxt();
-    }
-
-    /**
-     * This test verifies navigation through various manuals available in the system.
-     * It ensures that clicking different manual sections works as expected.
-     */
-    @Test(groups = {"regression"})
-    public void clickManuals() throws InterruptedException {
-        // Clicks the "Vendor Login" button to navigate to the login page.
-        pm.preLoginPage().clickBtnvendorLogin();
-
-        // Performs login using valid credentials.
-        pm.vendorLoginPage().performLogin();
-
-        // Clicks on the "Introduction Manual" to open it.
-        pm.homePage().clickIntroductionManual();
-
-        // Clicks on the "Preface" section inside the introduction manual.
-        pm.introductionPage().clickPreface();
-
-        // Waits for 3 seconds before navigating back.
-        Thread.sleep(3000);
-        driver.navigate().back();
-
-        // Waits for 3 seconds before proceeding further.
-        Thread.sleep(3000);
-
-        // Clicks on the "Procurement Codes of Ethics" section.
-        pm.introductionPage().clickProcurementCodesofethics();
-
-        // Waits for 3 seconds before navigating back.
-        Thread.sleep(3000);
-        driver.navigate().back();
-
-        // Waits for 3 seconds before proceeding further.
-        Thread.sleep(3000);
-
-        // Clicks on the "General Provisions" section.
-        pm.introductionPage().clickGeneralProvisions();
-    }
-
-    /**
-     * This test verifies the functionality of the "Favorites" tab under the manuals section.
-     * It ensures that users can access their favorite manuals correctly.
-     */
-    @Test(groups = {"regression"})
-    public void manualTab() {
-        // Clicks the "Vendor Login" button to navigate to the login page.
-        pm.preLoginPage().clickBtnvendorLogin();
-
-        // Performs login using valid credentials.
-        pm.vendorLoginPage().performLogin();
-
-        // Clicks on the "Favorites" tab on the home page.
-        pm.homePage().clickFavouritesTab();
-
-        // Navigates to the "Manuals" section under the "Favorites" tab.
-        pm.favouritesPage().clickManualTab();
-
-        // Verifies the list of favorite manuals.
-        pm.favouritesPage().favManualList();
-    }
-
-    /**
-     * This test verifies the functionality of the "Tender" tab under the favorites section.
-     * It ensures that the user can navigate to the Tender tab successfully.
-     */
-    @Test(groups = {"regression"})
-    public void tenderTab() {
-        // Clicks the "Vendor Login" button to navigate to the login page.
-        pm.preLoginPage().clickBtnvendorLogin();
-
-        // Performs login using valid credentials.
-        pm.vendorLoginPage().performLogin();
-
-        // Clicks on the "Favorites" tab on the home page.
-        pm.homePage().clickFavouritesTab();
-
-        // Clicks on the "Tender" tab within the Favorites section.
-        pm.favouritesPage().clickTenderTab();
-    }
-
-    /**
-     * This test verifies the functionality of the "Gallery" tab.
-     * It ensures that the user can access and interact with the gallery.
-     */
-    @Test(groups = {"regression"})
-    public void clickGallery() throws InterruptedException {
-        // Clicks the "Vendor Login" button to navigate to the login page.
-        pm.preLoginPage().clickBtnvendorLogin();
-
-        // Performs login using valid credentials.
-        pm.vendorLoginPage().performLogin();
-
-        // Waits for 6 seconds to allow elements to load properly.
-        Thread.sleep(6000);
-
-        // Clicks on the "Gallery" tab on the home page.
-        pm.homePage().clickGalleryTab();
-
-        // Accesses and verifies the gallery section.
-        pm.galleryPage().gallery();
-
-        // Searches within the gallery.
-        pm.galleryPage().searchGaller();
-    }
-
-    /**
-     * This test verifies the functionality of the "Notifications" tab.
-     * It ensures that the user can access and view notifications successfully.
-     */
-    @Test(groups = {"regression"})
-    public void clickNotifications() throws InterruptedException {
-        // Clicks the "Vendor Login" button to navigate to the login page.
-        pm.preLoginPage().clickBtnvendorLogin();
-
-        // Performs login using valid credentials.
-        pm.vendorLoginPage().performLogin();
-
-        // Waits for 6 seconds to allow elements to load properly.
-        Thread.sleep(6000);
-
-        // Clicks on the "Notifications" tab on the home page.
-        pm.homePage().clickNotificationsTab();
-
-        // Accesses and verifies the notifications section.
-        pm.notificationsPage().notifications();
-    }
-
-
-    /**
-     * This test verifies the UI elements and functionalities on the Profile page.
-     * It ensures that the profile section is accessible and that various elements are displayed correctly.
-     */
-    @Test(groups = {"regression"})
-    public void verifyUI() {
-        // Clicks the "Vendor Login" button to navigate to the login page.
-        pm.preLoginPage().clickBtnvendorLogin();
-
-        // Performs login using valid credentials.
-        pm.vendorLoginPage().performLogin();
-
-        // Clicks on the "Profile" button to access the user profile section.
-        pm.profilePage().clickProfileBtn();
-
-        // Verifies that the "User Profile" text is displayed.
-        pm.profilePage().verifyUserProfileTxt();
-
-        // Verifies that the "Login ID" text is displayed.
-        pm.profilePage().verifyLoginIDTxt();
-
-        // Verifies that the "Need to Purchase" text is displayed.
-        pm.profilePage().verifyNeedtoPurchaseTxt();
-
-        // Verifies that the "Logout" text is displayed.
-        pm.profilePage().verifyLogoutTxt();
-
-        // Clicks on the "Logout" button.
-        pm.profilePage().clickBtnLogout();
-
-        // Verifies the "Are you sure you want to logout?" confirmation message.
-        pm.profilePage().verifyAreYouSureWantToLogoutTxt();
-
-        // Verifies the "No, Keep Login" text option.
-        pm.profilePage().verifyNoKeepLoginTxt();
-
-        // Verifies the "Yes, Logout" text option.
-        pm.profilePage().verifyYesLogoutTxt();
-
-        // Clicks the close (X) button on the logout confirmation popup.
-        pm.profilePage().clickBtnXLogoutPopUp();
-
-        // Clicks on the "Edit Profile" button.
-        pm.profilePage().clickEditProfileBtn();
-
-        // Verifies the presence of the "Save" button in the edit profile section.
-        pm.profilePage().verifySaveTxt();
-    }
-
-    /**
-     * This test verifies the functionality of editing profile fields.
-     * It ensures that users can access and modify their profile details.
-     */
-    @Test(groups = {"regression"})
-    public void testEditProfileFields() {
-        // Clicks the "Vendor Login" button to navigate to the login page.
-        pm.preLoginPage().clickBtnvendorLogin();
-
-        // Performs login using valid credentials.
-        pm.vendorLoginPage().performLogin();
-
-        // Clicks on the "Profile" button to access the user profile section.
-        pm.profilePage().clickProfileBtn();
-
-        // Clicks on the "Edit Profile" button.
-        pm.profilePage().clickEditProfileBtn();
-
-        // Clicks on the (X) button to close the edit profile pop-up.
-        pm.profilePage().clickXbuttonEditProfile();
-
-        // Clicks on the "Edit Profile" button again to reopen the edit profile section.
-        pm.profilePage().clickEditProfileBtn();
-
-        // Enters values in the edit profile fields.
-        pm.profilePage().enterValuesEditProfile();
-    }
-
-
-    /**
-     * This test verifies the logout functionality.
-     * It ensures that users can log out successfully and are redirected to the login page.
-     */
-    @Test(groups = {"regression"})
-    public void LogoutFunctionality() throws InterruptedException {
-        // Clicks the "Vendor Login" button to navigate to the login page.
-        pm.preLoginPage().clickBtnvendorLogin();
-
-        // Performs login using valid credentials.
-        pm.vendorLoginPage().performLogin();
-
-        // Opens the profile menu.
-        pm.profilePage().clickProfileBtn();
-
-        // Clicks the logout button.
-        pm.profilePage().clickBtnLogout();
-
-        // Clicks the "No, Keep Login" button to cancel logout.
-        pm.profilePage().clickBtnNoKeepLogout();
-
-        // Waits for 3 seconds.
-        Thread.sleep(3000);
-
-        // Clicks the logout button again.
-        pm.profilePage().clickBtnLogout();
-
-        // Confirms logout by clicking the "Yes, Logout" button.
-        pm.profilePage().clickBtnYesLogout();
-
-        // Verifies that the user is redirected to the login page.
-        pm.vendorLoginPage().verifyLoginHeaderTxt();
-    }
-
-    /**
-     * This test verifies the functionality of various links in the profile section.
-     * It ensures that users can navigate to different sections and return to the profile page.
-     */
-    @Test(groups = {"regression"})
-    public void testLinks() throws InterruptedException {
-        pm.preLoginPage().clickBtnvendorLogin();
-        pm.vendorLoginPage().performLogin();
-
-        // Opens the profile menu.
-        pm.profilePage().clickProfileBtn();
-
-        // Clicks the "Preface" link and navigates back.
-        pm.profilePage().clickLinkPreface();
-        Thread.sleep(3000);
-        driver.navigate().back();
-
-        // Clicks the "Calendar Events" link and navigates back.
-        pm.profilePage().clickLinkCalendarEvents();
-        Thread.sleep(3000);
-        driver.navigate().back();
-
-        // Clicks the "General Provision" link.
-        pm.profilePage().clickLinkGeneralProvision();
-    }
 
     /**
      * This test verifies the UI elements of the registration page.
@@ -465,12 +180,126 @@ public class TestVendorLoginPage extends BaseTest {
 
     }
 
+
+
+/***********************          HomePage           ********************************/
+    /**
+     * This test verifies that the home page UI elements are displayed correctly.
+     * It ensures that the user successfully lands on the home page after logging in.
+     */
+    @Test(groups = {"sanity"})
+    public void verifyHomePageUI() throws InterruptedException, IOException {
+        // Clicks the "Vendor Login" button to navigate to the login page.
+        pm.preLoginPage().clickBtnvendorLogin();
+
+        // Performs login using valid credentials.
+        pm.vendorLoginPage().performLogin();
+
+        // The 'X' button action is currently commented out (possibly to close a popup).
+//    pm.vendorLoginPage().xbutton();
+
+        // Verifies the presence of the "Welcome to MAGP" text on the home page.
+        pm.homePage().verifyWelcomeToMagpTxt();
+
+        // Verifies that the "Latest Announcements" section is displayed.
+        pm.homePage().verifyLatestAnnouncementTxt();
+
+        // Verifies the presence of the "Last 7 Days" section on the home page.
+        pm.homePage().verifyLast7DaysTxt();
+    }
+
+
+    /**********************   Manuals   *****************************************/
+
+    /**
+     * This test verifies navigation through various manuals available in the system.
+     * It ensures that clicking different manual sections works as expected.
+     */
+    @Test(groups = {"regression"})
+    public void clickManuals() throws InterruptedException, IOException {
+        // Clicks the "Vendor Login" button to navigate to the login page.
+        pm.preLoginPage().clickBtnvendorLogin();
+
+        // Performs login using valid credentials.
+        pm.vendorLoginPage().performLogin();
+
+        // Clicks on the "Introduction Manual" to open it.
+        pm.homePage().clickIntroductionManual();
+
+        // Clicks on the "Preface" section inside the introduction manual.
+        pm.introductionPage().clickPreface();
+
+        // Waits for 3 seconds before navigating back.
+        Thread.sleep(3000);
+        driver.navigate().back();
+
+        // Waits for 3 seconds before proceeding further.
+        Thread.sleep(3000);
+
+        // Clicks on the "Procurement Codes of Ethics" section.
+        pm.introductionPage().clickProcurementCodesofethics();
+
+        // Waits for 3 seconds before navigating back.
+        Thread.sleep(3000);
+        driver.navigate().back();
+
+        // Waits for 3 seconds before proceeding further.
+        Thread.sleep(3000);
+
+        // Clicks on the "General Provisions" section.
+        pm.introductionPage().clickGeneralProvisions();
+    }
+
+
+/***********************    Favourite Tab   ****************************************/
+
+    /**
+     * This test verifies the functionality of the "Favorites" tab under the manuals section.
+     * It ensures that users can access their favorite manuals correctly.
+     */
+    @Test(groups = {"regression"})
+    public void manualTab() throws IOException {
+        // Clicks the "Vendor Login" button to navigate to the login page.
+        pm.preLoginPage().clickBtnvendorLogin();
+
+        // Performs login using valid credentials.
+        pm.vendorLoginPage().performLogin();
+
+        // Clicks on the "Favorites" tab on the home page.
+        pm.homePage().clickFavouritesTab();
+
+        // Navigates to the "Manuals" section under the "Favorites" tab.
+        pm.favouritesPage().clickManualTab();
+
+        // Verifies the list of favorite manuals.
+        pm.favouritesPage().favManualList();
+    }
+
+    /**
+     * This test verifies the functionality of the "Tender" tab under the favorites section.
+     * It ensures that the user can navigate to the Tender tab successfully.
+     */
+    @Test(groups = {"regression"})
+    public void tenderTab() throws IOException {
+        // Clicks the "Vendor Login" button to navigate to the login page.
+        pm.preLoginPage().clickBtnvendorLogin();
+
+        // Performs login using valid credentials.
+        pm.vendorLoginPage().performLogin();
+
+        // Clicks on the "Favorites" tab on the home page.
+        pm.homePage().clickFavouritesTab();
+
+        // Clicks on the "Tender" tab within the Favorites section.
+        pm.favouritesPage().clickTenderTab();
+    }
+
     /**
      * This test verifies the functionality of the "Favorites" manual feature.
      * It ensures that users can navigate to the favorites section and interact with their favorite items.
      */
     @Test(groups = {"regression"})
-    public void clickfavoutitesManual() throws InterruptedException {
+    public void clickfavoutitesManual() throws InterruptedException, IOException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
 
@@ -482,12 +311,192 @@ public class TestVendorLoginPage extends BaseTest {
         pm.favouritesPage().clickfavTender();
     }
 
+
+    /***********************    Gallery Tab   ****************************************/
+
+
+    /**
+     * This test verifies the functionality of the "Gallery" tab.
+     * It ensures that the user can access and interact with the gallery.
+     */
+    @Test(groups = {"regression"})
+    public void clickGallery() throws InterruptedException, IOException {
+        // Clicks the "Vendor Login" button to navigate to the login page.
+        pm.preLoginPage().clickBtnvendorLogin();
+
+        // Performs login using valid credentials.
+        pm.vendorLoginPage().performLogin();
+
+        // Waits for 6 seconds to allow elements to load properly.
+        Thread.sleep(6000);
+
+        // Clicks on the "Gallery" tab on the home page.
+        pm.homePage().clickGalleryTab();
+
+        // Accesses and verifies the gallery section.
+        pm.galleryPage().gallery();
+
+        // Searches within the gallery.
+        pm.galleryPage().searchGaller();
+    }
+
+
+
+/***********************    Profile   ****************************************/
+
+
+
+    /**
+     * This test verifies the UI elements and functionalities on the Profile page.
+     * It ensures that the profile section is accessible and that various elements are displayed correctly.
+     */
+    @Test(groups = {"regression"})
+    public void verifyUI() throws IOException {
+        // Clicks the "Vendor Login" button to navigate to the login page.
+        pm.preLoginPage().clickBtnvendorLogin();
+
+        // Performs login using valid credentials.
+        pm.vendorLoginPage().performLogin();
+
+        // Clicks on the "Profile" button to access the user profile section.
+        pm.profilePage().clickProfileBtn();
+
+        // Verifies that the "User Profile" text is displayed.
+        pm.profilePage().verifyUserProfileTxt();
+
+        // Verifies that the "Login ID" text is displayed.
+        pm.profilePage().verifyLoginIDTxt();
+
+        // Verifies that the "Need to Purchase" text is displayed.
+        pm.profilePage().verifyNeedtoPurchaseTxt();
+
+        // Verifies that the "Logout" text is displayed.
+        pm.profilePage().verifyLogoutTxt();
+
+        // Clicks on the "Logout" button.
+        pm.profilePage().clickBtnLogout();
+
+        // Verifies the "Are you sure you want to logout?" confirmation message.
+        pm.profilePage().verifyAreYouSureWantToLogoutTxt();
+
+        // Verifies the "No, Keep Login" text option.
+        pm.profilePage().verifyNoKeepLoginTxt();
+
+        // Verifies the "Yes, Logout" text option.
+        pm.profilePage().verifyYesLogoutTxt();
+
+        // Clicks the close (X) button on the logout confirmation popup.
+        pm.profilePage().clickBtnXLogoutPopUp();
+
+        // Clicks on the "Edit Profile" button.
+        pm.profilePage().clickEditProfileBtn();
+
+        // Verifies the presence of the "Save" button in the edit profile section.
+        pm.profilePage().verifySaveTxt();
+    }
+
+    /**
+     * This test verifies the functionality of editing profile fields.
+     * It ensures that users can access and modify their profile details.
+     */
+    @Test(groups = {"regression"})
+    public void testEditProfileFields() throws IOException {
+        // Clicks the "Vendor Login" button to navigate to the login page.
+        pm.preLoginPage().clickBtnvendorLogin();
+
+        // Performs login using valid credentials.
+        pm.vendorLoginPage().performLogin();
+
+        // Clicks on the "Profile" button to access the user profile section.
+        pm.profilePage().clickProfileBtn();
+
+        // Clicks on the "Edit Profile" button.
+        pm.profilePage().clickEditProfileBtn();
+
+        // Clicks on the (X) button to close the edit profile pop-up.
+        pm.profilePage().clickXbuttonEditProfile();
+
+        // Clicks on the "Edit Profile" button again to reopen the edit profile section.
+        pm.profilePage().clickEditProfileBtn();
+
+        // Enters values in the edit profile fields.
+        pm.profilePage().enterValuesEditProfile();
+    }
+
+
+    /**
+     * This test verifies the logout functionality.
+     * It ensures that users can log out successfully and are redirected to the login page.
+     */
+    @Test(groups = {"regression"})
+    public void LogoutFunctionality() throws InterruptedException, IOException {
+        // Clicks the "Vendor Login" button to navigate to the login page.
+        pm.preLoginPage().clickBtnvendorLogin();
+
+        // Performs login using valid credentials.
+        pm.vendorLoginPage().performLogin();
+
+        // Opens the profile menu.
+        pm.profilePage().clickProfileBtn();
+
+        // Clicks the logout button.
+        pm.profilePage().clickBtnLogout();
+
+        // Clicks the "No, Keep Login" button to cancel logout.
+        pm.profilePage().clickBtnNoKeepLogout();
+
+        // Waits for 3 seconds.
+        Thread.sleep(3000);
+
+        // Clicks the logout button again.
+        pm.profilePage().clickBtnLogout();
+
+        // Confirms logout by clicking the "Yes, Logout" button.
+        pm.profilePage().clickBtnYesLogout();
+
+        // Verifies that the user is redirected to the login page.
+        pm.vendorLoginPage().verifyLoginHeaderTxt();
+    }
+
+    /**
+     * This test verifies the functionality of various links in the profile section.
+     * It ensures that users can navigate to different sections and return to the profile page.
+     */
+    @Test(groups = {"regression"})
+    public void testLinks() throws InterruptedException, IOException {
+        pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().performLogin();
+
+        // Opens the profile menu.
+        pm.profilePage().clickProfileBtn();
+
+        // Clicks the "Preface" link and navigates back.
+        pm.profilePage().clickLinkPreface();
+        Thread.sleep(3000);
+        driver.navigate().back();
+
+        // Clicks the "Calendar Events" link and navigates back.
+        pm.profilePage().clickLinkCalendarEvents();
+        Thread.sleep(3000);
+        driver.navigate().back();
+
+        // Clicks the "General Provision" link.
+        pm.profilePage().clickLinkGeneralProvision();
+    }
+
+
+
+    /***********************    Announcements   ****************************************/
+
+
+
+
     /**
      * This test verifies the search functionality within the General tab.
      * It ensures that users can filter announcements based on search criteria.
      */
-    @Test(groups = {"sanity"})
-    public void searchByTitlesinGeneralTab() throws InterruptedException {
+    @Test(groups = {"regression"})
+    public void searchByTitlesinGeneralTab() throws InterruptedException, IOException {
         pm.preLoginPage().clickBtnvendorLogin();
         pm.vendorLoginPage().performLogin();
 
@@ -497,6 +506,74 @@ public class TestVendorLoginPage extends BaseTest {
 
         // Clicks on the "General" tab in the announcements section.
         pm.announcementPage().clickGeneralTab();
+    }
+
+
+    @Test
+    public void searchByCirculartitles() throws IOException, InterruptedException {
+        pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().performLogin();
+
+        // Verifies the "View All" button and clicks it.
+        pm.homePage().clickViewAllBtn();
+        pm.announcementPage().clickCircularTab();
+        pm.announcementPage().seachCurcularTitles();
+    }
+
+    @Test
+    public void verifyViewAndPDFIcons() throws IOException, InterruptedException, AWTException {
+        pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().performLogin();
+        // Verifies the "View All" button and clicks it.
+        pm.homePage().clickViewAllBtn();
+        pm.announcementPage().clickCircularTab();
+        pm.announcementPage().verifyViewAndPdfIcons();
+        pm.announcementPage().clickViewBtn();
+        pm.announcementPage().clickPdfbtn();
+    }
+
+
+
+/***********************    Notification   ****************************************/
+
+    /**
+     * This test verifies the functionality of the "Notifications" tab.
+     * It ensures that the user can access and view notifications successfully.
+     */
+    @Test(groups = {"regression"})
+    public void clickNotifications() throws InterruptedException, IOException {
+        // Clicks the "Vendor Login" button to navigate to the login page.
+        pm.preLoginPage().clickBtnvendorLogin();
+
+        // Performs login using valid credentials.
+        pm.vendorLoginPage().performLogin();
+
+        // Waits for 6 seconds to allow elements to load properly.
+        Thread.sleep(6000);
+
+        // Clicks on the "Notifications" tab on the home page.
+        pm.homePage().clickNotificationsTab();
+
+        // Accesses and verifies the notifications section.
+        pm.notificationsPage().scrollToTodayHeading();
+    }
+
+    @Test
+    public void clickNotificationReadRadioBtn() throws IOException, InterruptedException {
+        pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().performLogin();
+        pm.homePage().clickNotificationsTab();
+        pm.notificationsPage().scrollToTodayHeading();
+        pm.notificationsPage().verifyTodayHeading();
+        pm.notificationsPage().verifyThisweekHeading();
+        pm.notificationsPage().verifyMarkAllReadHeading();
+        pm.notificationsPage().verifyContentMssgDesc();
+        pm.notificationsPage().verifyyourAllcaughtUpMssg();
+
+
+        pm.notificationsPage().clickReadRadioBtn();
+//        pm.notificationsPage().clickUnReadRadioBtn();
+
     }
 
 

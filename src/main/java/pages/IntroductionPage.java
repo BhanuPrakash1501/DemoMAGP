@@ -238,6 +238,13 @@ public class IntroductionPage extends BaseClass {
     @FindBy(xpath = "//h6[text()='Procurement Codes of ethics']")
     private WebElement procCodesofEthicsTab;
 
+    public WebElement getIntroductionTabLink() {
+        return introductionTabLink;
+    }
+
+    @FindBy(xpath = "//span[text()='introduction']")
+    private WebElement introductionTabLink;
+
     public WebElement getTermsandDefinitionsTab() {
         return termsandDefinitionsTab;
     }
@@ -341,7 +348,7 @@ public class IntroductionPage extends BaseClass {
         scrollToElement(getPrefaceViewMorebtn());
         waitForVisibility(By.xpath("//h2[text()='Preface']/following-sibling::a"));
         clickUsingJavaScript(getPrefaceViewMorebtn());
-        scrollToElementAndWait(getPrefacetabname());
+        scrollToElementAndWait(getIntroductionTabLink());
         String prefacetabTxt = elementGetText(getPrefacetabname());
         Assert.assertEquals(prefacetabTxt, "Preface");
     }
@@ -586,6 +593,12 @@ public class IntroductionPage extends BaseClass {
     public void clickloginBtn() {
         waitForElementToBeClickable(getLoginBtntxt()); // Wait for the button to become clickable.
         clickUsingJavaScript(getLoginBtntxt()); // Click the button using JavaScript.
+    }
+
+    public void clickIntroductionTabLink() {
+        // Click the "Requisition" tab link using JavaScript
+        scrollToElementAndWait(getIntroductionTabLink());
+        clickUsingJavaScript(getIntroductionTabLink());
     }
 
 }

@@ -42,7 +42,7 @@ public class RequistionPage extends BaseClass {
     private WebElement processFlowChartabname;
 
     // WebElement for the "Requisition" tab link in the navigation menu
-    @FindBy(xpath = "//span[text()='Requisition']")
+    @FindBy(xpath = "//span[text()='requisition']")
     private WebElement requisitionTabLink;
 
     // WebElement representing the "View More" button for Processing of Purchase Requisition section

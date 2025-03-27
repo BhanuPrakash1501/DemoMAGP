@@ -11,7 +11,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Properties;
 
 public class VendorLoginPage extends BaseClass {
     /**
@@ -30,15 +32,6 @@ public class VendorLoginPage extends BaseClass {
      */
     private final String actualPassWordtext = "Password *";
 
-    /**
-     * Default username for login.
-     */
-    public String username = "avutibhanuprakash@gmail.com";
-
-    /**
-     * Default password for login.
-     */
-    public String password = "Test@12345";
 
     /**
      * Constructor to initialize the VendorLoginPage with the given WebDriver.
@@ -213,12 +206,18 @@ public class VendorLoginPage extends BaseClass {
 
 
     // Performs the login action by entering the username and password, then clicking the submit button.
-    public void performLogin() {
+    public void performLogin() throws IOException {
+
+        FileInputStream fis = new FileInputStream("C:\\Users\\Mind-Graph\\IdeaProjects\\DemoMAGP\\src\\test\\resources\\config.properties");
+
+        // Creates a Properties object to load key-value pairs from the configuration file.
+        Properties prop = new Properties();
+        prop.load(fis);
         // Enters the username into the email input field.
-        elementSendKeys(getEmailId(), username);
+        elementSendKeys(getEmailId(), prop.getProperty("username"));
 
         // Enters the password into the password input field.
-        elementSendKeys(getPswd(), password);
+        elementSendKeys(getPswd(), prop.getProperty("password"));
 
         // Clicks the submit button to initiate the login process.
         elementClick(getSubmitbtn());
@@ -303,6 +302,7 @@ public class VendorLoginPage extends BaseClass {
         String emailErrorTxt = getPleaseEnterAValidEmailAddressTxt().getText();  // Retrieves the error message text.
         Assert.assertEquals(emailErrorTxt, "Please enter a valid email address");  //
     }
+
     // Clicks on the "Forgot Password?" link to navigate to the password recovery page.
     public void verifyForgetPasswordlink() {
         elementClick(getForgetPassworslink());

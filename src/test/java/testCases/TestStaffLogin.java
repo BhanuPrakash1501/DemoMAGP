@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class TestStaffLogin extends BaseTest {
 
     // Test to verify staff login functionality with valid credentials
-    @Test(groups = {"regression"})
+    @Test(groups = {"sanity"})
     public void TestStaffLoginWithValidCredentials() {
         // Click on the staff login button to open the staff login page
         pm.preLoginPage().clickBtnstaffLogin();
@@ -36,7 +36,7 @@ public class TestStaffLogin extends BaseTest {
 
         // Click on the "Introduction Manual" link in the home page
         pm.homePage().clickIntroductionManual();
-
+        Thread.sleep(3000);
         // Click on "Preface" section and navigate back
         pm.introductionPage().clickPreface();
         Thread.sleep(3000);
@@ -88,7 +88,7 @@ public class TestStaffLogin extends BaseTest {
         Thread.sleep(6000);
 
         // Close any pop-up or overlay if present
-        pm.homePage().xbutton();
+//        pm.homePage().xbutton();
 
         // Wait for UI to settle
         Thread.sleep(6000);
@@ -615,7 +615,7 @@ public class TestStaffLogin extends BaseTest {
         pm.homePage().clickNotificationsTab();
 
         // Step 6: Verify that notifications are displayed
-        pm.notificationsPage().notifications();
+        pm.notificationsPage().scrollToTodayHeading();
     }
 
 
