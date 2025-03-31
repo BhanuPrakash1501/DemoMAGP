@@ -189,7 +189,7 @@ public class TestGuestPage extends BaseTest {
 
     // Test to verify the presence of important tabs on the home page
     @Test(groups = {"sanity", "regression"})
-    public void verifytabs() {
+    public void verifytabs() throws InterruptedException {
         // Click on the guest login button to open the login popup
         pm.preLoginPage().clickBtnguestLogin();
 
@@ -198,6 +198,8 @@ public class TestGuestPage extends BaseTest {
 
         // Verify that the "Home" tab is displayed
         pm.homePage().verifyHometab();
+
+        pm.homePage().verifyLogos();
 
         // Verify that the "FAQ" tab is displayed
         pm.homePage().verifyFAQtab();

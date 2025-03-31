@@ -194,6 +194,8 @@ public class TestVendorLoginPage extends BaseTest {
         // Performs login using valid credentials.
         pm.vendorLoginPage().performLogin();
 
+        pm.homePage().verifyLogos();
+
         // The 'X' button action is currently commented out (possibly to close a popup).
 //    pm.vendorLoginPage().xbutton();
 
@@ -526,6 +528,17 @@ public class TestVendorLoginPage extends BaseTest {
         pm.announcementPage().verifyViewAndPdfIcons();
         pm.announcementPage().clickViewBtn();
         pm.announcementPage().clickPdfbtn();
+    }
+
+    @Test(groups = {"regression", "sanity"})
+    public void checkTenderDetails() throws IOException, InterruptedException {
+        pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().performLogin();
+        // Verifies the "View All" button and clicks it.
+        pm.homePage().clickViewAllBtn();
+        pm.announcementPage().clickOnTender();
+        pm.announcementPage().markAsFavourite();
+
     }
 
 

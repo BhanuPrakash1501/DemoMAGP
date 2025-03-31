@@ -872,6 +872,12 @@ public class HomePage extends BaseClass {
         Assert.assertTrue(getProfile().isDisplayed()); // Assert that the Profile tab is displayed
     }
 
+    public void verifyLogos() throws InterruptedException {
+        Thread.sleep(3000);
+        Assert.assertTrue(getMagpLogoIcon().isDisplayed());
+        Assert.assertTrue(getMalaysiaLogoIcon().isDisplayed());
+    }
+
 
 }
 

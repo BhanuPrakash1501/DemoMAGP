@@ -50,6 +50,9 @@ public class AnnouncementPage extends BaseClass {
     @FindBy(xpath = "(//button[@class='btn-close'])[2]")
     private WebElement viewPopUpXbtn;
 
+    @FindBy(xpath = "(//div[@class='card-body an-card'])[1]")
+    private WebElement tenderDetails;
+
     // Getter method to retrieve the search input field
     public WebElement getSearch() {
         return search;
@@ -198,6 +201,44 @@ public class AnnouncementPage extends BaseClass {
         elementClick(viewPopUpXbtn);
 
 
+    }
+
+    public void clickOnTender() {
+        try {
+            Thread.sleep(3000);
+            scrollToElementAndWait(tenderDetails);
+            waitForElementToBeClickable(tenderDetails);
+            WebElement tenderTitleName = findElementByXpath("(//div[@class='d-flex mb-2 justify-content-between align-items-start']//h1)[1]");
+            String title = tenderTitleName.getText();
+//            System.out.println(title);
+//            System.out.println(tenderDetails.getText());
+            clickUsingJavaScript(tenderDetails);
+            Thread.sleep(3000);
+            WebElement tenderHeadingName = findElementByXpath("//h5[@class='mb-3']");
+            scrollToElementAndWait(tenderHeadingName);
+
+
+            Assert.assertEquals(title, tenderHeadingName.getText());
+        } catch (Exception e) {
+            System.out.println(" Test Case Failed");
+            System.out.println(e);
+        }
+    }
+
+    public void markAsFavourite() throws InterruptedException {
+        waitForElementToBeClickable(_driver.findElement(By.xpath("//*[@class='btn btn-primary mb-4']//span")));
+        WebElement markAsFavBtn = findElementByXpath("//*[@class='btn btn-primary mb-4']//span");
+        String favTxt = markAsFavBtn.getText();
+
+        if (!favTxt.equalsIgnoreCase("Mark as Favourite")) {
+            clickUsingJavaScript(markAsFavBtn);
+            System.out.println(favTxt);
+        } else {
+            WebElement markedAsFavBtn = findElementByXpath("//*[@class='btn btn-primary mb-4']//span");
+            String MarkedAsFavTxt = markedAsFavBtn.getText();
+            clickUsingJavaScript(markedAsFavBtn);
+            System.out.println(MarkedAsFavTxt);
+        }
     }
 
 }
