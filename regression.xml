@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Mind-Graph/IdeaProjects/DemoMAGP">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="testCases.TestGuestPage"/>
+            <class name="testCases.TestVendorLoginPage"/>
+            <class name="testCases.TestStaffLogin"/>
+        </classes>
+    </test>
+</suite>

@@ -7,6 +7,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+
 public class ProfilePage extends BaseClass {
     // WebDriver instance for handling browser interactions
     private WebDriver _driver;
@@ -537,6 +541,40 @@ public class ProfilePage extends BaseClass {
 
         // Uploads the selected image file
         elementSendKeysFileUpload(getEditProfilePictureBtn(), "C:\\Users\\Mind-Graph\\Downloads\\bird-thumbnail.jpg");
+    }
+
+    public void uploadpic() throws InterruptedException, AWTException {
+        Thread.sleep(3000);
+        WebElement ele = findElementByXpath("//*[@class='edit-icon']");
+        clickUsingJavaScript(ele);
+        // Set the path of the file you want to upload
+        String filePath = "C:\\Users\\Mind-Graph\\IdeaProjects\\DemoMAGP\\logo\\MagpLogo.png";
+
+        // Create an instance of the Robot class
+        Robot robot = new Robot();
+
+        // Use Robot to type the file path into the file dialog
+        StringSelection stringSelection = new StringSelection(filePath);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+
+        // Press Ctrl + V to paste the file path into the file dialog
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyRelease(KeyEvent.VK_V);
+
+        // Wait for a second before pressing Enter
+        Thread.sleep(1000);
+
+        // Press Enter to confirm the file selection
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+
+        // Wait for the upload to complete (optional)
+        Thread.sleep(5000);
+
+        // Additional code for testing (e.g., check if the upload was successful)
+        System.out.println("File uploaded successfully!");
     }
 
 

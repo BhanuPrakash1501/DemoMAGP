@@ -485,6 +485,16 @@ public class TestVendorLoginPage extends BaseTest {
         pm.profilePage().clickLinkGeneralProvision();
     }
 
+    @Test
+    public void pic() throws IOException, InterruptedException, AWTException {
+        pm.preLoginPage().clickBtnvendorLogin();
+        pm.vendorLoginPage().performLogin();
+
+        // Opens the profile menu.
+        pm.profilePage().clickProfileBtn();
+        pm.profilePage().uploadpic();
+    }
+
 
     /***********************    Announcements   ****************************************/
 
