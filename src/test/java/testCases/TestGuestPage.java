@@ -5,7 +5,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import listners.ListnerClass;
 
-@Listeners(ListnerClass.class)
+//@Listeners(ListnerClass.class)
 public class TestGuestPage extends BaseTest {
 
 

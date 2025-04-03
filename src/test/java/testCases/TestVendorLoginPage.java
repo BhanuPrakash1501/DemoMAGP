@@ -8,7 +8,7 @@ import listners.ListnerClass;
 import java.awt.*;
 import java.io.IOException;
 
-@Listeners(ListnerClass.class)
+//@Listeners(ListnerClass.class)
 public class TestVendorLoginPage extends BaseTest {
 
     /***********************    Login   ****************************************/

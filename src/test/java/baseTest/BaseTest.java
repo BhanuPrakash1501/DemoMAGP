@@ -42,7 +42,7 @@ public class BaseTest {
      *
      * @throws IOException if there is an issue reading the configuration file.
      */
-    @BeforeTest(groups = {"sanity"})
+    @BeforeMethod(groups = {"sanity"})
     public void launchBrowser() throws IOException {
         try {
             // Retrieves the project's base directory.
@@ -97,7 +97,7 @@ public class BaseTest {
      * This method is executed after each test method in the "sanity" group.
      * It ensures that the WebDriver instance is properly closed to free up resources.
      */
-    @AfterTest(groups = {"sanity"})
+    @AfterMethod(groups = {"sanity"})
     public void tearDown() {
         // Checks if the WebDriver instance is not null to avoid NullPointerException.
         if (driver != null) {
