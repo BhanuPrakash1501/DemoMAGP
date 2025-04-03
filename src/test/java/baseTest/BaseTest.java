@@ -9,18 +9,22 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import pageObjectManager.PageObjectManager;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.Properties;
 
 public class BaseTest {
     // Declares the WebDriver instance for browser interaction.
-    protected WebDriver driver;
+    public static WebDriver driver;
 
     // Declares an instance of PageObjectManager to manage page objects.
     public PageObjectManager pm;
@@ -38,7 +42,7 @@ public class BaseTest {
      *
      * @throws IOException if there is an issue reading the configuration file.
      */
-    @BeforeMethod(groups = {"sanity"})
+    @BeforeTest(groups = {"sanity"})
     public void launchBrowser() throws IOException {
         try {
             // Retrieves the project's base directory.
@@ -93,13 +97,29 @@ public class BaseTest {
      * This method is executed after each test method in the "sanity" group.
      * It ensures that the WebDriver instance is properly closed to free up resources.
      */
-    @AfterMethod(groups = {"sanity"})
+    @AfterTest(groups = {"sanity"})
     public void tearDown() {
         // Checks if the WebDriver instance is not null to avoid NullPointerException.
         if (driver != null) {
             // Closes all browser windows and terminates the WebDriver session.
-//            driver.quit();
+            driver.quit();
         }
+    }
+
+    public String captureScreen(String tname) throws IOException {
+
+        String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+
+        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+        File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
+
+        String targetFilePath=System.getProperty("user.dir")+"\\screenshots\\" + tname + "_" + timeStamp + ".png";
+        File targetFile=new File(targetFilePath);
+
+        sourceFile.renameTo(targetFile);
+
+        return targetFilePath;
+
     }
 
 

@@ -1,15 +1,14 @@
 package testCases;
 
-import baseClass.BaseClass;
 import baseTest.BaseTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import pageObjectManager.PageObjectManager;
+import listners.ListnerClass;
 
 import java.awt.*;
 import java.io.IOException;
 
-@Listeners(reports.ExtentReportManager.class)
+@Listeners(ListnerClass.class)
 public class TestVendorLoginPage extends BaseTest {
 
     /***********************    Login   ****************************************/

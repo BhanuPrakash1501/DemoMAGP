@@ -194,6 +194,7 @@ public class PreLoginPage extends BaseClass {
      */
     public void clickBtnstaffLogin() {
         elementClick(getStaffLoginbtn());
+
     }
 
     /**

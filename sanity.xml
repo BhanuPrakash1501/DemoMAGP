@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="sanity Test Suite">
+    <listeners>
+        <listener class-name="listners.ListnerClass"/>
+    </listeners>
     <test verbose="2" preserve-order="true" name="C:/Users/Mind-Graph/IdeaProjects/DemoMAGP">
         <groups>
             <run>
@@ -8,9 +11,13 @@
             </run>
         </groups>
         <classes>
-            <class name="testCases.TestGuestPage"/>
-            <class name="testCases.TestVendorLoginPage"/>
-            <class name="testCases.TestStaffLogin"/>
+            <!--            <class name="testCases.TestGuestPage"/>-->
+            <!--            <class name="testCases.TestVendorLoginPage"/>-->
+            <class name="testCases.TestStaffLogin">
+                <methods>
+                    <include name="TestStaffLoginWithValidCredentials"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

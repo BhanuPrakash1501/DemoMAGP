@@ -3,8 +3,9 @@ package testCases;
 import baseTest.BaseTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import listners.ListnerClass;
 
-@Listeners(reports.ExtentReportManager.class)
+@Listeners(ListnerClass.class)
 public class TestGuestPage extends BaseTest {
 
 

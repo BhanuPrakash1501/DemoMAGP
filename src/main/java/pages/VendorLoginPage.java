@@ -208,7 +208,7 @@ public class VendorLoginPage extends BaseClass {
     // Performs the login action by entering the username and password, then clicking the submit button.
     public void performLogin() throws IOException {
 
-        FileInputStream fis = new FileInputStream("C:\\Users\\Mind-Graph\\IdeaProjects\\DemoMAGP\\src\\test\\resources\\config.properties");
+       FileInputStream fis = new FileInputStream("C:\\Users\\Mind-Graph\\IdeaProjects\\DemoMAGP\\src\\test\\resources\\config.properties");
 
         // Creates a Properties object to load key-value pairs from the configuration file.
         Properties prop = new Properties();
@@ -221,6 +221,9 @@ public class VendorLoginPage extends BaseClass {
 
         // Clicks the submit button to initiate the login process.
         elementClick(getSubmitbtn());
+
+
+//        getEmailId().sendKeys(getCellValue("TestData",0,2));
     }
 
     // Clicks on the "Forgot Password?" link to navigate to the password recovery page.
