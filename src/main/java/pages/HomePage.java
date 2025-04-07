@@ -732,7 +732,7 @@ public class HomePage extends BaseClass {
     public void clickOnVenderManagementSystemLink() {
         scrollPageToDown(); // Scroll down to ensure visibility
         waitForVisibility(By.xpath("//h2[normalize-space()='Vendor Management System']")); // Wait for the section to be visible
-        elementClick(getVendorManagementLink()); // Click on the "Vendor Management System" link
+        clickUsingJavaScript(getVendorManagementLink()); // Click on the "Vendor Management System" link
         _driver.close();
     }
 

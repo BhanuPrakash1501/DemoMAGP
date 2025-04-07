@@ -11,13 +11,13 @@
             </run>
         </groups>
         <classes>
-                        <class name="testCases.TestGuestPage"/>
-                        <class name="testCases.TestVendorLoginPage"/>
-<!--            <class name="testCases.TestStaffLogin">-->
-<!--                <methods>-->
-<!--                    <include name="TestStaffLoginWithValidCredentials"/>-->
-<!--                </methods>-->
-<!--            </class>-->
+<!--                        <class name="testCases.TestGuestPage"/>-->
+<!--                        <class name="testCases.TestVendorLoginPage"/>-->
+            <class name="testCases.TestStaffLogin">
+                <methods>
+                    <include name="TestStaffLoginWithValidCredentials"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
