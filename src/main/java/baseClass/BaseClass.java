@@ -8,7 +8,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -25,7 +26,7 @@ import java.util.Set;
 public class BaseClass {
     // Base class for WebDriver operations
     protected static WebDriver _driver;
-
+    static Logger logger;
     /**
      * Constructor to initialize WebDriver instance.
      *
@@ -549,6 +550,12 @@ public class BaseClass {
 
         // Wait until the element is clickable (visible and enabled)
         wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public static Logger getLogger()
+    {
+        logger=LogManager.getLogger(); //Log4j
+        return logger;
     }
 
 

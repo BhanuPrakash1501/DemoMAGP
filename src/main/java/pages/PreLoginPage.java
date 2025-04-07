@@ -193,6 +193,7 @@ public class PreLoginPage extends BaseClass {
      * Clicks the "Staff Login" button to proceed with staff login.
      */
     public void clickBtnstaffLogin() {
+        BaseClass.getLogger().info("Click on staff Button");
         elementClick(getStaffLoginbtn());
 
     }
@@ -201,6 +202,7 @@ public class PreLoginPage extends BaseClass {
      * Clicks the "Vendor Login" button to proceed with vendor login.
      */
     public void clickBtnvendorLogin() {
+        BaseClass.getLogger().info("Click on Vendor Button");
         elementClick(getVendorLoginbtn());
     }
 
@@ -208,7 +210,8 @@ public class PreLoginPage extends BaseClass {
      * Clicks the "Guest Login" button to proceed with guest login.
      */
     public void clickBtnguestLogin() {
-        elementClick(getGuestbtn());
+
+        BaseClass.getLogger().info("Click on Guest Button");elementClick(getGuestbtn());
     }
 
     /**
