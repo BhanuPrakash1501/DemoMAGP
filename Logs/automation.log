@@ -1,1 +1,7 @@
 16:37:53.028 [main] INFO  - Click on Guest Button
+16:44:04.823 [main] INFO  - Click on Vendor Button
+16:54:27.935 [main] INFO  - Click on Guest Button
+16:54:30.056 [main] INFO  - Verifying the Login header text...
+16:54:30.135 [main] INFO  - Actual login header text: Login
+16:54:30.138 [main] INFO  - Assertion passed: Login header text is correct.
+17:44:24.878 [main] INFO  - Click on Guest Button

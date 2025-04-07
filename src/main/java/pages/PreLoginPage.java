@@ -19,7 +19,7 @@ public class PreLoginPage extends BaseClass {
      * Constructor for PreLoginPage.
      *
      * @param driver The WebDriver instance used to interact with the web page.
-     * Initializes web elements using PageFactory.
+     *               Initializes web elements using PageFactory.
      */
     public PreLoginPage(WebDriver driver) {
         super(driver); // Calls the parent class constructor.
@@ -68,7 +68,6 @@ public class PreLoginPage extends BaseClass {
      */
     @FindBy(xpath = "//button[text()='Guest Login']")
     private WebElement guestbtn;
-
 
 
     /**
@@ -138,13 +137,16 @@ public class PreLoginPage extends BaseClass {
      * Verifies that the MAGP logo is displayed on the pre-login page.
      */
     public void verifyMAGPlogo() {
+        BaseClass.getLogger().info("Verify MAGP Logo is Displayed");
         Assert.assertTrue(getMagpLogo().isDisplayed());
+
     }
 
     /**
      * Verifies that the "Welcome" text is correctly displayed.
      */
     public void verifyWelcometxt() {
+        BaseClass.getLogger().info("Verify Welcome text is displayed");
         String weltxt = elementGetText(getWelcomeTxt());
         Assert.assertEquals(weltxt, "Welcome");
     }
@@ -153,6 +155,7 @@ public class PreLoginPage extends BaseClass {
      * Verifies that the description text matches the expected procurement manual description.
      */
     public void verifyDesctxt() {
+        BaseClass.getLogger().info("Verify Description text is displayed");
         String desctxt = elementGetText(getLoginDescTxt());
         Assert.assertEquals(desctxt, "Procurement Manual of Procurement Policies, Procedures & Guidelines");
     }
@@ -161,6 +164,7 @@ public class PreLoginPage extends BaseClass {
      * Verifies that the current URL matches the expected pre-login page URL.
      */
     public void verifyPreLoginPage() {
+        BaseClass.getLogger().info("Verify URL ");
         String actUrl = _driver.getCurrentUrl();
         Assert.assertEquals(actUrl, "https://magp-nprod-fe.myairports.com.my/auth");
     }
@@ -169,6 +173,7 @@ public class PreLoginPage extends BaseClass {
      * Verifies that the "Vendor Login" button is correctly displayed with the expected text.
      */
     public void verifyVendorLoginButton() {
+        BaseClass.getLogger().info("Verify Vendor Login Button");
         String vendorTxt = elementGetText(getVendorLoginbtn());
         Assert.assertEquals(vendorTxt, "Vendor Login");
     }
@@ -177,6 +182,7 @@ public class PreLoginPage extends BaseClass {
      * Verifies that the "Staff Login" button is correctly displayed with the expected text.
      */
     public void verifyStaffLoginButton() {
+        BaseClass.getLogger().info("Verify Staff Login Button");
         String staffTxt = elementGetText(getStaffLoginbtn());
         Assert.assertEquals(staffTxt, "Staff Login");
     }
@@ -185,6 +191,7 @@ public class PreLoginPage extends BaseClass {
      * Verifies that the "Guest Login" button is correctly displayed with the expected text.
      */
     public void verifyGuestLoginButton() {
+        BaseClass.getLogger().info("Verify Guest Login Button");
         String guestTxt = elementGetText(getGuestbtn());
         Assert.assertEquals(guestTxt, "Guest Login");
     }
@@ -211,17 +218,26 @@ public class PreLoginPage extends BaseClass {
      */
     public void clickBtnguestLogin() {
 
-        BaseClass.getLogger().info("Click on Guest Button");elementClick(getGuestbtn());
+        BaseClass.getLogger().info("Click on Guest Button");
+        elementClick(getGuestbtn());
     }
 
     /**
      * Verifies that the login header text is displayed correctly as "Login".
      */
     public void verifyLoginHeaderTxt() {
+
+        BaseClass.getLogger().info("Verifying the Login header text...");
+
         String logintxt = elementGetText(getLoginHeaderTxt());
+        BaseClass.getLogger().info("Actual login header text: " + logintxt);
+
         Assert.assertEquals(logintxt, "Login");
+        BaseClass.getLogger().info("Assertion passed: Login header text is correct.");
     }
 
-
-
 }
+
+
+
+
