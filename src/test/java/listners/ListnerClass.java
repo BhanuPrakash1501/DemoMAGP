@@ -29,8 +29,8 @@ public class ListnerClass extends BaseTest implements ITestListener {
         repName = "Test-Report-" + timeStamp + ".html";
         sparkReporter = new ExtentSparkReporter(".\\reports\\" + repName);// specify location of the report
 
-        sparkReporter.config().setDocumentTitle("opencart Automation Report"); // Title of report
-        sparkReporter.config().setReportName("opencart Functional Testing"); // name of the report
+        sparkReporter.config().setDocumentTitle("MAGP Automation Report"); // Title of report
+        sparkReporter.config().setReportName("MAGP Functional Testing"); // name of the report
         sparkReporter.config().setTheme(Theme.DARK);
 
         extent = new ExtentReports();

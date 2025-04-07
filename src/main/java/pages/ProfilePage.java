@@ -548,7 +548,8 @@ public class ProfilePage extends BaseClass {
         WebElement ele = findElementByXpath("//*[@class='edit-icon']");
         clickUsingJavaScript(ele);
         // Set the path of the file you want to upload
-        String filePath = "C:\\Users\\Mind-Graph\\IdeaProjects\\DemoMAGP\\logo\\MagpLogo.png";
+//        String filePath = "C:\\Users\\Mind-Graph\\IdeaProjects\\DemoMAGP\\logo\\MagpLogo.png";
+        String filePath = System.getProperty(("user.dir")+"\\logo\\ut.png");
 
         // Create an instance of the Robot class
         Robot robot = new Robot();
