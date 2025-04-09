@@ -176,7 +176,7 @@ public class ForgetPasswordPage extends BaseClass {
         elementClick(getBackToLoginBtn());
     }
 
-
+//Forgot Password
 
 }
 
