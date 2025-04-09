@@ -5,3 +5,5 @@
 16:54:30.135 [main] INFO  - Actual login header text: Login
 16:54:30.138 [main] INFO  - Assertion passed: Login header text is correct.
 17:44:24.878 [main] INFO  - Click on Guest Button
+15:22:39.344 [main] INFO  - Click on Vendor Button
+15:23:18.538 [main] INFO  - Click on Vendor Button
